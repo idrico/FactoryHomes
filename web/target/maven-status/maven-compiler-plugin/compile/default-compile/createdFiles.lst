@@ -1,0 +1,5 @@
+com\verdicchio\controller\ConsultationController.class
+com\verdicchio\admin\AdminController.class
+com\verdicchio\controller\CustomerController.class
+com\verdicchio\rest\JaxRsActivator.class
+com\verdicchio\converter\ZipCodeConverter.class

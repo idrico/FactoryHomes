@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FactoryHomes.iml" filepath="$PROJECT_DIR$/FactoryHomes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ear/FactoryHomes-ear.iml" filepath="$PROJECT_DIR$/ear/FactoryHomes-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ejb/FactoryHomes-ejb.iml" filepath="$PROJECT_DIR$/ejb/FactoryHomes-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/FactoryHomes-web.iml" filepath="$PROJECT_DIR$/web/FactoryHomes-web.iml" />
+    </modules>
+  </component>
+</project>
