@@ -37,12 +37,6 @@ public class CustomerController {
 
     public void register() throws Exception {
         try {
-            newCustomer.setId((long) 111);
-            ZipCode zipCode =new ZipCode();
-            zipCode.setId((long) 81027);
-            zipCode.setCity("San Felice a Cancello");
-            zipCode.setState("Italy");
-            newCustomer.setZipCode(zipCode);
             customerService.register(newCustomer);
             facesContext.addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
