@@ -68,6 +68,12 @@ body {
   color: #666666;
   font-size: 0.85em;
 }
+#header {
+  clear: both;
+  text-align: center;
+  color: #666666;
+  font-size: 0.85em;
+}
 code {
   font-size: 1.1em;
 }
