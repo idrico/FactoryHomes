@@ -1,7 +1,9 @@
 FactoryHomes: Example Using Multiple Java EE 6 Technologies Deployed as an EAR
 ==============================================================================================
-Author: Angelo Verdicchio 
+Author: Angelo Verdicchio
+
 Technologies: EAR
+
 Target Product: EAP
 
 What is it?
