@@ -51,6 +51,16 @@
             <scope>provided</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.verdicchio</groupId>
+            <artifactId>Client-InventorySystem-1.0-SNAPSHOT</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/Client-InventorySystem-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+
         <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
         <dependency>
             <groupId>javax.enterprise</groupId>
@@ -108,6 +118,7 @@
                 <configuration>
                     <!-- Tell Maven we are using EJB 3.1 -->
                     <ejbVersion>3.1</ejbVersion>
+
                 </configuration>
             </plugin>
         </plugins>

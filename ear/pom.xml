@@ -112,6 +112,7 @@
                         <version>${version.ear.plugin}</version>
                         <configuration>
                             <outputDirectory>deployments</outputDirectory>
+                            <defaultLibBundleDir>lib</defaultLibBundleDir>
                         </configuration>
                     </plugin>
                 </plugins>
