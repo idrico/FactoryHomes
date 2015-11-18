@@ -17,8 +17,11 @@
 
 -- You can use this file to load seed data into the database using SQL statements
 
-insert into HouseStyle(id, description) values (1, 'Style_1')
-insert into HouseStyle(id, description) values (2, 'Style_2')
+insert into HouseStyle(id, description) values (1, 'Duplex')
+insert into HouseStyle(id, description) values (2, 'Green')
+insert into HouseStyle(id, description) values (3, 'Town House')
+insert into HouseStyle(id, description) values (4, 'Multiple Section')
+
 
 
 
