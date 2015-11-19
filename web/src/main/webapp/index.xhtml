@@ -9,6 +9,12 @@
         >
 <h:body>
 <ui:composition template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <h:selectOneMenu id="houseStyle" converter="#{houseStyleBean}">
+            <f:selectItems value="#{houseStyles}" var="s"
+                           itemValue="#{s}" itemLabel="#{s.description}"/>
+        </h:selectOneMenu>
+    </ui:define>
 
 </ui:composition>
 

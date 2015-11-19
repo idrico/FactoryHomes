@@ -1,7 +1,8 @@
 package com.verdicchio.converter;
 
+import com.verdicchio.data.HouseStyleRepository;
 import com.verdicchio.data.ZipCodeRepository;
-import com.verdicchio.model.ZipCode;
+import com.verdicchio.model.HouseStyle;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -10,22 +11,22 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 /**
- * Created by verdian on 18/08/2015.
+ * Created by anonymous on 09/11/15.
  */
-@ManagedBean(name = "zipCodeBean")
-@FacesConverter(value = "zipCodeConverter",forClass = ZipCode.class)
-public class ZipCodeConverter implements Converter {
+@ManagedBean(name = "houseStyleBean")
+@FacesConverter(value = "houseStyleConverter",forClass = HouseStyle.class)
+public class HouseStyleConverter implements Converter {
 
 
     @Inject
-    private ZipCodeRepository zipCodeRepository;
+    private HouseStyleRepository houseStyleRepository;
 
     @Override
     public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 
         if (value != null && value.trim().length() > 0) {
             Long id = Long.valueOf(value);
-            return zipCodeRepository.findById(id);
+            return houseStyleRepository.findById(id);
 
 
         }
@@ -35,10 +36,7 @@ public class ZipCodeConverter implements Converter {
     @Override
     public String getAsString(FacesContext facesContext, UIComponent component, Object value) {
 
-        ZipCode zipCode = (ZipCode) value;
-        Long id = zipCode.getId();
-        return String.valueOf(id);
+        HouseStyle houseStyle = (HouseStyle) value;
+        return houseStyle.getDescription();
     }
-
-
 }

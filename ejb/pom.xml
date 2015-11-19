@@ -39,12 +39,26 @@
         </license>
     </licenses>
 
+    <repositories>
+        <repository>
+            <id>project-repo</id>
+            <url>file://${project.basedir}/src/main/resources/repo</url>
+        </repository>
+    </repositories>
+
     <dependencies>
 
         <!-- Declare the APIs we depend on and need for compilation. All of 
             them are provided by JBoss AS 7 -->
 
         <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
+
+        <dependency>
+            <groupId>com.verdicchio</groupId>
+            <artifactId>Client-InventorySystem-1.0</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
             <artifactId>jboss-ejb-api_3.1_spec</artifactId>

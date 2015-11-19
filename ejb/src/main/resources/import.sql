@@ -16,6 +16,15 @@
 --
 
 -- You can use this file to load seed data into the database using SQL statements
+
+insert into HouseStyle(id, description) values (1, 'Duplex')
+insert into HouseStyle(id, description) values (2, 'Green')
+insert into HouseStyle(id, description) values (3, 'Town House')
+insert into HouseStyle(id, description) values (4, 'Multiple Section')
+
+
+
+
 insert into ZipCode(id, city, state) values (81027, 'San Felice a Cancello', 'Italy')
 insert into ZipCode(id, city, state) values (20133, 'Via Sismondi', 'Italy')
 insert into ZipCode(id, city, state) values (20121, 'Via Lomellina', 'Italy')
