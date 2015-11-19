@@ -1,6 +1,7 @@
 package com.verdicchio.data;
 
-import com.verdicchio.model.HouseStyle;
+import com.verdicchio.domain.repository.HouseStyleRepository;
+import com.verdicchio.domain.model.HouseStyle;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

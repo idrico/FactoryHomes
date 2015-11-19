@@ -1,8 +1,7 @@
 package com.verdicchio.converter;
 
-import com.verdicchio.data.HouseStyleRepository;
-import com.verdicchio.data.ZipCodeRepository;
-import com.verdicchio.model.HouseStyle;
+import com.verdicchio.domain.repository.HouseStyleRepository;
+import com.verdicchio.domain.model.HouseStyle;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

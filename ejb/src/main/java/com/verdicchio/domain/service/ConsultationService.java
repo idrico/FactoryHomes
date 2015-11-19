@@ -1,8 +1,9 @@
-package com.verdicchio.service;
+package com.verdicchio.domain.service;
 
-import com.verdicchio.data.ConsultationRepository;
-import com.verdicchio.model.Consultation;
-import com.verdicchio.model.ZipCode;
+import com.verdicchio.domain.repository.ConsultationRepository;
+import com.verdicchio.domain.model.Consultation;
+import com.verdicchio.domain.model.ZipCode;
+import com.verdicchio.infrastracture.inventorySystem.dao.InventorySystemDao;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -26,7 +27,12 @@ public class ConsultationService {
     @Inject
     private ConsultationRepository consultationRepository;
 
+    @Inject
+    private InventorySystemDao inventorySystemDao;
+
+
     public List<Consultation> findByZipCode(ZipCode zipCode) {
+        inventorySystemDao.getCategory();
         return consultationRepository.findByZipCode(zipCode);
     }
 

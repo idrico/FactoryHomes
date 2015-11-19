@@ -1,8 +1,8 @@
-package com.verdicchio.service;
+package com.verdicchio.domain.service;
 
-import com.verdicchio.data.CustomerRepository;
-import com.verdicchio.model.Customer;
-import com.verdicchio.model.ZipCode;
+import com.verdicchio.domain.repository.CustomerRepository;
+import com.verdicchio.domain.model.Customer;
+import com.verdicchio.domain.model.ZipCode;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;

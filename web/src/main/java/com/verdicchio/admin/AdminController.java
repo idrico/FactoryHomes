@@ -1,10 +1,10 @@
 package com.verdicchio.admin;
 
-import com.verdicchio.model.Consultation;
-import com.verdicchio.model.Customer;
-import com.verdicchio.model.ZipCode;
-import com.verdicchio.service.ConsultationService;
-import com.verdicchio.service.CustomerService;
+import com.verdicchio.domain.model.Consultation;
+import com.verdicchio.domain.model.Customer;
+import com.verdicchio.domain.model.ZipCode;
+import com.verdicchio.domain.service.ConsultationService;
+import com.verdicchio.domain.service.CustomerService;
 
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;

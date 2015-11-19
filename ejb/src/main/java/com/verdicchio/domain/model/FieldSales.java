@@ -1,9 +1,8 @@
-package com.verdicchio.model;
+package com.verdicchio.domain.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by verdian on 18/08/2015.

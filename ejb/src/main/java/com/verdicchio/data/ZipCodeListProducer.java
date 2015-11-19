@@ -1,6 +1,7 @@
 package com.verdicchio.data;
 
-import com.verdicchio.model.ZipCode;
+import com.verdicchio.domain.repository.ZipCodeRepository;
+import com.verdicchio.domain.model.ZipCode;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

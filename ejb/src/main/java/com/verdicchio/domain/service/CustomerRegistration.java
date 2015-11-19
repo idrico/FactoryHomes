@@ -1,6 +1,6 @@
-package com.verdicchio.service;
+package com.verdicchio.domain.service;
 
-import com.verdicchio.model.Customer;
+import com.verdicchio.domain.model.Customer;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;

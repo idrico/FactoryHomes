@@ -1,7 +1,7 @@
 package com.verdicchio.converter;
 
-import com.verdicchio.data.ZipCodeRepository;
-import com.verdicchio.model.ZipCode;
+import com.verdicchio.domain.repository.ZipCodeRepository;
+import com.verdicchio.domain.model.ZipCode;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

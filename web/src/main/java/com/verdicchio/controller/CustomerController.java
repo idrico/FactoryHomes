@@ -1,8 +1,7 @@
 package com.verdicchio.controller;
 
-import com.verdicchio.model.Customer;
-import com.verdicchio.model.ZipCode;
-import com.verdicchio.service.CustomerService;
+import com.verdicchio.domain.model.Customer;
+import com.verdicchio.domain.service.CustomerService;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -11,7 +10,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.List;
 
 /**
  * Created by verdian on 18/08/2015.

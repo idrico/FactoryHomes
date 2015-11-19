@@ -1,9 +1,8 @@
-package com.verdicchio.data;
+package com.verdicchio.domain.repository;
 
-import com.verdicchio.model.Consultation;
-import com.verdicchio.model.Consultation;
-import com.verdicchio.model.Customer;
-import com.verdicchio.model.ZipCode;
+import com.verdicchio.domain.model.Consultation;
+import com.verdicchio.domain.model.Customer;
+import com.verdicchio.domain.model.ZipCode;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -12,7 +11,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
-import javax.sql.rowset.Predicate;
 import java.util.List;
 
 /**

@@ -1,10 +1,7 @@
-package com.verdicchio.model;
+package com.verdicchio.domain.model;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;

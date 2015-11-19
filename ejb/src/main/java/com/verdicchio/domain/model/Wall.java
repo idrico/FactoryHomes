@@ -1,4 +1,4 @@
-package com.verdicchio.model;
+package com.verdicchio.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +13,11 @@ import java.io.Serializable;
 
 @Entity
 @XmlRootElement
-@Table(name = "Foundation" )
-public class Foundation implements Serializable{
+@Table(name = "Wall" )
+public class Wall implements Serializable{
 
     @Id
     @GeneratedValue
     private Long id;
+
 }

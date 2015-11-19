@@ -1,6 +1,6 @@
-package com.verdicchio.data;
+package com.verdicchio.domain.repository;
 
-import com.verdicchio.model.HouseStyle;
+import com.verdicchio.domain.model.HouseStyle;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

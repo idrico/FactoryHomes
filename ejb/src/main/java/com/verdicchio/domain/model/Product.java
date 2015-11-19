@@ -1,4 +1,4 @@
-package com.verdicchio.model;
+package com.verdicchio.domain.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;

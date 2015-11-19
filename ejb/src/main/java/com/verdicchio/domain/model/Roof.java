@@ -1,4 +1,4 @@
-package com.verdicchio.model;
+package com.verdicchio.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
