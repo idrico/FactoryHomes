@@ -27,12 +27,8 @@ public class ConsultationService {
     @Inject
     private ConsultationRepository consultationRepository;
 
-    @Inject
-    private InventorySystemDao inventorySystemDao;
-
 
     public List<Consultation> findByZipCode(ZipCode zipCode) {
-        inventorySystemDao.getCategory();
         return consultationRepository.findByZipCode(zipCode);
     }
 

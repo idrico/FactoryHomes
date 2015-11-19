@@ -14,6 +14,13 @@
             <f:selectItems value="#{houseStyles}" var="s"
                            itemValue="#{s}" itemLabel="#{s.description}"/>
         </h:selectOneMenu>
+
+        <h:selectOneMenu id="category" converter="#{categoryBean}">
+            <f:selectItems value="#{categories}" var="c"
+                           itemValue="#{c}" itemLabel="#{c.name}"/>
+        </h:selectOneMenu>
+
+
     </ui:define>
 
 </ui:composition>
