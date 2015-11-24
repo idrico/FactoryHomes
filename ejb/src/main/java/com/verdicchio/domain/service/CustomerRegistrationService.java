@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  * Created by verdian on 18/08/2015.
  */
 @Stateless
-public class CustomerRegistration {
+public class CustomerRegistrationService {
 
     @Inject
     private Logger log;

@@ -10,16 +10,22 @@
 <h:body>
 <ui:composition template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
-        <h:selectOneMenu id="houseStyle" converter="#{houseStyleBean}">
-            <f:selectItems value="#{houseStyles}" var="s"
+        <h:selectOneMenu id="houseStyle" label="House Style" converter="#{houseStyleBean}">
+            <f:selectItems  value="#{houseStyles}" var="s"
                            itemValue="#{s}" itemLabel="#{s.description}"/>
         </h:selectOneMenu>
 
-        <h:selectOneMenu id="category" converter="#{categoryBean}">
+        <!--todo It could be a list-->
+        <h:selectOneMenu id="category" label="Category item to add" binding="#{categorySelected}" onchange="#{consultationController.searchComponentsByCategory(categorySelected.value)}" converter="#{categoryBean}">
             <f:selectItems value="#{categories}" var="c"
                            itemValue="#{c}" itemLabel="#{c.name}"/>
         </h:selectOneMenu>
 
+        <!--todo It could be a list-->
+        <h:selectOneMenu id="item" label="Component to add"  converter="#{componentBean}">
+            <f:selectItems value="#{componentsByCategory}" var="i"
+                           itemValue="#{i}" itemLabel="#{i.name}"/>
+        </h:selectOneMenu>
 
     </ui:define>
 

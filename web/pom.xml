@@ -39,29 +39,7 @@
       </license>
    </licenses>
 
-    <repositories>
-        <repository>
-            <id>project-repo</id>
-            <url>file://${project.basedir}/src/main/resources/repo</url>
-        </repository>
-    </repositories>
-
    <dependencies>
-
-       <dependency>
-           <groupId>com.verdicchio</groupId>
-           <artifactId>Client-InventorySystem-1.0</artifactId>
-           <version>1.0</version>
-       </dependency>
-
-
-       <dependency>
-           <groupId>com.verdicchio</groupId>
-           <artifactId>Client-InventorySystem-1.0</artifactId>
-           <version>1.0</version>
-           <scope>system</scope>
-           <systemPath>${project.basedir}/lib/Client-InventorySystem-1.0.jar</systemPath>
-       </dependency>
 
       <!-- Dependency on the EJB module so we can use it's services if needed -->
       <dependency>
