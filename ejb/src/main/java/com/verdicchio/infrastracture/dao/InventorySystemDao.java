@@ -1,4 +1,4 @@
-package com.verdicchio.infrastracture.inventorySystem.dao;
+package com.verdicchio.infrastracture.dao;
 
 import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;

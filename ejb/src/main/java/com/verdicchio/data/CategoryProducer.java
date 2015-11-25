@@ -36,7 +36,6 @@ public class CategoryProducer {
         //todo provare a risolvere problema con @Inject
 
         inventorySystemRepository = new InventorySystemRepository();
-        categories = new ArrayList<Category>();
-        categories.add(new Category("prova"));
+        categories = inventorySystemRepository.findAllCategory();
     }
 }

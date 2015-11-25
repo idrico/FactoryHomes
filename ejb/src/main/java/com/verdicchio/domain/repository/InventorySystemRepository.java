@@ -2,8 +2,8 @@ package com.verdicchio.domain.repository;
 
 import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
-import com.verdicchio.infrastracture.inventorySystem.dao.InventorySystemDao;
-import com.verdicchio.infrastracture.inventorySystem.dao.impl.InventorySystemDaoImpl;
+import com.verdicchio.infrastracture.dao.InventorySystemDao;
+import com.verdicchio.infrastracture.dao.impl.InventorySystemDaoImpl;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

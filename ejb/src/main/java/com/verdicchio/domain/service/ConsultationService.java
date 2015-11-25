@@ -3,7 +3,6 @@ package com.verdicchio.domain.service;
 import com.verdicchio.domain.repository.ConsultationRepository;
 import com.verdicchio.domain.model.Consultation;
 import com.verdicchio.domain.model.ZipCode;
-import com.verdicchio.infrastracture.inventorySystem.dao.InventorySystemDao;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
