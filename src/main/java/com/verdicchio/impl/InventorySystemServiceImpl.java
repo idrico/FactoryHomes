@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by verdian on 12/11/2015.
  */
-@WebService(serviceName = "InventorySystemService", portName = "InventorySystem", name = "InventorySystem", endpointInterface = "com.verdicchio.InventorySystemService", targetNamespace = "http://www.jboss.org/jbossas/quickstarts/wshelloworld/HelloWorld")
+@WebService(serviceName = "InventorySystemService", portName = "InventorySystem", name = "InventorySystem", endpointInterface = "com.verdicchio.InventorySystemService", targetNamespace = "InventorySystem")
 public class InventorySystemServiceImpl implements InventorySystemService {
 
 
@@ -25,9 +25,9 @@ public class InventorySystemServiceImpl implements InventorySystemService {
     @Override
     public List<Category> getCategory(){
         List<Category> categoryList = new ArrayList<Category>();
-        categoryList.add(new Category("Walls"));
-        categoryList.add(new Category("Windows"));
-        categoryList.add(new Category("Doors"));
+        categoryList.add(new Category((long) 1,"Walls"));
+        categoryList.add(new Category((long) 2,"Windows"));
+        categoryList.add(new Category((long) 3,"Doors"));
 
         return categoryList;
     }

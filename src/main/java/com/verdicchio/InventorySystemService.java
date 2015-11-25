@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by verdian on 12/11/2015.
  */
-@WebService(targetNamespace = "http://www.jboss.org/jbossas/quickstarts/wshelloworld/HelloWorld")
+@WebService(targetNamespace = "InventorySystem")
 public interface InventorySystemService {
 
 
