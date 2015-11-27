@@ -1,4 +1,4 @@
-package com.verdicchio.domain.Converter;
+package com.verdicchio.domain.converter;
 
 import com.verdicchio.domain.model.Category;
 
@@ -9,6 +9,10 @@ import java.util.List;
  * Created by anonymous on 25/11/15.
  */
 public class CategoryConverter {
+
+
+    public CategoryConverter() {
+    }
 
     public Category fromModelToTechnical(com.verdicchio.infrastracture.inventorysystem.Category technical)
     {

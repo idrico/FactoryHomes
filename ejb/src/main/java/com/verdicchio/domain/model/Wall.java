@@ -14,10 +14,15 @@ import java.io.Serializable;
 @Entity
 @XmlRootElement
 @Table(name = "Wall" )
-public class Wall implements Serializable{
+public class Wall extends Component implements Serializable{
 
     @Id
     @GeneratedValue
     private Long id;
+
+
+    public Wall() {
+        super();
+    }
 
 }

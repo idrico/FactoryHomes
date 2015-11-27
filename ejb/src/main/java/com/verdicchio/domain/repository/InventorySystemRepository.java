@@ -16,15 +16,13 @@ import java.util.List;
 @ApplicationScoped
 public class InventorySystemRepository {
 
-
+@Inject
     private InventorySystemDao inventorySystemDao;
 
 
     public List<Category> findAllCategory() {
 
 
-        //todo provare a risolvere problema con @Inject
-        inventorySystemDao = new InventorySystemDaoImpl();
         return inventorySystemDao.getCategory();
     }
 
@@ -35,7 +33,6 @@ public class InventorySystemRepository {
 
 
     public Category findCategoryById() {
-
 
 //todo implement real metod
         return inventorySystemDao.getCategory().get(0);

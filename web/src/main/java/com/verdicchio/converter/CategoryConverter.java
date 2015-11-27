@@ -8,6 +8,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
 
 /**
  * Created by anonymous on 19/11/15.
@@ -16,13 +17,13 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter(value = "categoryConverter",forClass = Category.class)
 public class CategoryConverter implements Converter{
 
+    @Inject
     InventorySystemRepository inventorySystemRepository;
 
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
         //todo provare a risolvere problema con @Inject
 
-        inventorySystemRepository = new InventorySystemRepository();
 
         if (value != null && value.trim().length() > 0) {
             Long id = Long.valueOf(value);

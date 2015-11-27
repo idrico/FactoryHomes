@@ -18,6 +18,7 @@ import java.util.List;
 @RequestScoped
 public class CategoryProducer {
 
+    @Inject
     private InventorySystemRepository inventorySystemRepository;
 
     private List<Category> categories;
@@ -33,9 +34,7 @@ public class CategoryProducer {
 
     @PostConstruct
     public void retrieveAllCategories() {
-        //todo provare a risolvere problema con @Inject
 
-        inventorySystemRepository = new InventorySystemRepository();
         categories = inventorySystemRepository.findAllCategory();
     }
 }
