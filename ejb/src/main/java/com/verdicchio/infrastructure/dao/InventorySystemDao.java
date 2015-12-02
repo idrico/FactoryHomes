@@ -1,4 +1,4 @@
-package com.verdicchio.infrastracture.dao;
+package com.verdicchio.infrastructure.dao;
 
 import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;

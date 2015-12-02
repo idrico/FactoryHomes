@@ -1,18 +1,17 @@
-package com.verdicchio.infrastracture.dao.impl;
+package com.verdicchio.infrastructure.dao.impl;
 
 import com.verdicchio.domain.converter.CategoryConverter;
 import com.verdicchio.domain.converter.ComponentConverter;
 import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
 import com.verdicchio.domain.model.House;
-import com.verdicchio.infrastracture.dao.InventorySystemDao;
-import com.verdicchio.infrastracture.inventorysystem.InventorySystemService;
-import com.verdicchio.infrastracture.inventorysystem.InventorySystemService_Service;
+import com.verdicchio.infrastructure.dao.InventorySystemDao;
+import com.verdicchio.infrastructure.inventorysystem.InventorySystemService;
+import com.verdicchio.infrastructure.inventorysystem.InventorySystemService_Service;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +32,7 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @Override
     public List<Category> getCategory()
     {
-        List<com.verdicchio.infrastracture.inventorysystem.Category> technicalCategories =inventorySystemService.getCategory();
+        List<com.verdicchio.infrastructure.inventorysystem.Category> technicalCategories =inventorySystemService.getCategory();
         List<Category> categories = categoryConverter.fromModelToTechnical(technicalCategories);
         return categories;
     }
@@ -42,7 +41,7 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @Override
     public List<Component> getComponentsByCategory(long idCategory)
     {
-        List<? extends com.verdicchio.infrastracture.inventorysystem.Item> technicalCategories =inventorySystemService.getItemByCategory(idCategory);
+        List<Object> technicalCategories =inventorySystemService.getItemByCategory(idCategory);
         List<Component> components = componentConverter.fromModelToTechnical(technicalCategories);
         return components;
     }
@@ -66,7 +65,7 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @PostConstruct
     private void init()
     {
-        com.verdicchio.infrastracture.inventorysystem.InventorySystemService_Service inventorySystemService_Service = new InventorySystemService_Service();
+        com.verdicchio.infrastructure.inventorysystem.InventorySystemService_Service inventorySystemService_Service = new InventorySystemService_Service();
         inventorySystemService = inventorySystemService_Service.getInventorySystem();
     }
 
