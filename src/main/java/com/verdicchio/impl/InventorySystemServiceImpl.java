@@ -4,6 +4,7 @@ import com.verdicchio.model.*;
 
 import com.verdicchio.InventorySystemService;
 
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.net.URL;
 import java.util.ArrayList;
@@ -55,5 +56,21 @@ public class InventorySystemServiceImpl implements InventorySystemService {
 
         return null;
     }
+
+    @Override
+    public List<Window> getWindowDetails(long idWindow){
+        List<Window> windows = new ArrayList<Window>();
+        return windows;
+
+    }
+
+    @Override
+    public List<Wall> getWallDetails(long idwall){
+        List<Wall> walls = new ArrayList<Wall>();
+        return walls;
+
+    }
+
+
 
 }

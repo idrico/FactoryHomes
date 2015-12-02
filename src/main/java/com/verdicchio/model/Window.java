@@ -1,11 +1,20 @@
 package com.verdicchio.model;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Created by verdian on 19/11/2015.
  */
+@XmlType
 public class Window extends Item {
 
     private WindowTypeOfOpeningEnum typeOfOpening;
+
+
+    public Window() {
+        super();
+    }
+
 
     public Window(String name, String description, WindowTypeOfOpeningEnum typeOfOpening) {
         super(name, description);

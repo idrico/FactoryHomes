@@ -11,6 +11,9 @@ public abstract class Item {
 
     private String description;
 
+    public Item() {
+    }
+
     public Long getId() {
         return id;
     }

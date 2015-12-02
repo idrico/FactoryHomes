@@ -2,6 +2,8 @@ package com.verdicchio;
 
 import com.verdicchio.model.Category;
 import com.verdicchio.model.Item;
+import com.verdicchio.model.Wall;
+import com.verdicchio.model.Window;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -41,6 +43,12 @@ public interface InventorySystemService {
      */
     @WebMethod
      List<? extends Item> getItemByCategory(long idCategory);
+
+    @WebMethod
+    List<Window> getWindowDetails(long idWindow);
+
+    @WebMethod
+    List<Wall> getWallDetails(long idwall);
 
 
 }
