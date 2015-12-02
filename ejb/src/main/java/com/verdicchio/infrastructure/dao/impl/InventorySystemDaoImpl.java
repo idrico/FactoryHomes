@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by verdian on 19/11/2015.
@@ -20,6 +21,8 @@ import java.util.List;
 @ApplicationScoped
 public class InventorySystemDaoImpl implements InventorySystemDao{
 
+    @Inject
+    private Logger log;
 
     @Inject
     private CategoryConverter categoryConverter;
@@ -32,6 +35,8 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @Override
     public List<Category> getCategory()
     {
+        log.info("Calling getCategory()");
+
         List<com.verdicchio.infrastructure.inventorysystem.Category> technicalCategories =inventorySystemService.getCategory();
         List<Category> categories = categoryConverter.fromModelToTechnical(technicalCategories);
         return categories;
@@ -41,6 +46,8 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @Override
     public List<Component> getComponentsByCategory(long idCategory)
     {
+        log.info("CLooking for items belonging to idCategory= "+idCategory);
+
         List<Object> technicalCategories =inventorySystemService.getItemByCategory(idCategory);
         List<Component> components = componentConverter.fromModelToTechnical(technicalCategories);
         return components;
@@ -65,8 +72,11 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @PostConstruct
     private void init()
     {
-        com.verdicchio.infrastructure.inventorysystem.InventorySystemService_Service inventorySystemService_Service = new InventorySystemService_Service();
-        inventorySystemService = inventorySystemService_Service.getInventorySystem();
+        log.info("Initializing the access to the WS InventorySystem ");
+            com.verdicchio.infrastructure.inventorysystem.InventorySystemService_Service inventorySystemService_Service = new InventorySystemService_Service();
+            inventorySystemService = inventorySystemService_Service.getInventorySystem();
+
+
     }
 
 
