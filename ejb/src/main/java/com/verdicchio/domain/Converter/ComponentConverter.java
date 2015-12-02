@@ -2,8 +2,6 @@ package com.verdicchio.domain.converter;
 
 
 import com.verdicchio.domain.model.Component;
-import com.verdicchio.domain.model.Wall;
-import com.verdicchio.infrastracture.inventorysystem.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +14,7 @@ public class ComponentConverter<T extends Component> {
     public ComponentConverter() {
     }
 
-    public <T extends Component>T fromModelToTechnical(com.verdicchio.infrastracture.inventorysystem.Item technical)
+    public <T extends Component>T fromModelToTechnical(com.verdicchio.infrastructure.inventorysystem.Item technical)
     {
 
         Component component = new Component();
@@ -26,11 +24,11 @@ public class ComponentConverter<T extends Component> {
         return (T)component;
     }
 
-    public List<? extends Component> fromModelToTechnical(List<com.verdicchio.infrastracture.inventorysystem.Item> technical)
+    public List<? extends Component> fromModelToTechnical(List<com.verdicchio.infrastructure.inventorysystem.Item> technical)
     {
         List<Component> components = new ArrayList<Component>();
 
-        for(com.verdicchio.infrastracture.inventorysystem.Item item:technical)
+        for(com.verdicchio.infrastructure.inventorysystem.Item item:technical)
         {
             components.add(this.fromModelToTechnical(item));
         }

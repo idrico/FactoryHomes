@@ -15,11 +15,26 @@
                            itemValue="#{s}" itemLabel="#{s.description}"/>
         </h:selectOneMenu>
 
-        <!--todo It could be a list-->
-        <h:selectOneMenu id="category" label="Category item to add" binding="#{categorySelected}" onchange="#{consultationController.searchComponentsByCategory(categorySelected.value)}" converter="#{categoryBean}">
-            <f:selectItems value="#{categories}" var="c"
-                           itemValue="#{c}" itemLabel="#{c.name}"/>
-        </h:selectOneMenu>
+        <h:form id="reg">
+            <!--todo It could be a list-->
+            <h:outputLabel for="category" value="Category item to add:"/>
+
+            <h:selectOneMenu id="category"  binding="#{input1}"  converter="#{categoryBean}">
+                <f:selectItems value="#{categories}" var="c"
+                               itemValue="#{c}" itemLabel="#{c.name}"/>
+            </h:selectOneMenu>
+            <h:message for="category" errorClass="invalid"/>
+
+            <p>
+                <h:panelGrid columns="2">
+                    <h:commandButton id="searchCosultation" action="#{consultationController.searchComponentsByCategory(input1.value)}" value="Search" styleClass="button"/>
+                    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                                globalOnly="true"/>
+                </h:panelGrid>
+            </p>
+
+
+        </h:form>
 
         <!--todo It could be a list-->
         <h:selectOneMenu id="item" label="Component to add"  converter="#{componentBean}">

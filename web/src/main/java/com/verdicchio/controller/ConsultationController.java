@@ -9,7 +9,6 @@ import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,10 +35,8 @@ public class ConsultationController {
 
 
     public void searchComponentsByCategory(Category category)  {
-        componentsByCategory = new ArrayList<Component>();
 
-        if(category != null)
-            componentsByCategory = inventorySystemService.getComponentsByCategory(category.getId());
+        componentsByCategory = inventorySystemService.getComponentsByCategory(category.getId());
     }
 
 

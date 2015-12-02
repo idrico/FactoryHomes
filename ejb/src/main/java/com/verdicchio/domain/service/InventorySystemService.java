@@ -1,5 +1,6 @@
 package com.verdicchio.domain.service;
 
+import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
 import com.verdicchio.domain.model.Customer;
 import com.verdicchio.domain.repository.InventorySystemRepository;
@@ -25,8 +26,15 @@ public class InventorySystemService {
 
     public List<Component> getComponentsByCategory(long idCategory)
     {
-        List<Component> Components = inventorySystemRepository.findComponentByCategory(idCategory);
-        return Components;
+        List<Component> components = inventorySystemRepository.findComponentByCategory(idCategory);
+        return components;
+    }
+
+
+    public List<Category> getAllCategory()
+    {
+        List<Category> categories = inventorySystemRepository.findAllCategory();
+        return categories;
     }
 
 
