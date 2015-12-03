@@ -5,7 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-
+      xmlns:p="http://primefaces.org/ui"
         >
 <h:body>
 <ui:composition template="/WEB-INF/templates/default.xhtml">
@@ -15,35 +15,60 @@
                            itemValue="#{s}" itemLabel="#{s.description}"/>
         </h:selectOneMenu>
 
-        <h:form id="reg">
-            <h:panelGrid columns="3">
+        <h:panelGrid columns="2">
 
-                <h:outputLabel for="category" value="Category:"/>
+            <h:form id="categoryForm">
+                <h:panelGrid columns="3">
 
-                <h:selectOneMenu id="category"  binding="#{input1}"  converter="#{categoryBean}">
-                    <f:selectItems value="#{categories}" var="c"
-                                   itemValue="#{c}" itemLabel="#{c.name}"/>
-                </h:selectOneMenu>
+                    <h:outputLabel for="category" value="Category:"/>
 
-                <h:commandButton id="searchCosultation" action="#{consultationController.searchComponentsByCategory(input1.value)}" value="Search" styleClass="button"/>
+                    <h:selectOneMenu id="category"  binding="#{input1}"  converter="#{categoryBean}">
+                        <f:selectItems value="#{categories}" var="c"
+                                       itemValue="#{c}" itemLabel="#{c.name}"/>
+                    </h:selectOneMenu>
+
+                    <h:commandButton id="searchCosultation"  action="#{consultationController.searchComponentsByCategory(input1.value)}" value="Search" styleClass="button"/>
+
+                </h:panelGrid>
+
+            </h:form>
+
+            <h:form id="componentForm">
+                        <h:panelGrid columns="3">
+
+                    <h:outputLabel for="item" value="Component:"/>
+
+                    <h:selectOneMenu id="item" converter="#{componentBean}" value="#{componentBean.selectedComponent}">
+                        <f:selectItems value="#{componentsByCategory}"  var="i"
+                                       itemValue="#{i}" itemLabel="#{i.name}"/>
+                    </h:selectOneMenu>
 
 
-                <h:outputLabel for="item" value="Item:"/>
+                    <h:commandButton id="addItem" action="#{consultationController.addItem(inputComponent.value,treeBean.onNodeSelect)}" type="submit"  styleClass="button">
+                        <f:ajax event="click" listener="#{consultationController.addItem(componentBean.selectedComponent,treeBean.selectedNode)}"/>
+                    </h:commandButton>
+
+                </h:panelGrid>
+
+            </h:form>
 
 
-                <h:selectOneMenu id="item" converter="#{componentBean}">
-                    <f:selectItems value="#{componentsByCategory}" var="i"
-                                   itemValue="#{i}" itemLabel="#{i.name}"/>
-                </h:selectOneMenu>
+            <h:form id="treeForm">
+                <h3>Your House:</h3>
+                <p:tree value="#{treeBean.root}" var="node" dynamic="true" selectionMode="single" styleClass="treeStyle"
+                        selection="#{treeBean.selectedNode}"
+                        cache="false">
+                    <p:ajax event="select" listener="#{treeBean.onNodeSelect}"/>
+                    <p:treeNode>
+                        <h:outputText value="#{node.name}" />
+                    </p:treeNode>
+                </p:tree>
+            </h:form>
 
 
-                <h:commandButton id="addItem" action="#{consultationController.searchComponentsByCategory(input1.value)}" value="Add Item" styleClass="button"/>
-
-            </h:panelGrid>
+        </h:panelGrid>
 
 
-
-        </h:form>
 
 
 

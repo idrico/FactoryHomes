@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Entity
 @XmlRootElement
 @Table(name = "Roof" )
-public class Roof implements Serializable{
+public class Roof extends Component implements Serializable{
 
     @Id
     @GeneratedValue

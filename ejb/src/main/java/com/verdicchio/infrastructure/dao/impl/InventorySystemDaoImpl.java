@@ -46,7 +46,7 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @Override
     public List<Component> getComponentsByCategory(long idCategory)
     {
-        log.info("CLooking for items belonging to idCategory= "+idCategory);
+        log.info("Looking for items belonging to idCategory= "+idCategory);
 
         List<Object> technicalCategories =inventorySystemService.getItemByCategory(idCategory);
         List<Component> components = componentConverter.fromModelToTechnical(technicalCategories);

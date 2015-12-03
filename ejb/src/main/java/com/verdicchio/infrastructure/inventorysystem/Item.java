@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
     "name"
 })
 @XmlSeeAlso({
-    Window.class,
+    Aperture.class,
     Wall.class
 })
 public abstract class Item {

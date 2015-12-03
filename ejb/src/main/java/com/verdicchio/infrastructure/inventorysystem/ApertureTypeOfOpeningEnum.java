@@ -6,12 +6,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for windowTypeOfOpeningEnum.
+ * <p>Java class for apertureTypeOfOpeningEnum.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="windowTypeOfOpeningEnum">
+ * &lt;simpleType name="apertureTypeOfOpeningEnum">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *     &lt;enumeration value="TYPE_OF_OPENING_A"/>
  *     &lt;enumeration value="TYPE_OF_OPENING_B"/>
@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "windowTypeOfOpeningEnum")
+@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "apertureTypeOfOpeningEnum")
 @XmlEnum
-public enum WindowTypeOfOpeningEnum {
+public enum ApertureTypeOfOpeningEnum {
 
     TYPE_OF_OPENING_A,
     TYPE_OF_OPENING_B,
@@ -33,7 +33,7 @@ public enum WindowTypeOfOpeningEnum {
         return name();
     }
 
-    public static WindowTypeOfOpeningEnum fromValue(String v) {
+    public static ApertureTypeOfOpeningEnum fromValue(String v) {
         return valueOf(v);
     }
 

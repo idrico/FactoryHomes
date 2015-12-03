@@ -7,16 +7,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for window complex type.
+ * <p>Java class for door complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="window">
+ * &lt;complexType name="door">
  *   &lt;complexContent>
  *     &lt;extension base="{InventorySystem}aperture">
  *       &lt;sequence>
- *         &lt;element name="withCurtain" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -26,29 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "window", propOrder = {
-    "withCurtain"
-})
-public class Window
+@XmlType(name = "door")
+public class Door
     extends Aperture
 {
 
-    protected boolean withCurtain;
-
-    /**
-     * Gets the value of the withCurtain property.
-     * 
-     */
-    public boolean isWithCurtain() {
-        return withCurtain;
-    }
-
-    /**
-     * Sets the value of the withCurtain property.
-     * 
-     */
-    public void setWithCurtain(boolean value) {
-        this.withCurtain = value;
-    }
 
 }

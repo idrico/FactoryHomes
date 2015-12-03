@@ -29,7 +29,9 @@ public class ObjectFactory {
     private final static QName _GetWallDetailsResponse_QNAME = new QName("InventorySystem", "getWallDetailsResponse");
     private final static QName _GetWallDetails_QNAME = new QName("InventorySystem", "getWallDetails");
     private final static QName _GetWindowDetails_QNAME = new QName("InventorySystem", "getWindowDetails");
+    private final static QName _GetDoorDetailsResponse_QNAME = new QName("InventorySystem", "getDoorDetailsResponse");
     private final static QName _CheckApplicabilityResponse_QNAME = new QName("InventorySystem", "checkApplicabilityResponse");
+    private final static QName _GetDoorDetails_QNAME = new QName("InventorySystem", "getDoorDetails");
     private final static QName _GetItemByCategoryResponse_QNAME = new QName("InventorySystem", "getItemByCategoryResponse");
     private final static QName _GetCategoryResponse_QNAME = new QName("InventorySystem", "getCategoryResponse");
     private final static QName _GetCategory_QNAME = new QName("InventorySystem", "getCategory");
@@ -75,6 +77,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetDoorDetails }
+     * 
+     */
+    public GetDoorDetails createGetDoorDetails() {
+        return new GetDoorDetails();
+    }
+
+    /**
      * Create an instance of {@link GetWindowDetails }
      * 
      */
@@ -115,11 +125,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetDoorDetailsResponse }
+     * 
+     */
+    public GetDoorDetailsResponse createGetDoorDetailsResponse() {
+        return new GetDoorDetailsResponse();
+    }
+
+    /**
      * Create an instance of {@link GetWindowDetailsResponse }
      * 
      */
     public GetWindowDetailsResponse createGetWindowDetailsResponse() {
         return new GetWindowDetailsResponse();
+    }
+
+    /**
+     * Create an instance of {@link Door }
+     * 
+     */
+    public Door createDoor() {
+        return new Door();
     }
 
     /**
@@ -192,12 +218,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDoorDetailsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "getDoorDetailsResponse")
+    public JAXBElement<GetDoorDetailsResponse> createGetDoorDetailsResponse(GetDoorDetailsResponse value) {
+        return new JAXBElement<GetDoorDetailsResponse>(_GetDoorDetailsResponse_QNAME, GetDoorDetailsResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CheckApplicabilityResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "InventorySystem", name = "checkApplicabilityResponse")
     public JAXBElement<CheckApplicabilityResponse> createCheckApplicabilityResponse(CheckApplicabilityResponse value) {
         return new JAXBElement<CheckApplicabilityResponse>(_CheckApplicabilityResponse_QNAME, CheckApplicabilityResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDoorDetails }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "getDoorDetails")
+    public JAXBElement<GetDoorDetails> createGetDoorDetails(GetDoorDetails value) {
+        return new JAXBElement<GetDoorDetails>(_GetDoorDetails_QNAME, GetDoorDetails.class, null, value);
     }
 
     /**

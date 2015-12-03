@@ -50,6 +50,20 @@ public interface InventorySystemService {
      * 
      * @param arg0
      * @return
+     *     returns java.util.List<inventorysystem.Door>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getDoorDetails", targetNamespace = "InventorySystem", className = "inventorysystem.GetDoorDetails")
+    @ResponseWrapper(localName = "getDoorDetailsResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetDoorDetailsResponse")
+    public List<Door> getDoorDetails(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<inventorysystem.Wall>
      */
     @WebMethod
