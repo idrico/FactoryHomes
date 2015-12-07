@@ -25,15 +25,17 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _GetWindowDetailsResponse_QNAME = new QName("InventorySystem", "getWindowDetailsResponse");
-    private final static QName _GetItemByCategory_QNAME = new QName("InventorySystem", "getItemByCategory");
+    private final static QName _GetRoofDetails_QNAME = new QName("InventorySystem", "getRoofDetails");
     private final static QName _GetWallDetailsResponse_QNAME = new QName("InventorySystem", "getWallDetailsResponse");
     private final static QName _GetWallDetails_QNAME = new QName("InventorySystem", "getWallDetails");
     private final static QName _GetWindowDetails_QNAME = new QName("InventorySystem", "getWindowDetails");
     private final static QName _GetDoorDetailsResponse_QNAME = new QName("InventorySystem", "getDoorDetailsResponse");
     private final static QName _CheckApplicabilityResponse_QNAME = new QName("InventorySystem", "checkApplicabilityResponse");
+    private final static QName _GetComponentByCategory_QNAME = new QName("InventorySystem", "getComponentByCategory");
     private final static QName _GetDoorDetails_QNAME = new QName("InventorySystem", "getDoorDetails");
-    private final static QName _GetItemByCategoryResponse_QNAME = new QName("InventorySystem", "getItemByCategoryResponse");
+    private final static QName _GetRoofDetailsResponse_QNAME = new QName("InventorySystem", "getRoofDetailsResponse");
     private final static QName _GetCategoryResponse_QNAME = new QName("InventorySystem", "getCategoryResponse");
+    private final static QName _GetComponentByCategoryResponse_QNAME = new QName("InventorySystem", "getComponentByCategoryResponse");
     private final static QName _GetCategory_QNAME = new QName("InventorySystem", "getCategory");
     private final static QName _CheckApplicability_QNAME = new QName("InventorySystem", "checkApplicability");
 
@@ -45,11 +47,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetCategoryResponse }
+     * Create an instance of {@link GetRoofDetailsResponse }
      * 
      */
-    public GetCategoryResponse createGetCategoryResponse() {
-        return new GetCategoryResponse();
+    public GetRoofDetailsResponse createGetRoofDetailsResponse() {
+        return new GetRoofDetailsResponse();
     }
 
     /**
@@ -61,6 +63,46 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetDoorDetails }
+     * 
+     */
+    public GetDoorDetails createGetDoorDetails() {
+        return new GetDoorDetails();
+    }
+
+    /**
+     * Create an instance of {@link GetComponentByCategory }
+     * 
+     */
+    public GetComponentByCategory createGetComponentByCategory() {
+        return new GetComponentByCategory();
+    }
+
+    /**
+     * Create an instance of {@link GetDoorDetailsResponse }
+     * 
+     */
+    public GetDoorDetailsResponse createGetDoorDetailsResponse() {
+        return new GetDoorDetailsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetWindowDetailsResponse }
+     * 
+     */
+    public GetWindowDetailsResponse createGetWindowDetailsResponse() {
+        return new GetWindowDetailsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCategoryResponse }
+     * 
+     */
+    public GetCategoryResponse createGetCategoryResponse() {
+        return new GetCategoryResponse();
+    }
+
+    /**
      * Create an instance of {@link GetCategory }
      * 
      */
@@ -69,19 +111,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetItemByCategoryResponse }
+     * Create an instance of {@link GetComponentByCategoryResponse }
      * 
      */
-    public GetItemByCategoryResponse createGetItemByCategoryResponse() {
-        return new GetItemByCategoryResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetDoorDetails }
-     * 
-     */
-    public GetDoorDetails createGetDoorDetails() {
-        return new GetDoorDetails();
+    public GetComponentByCategoryResponse createGetComponentByCategoryResponse() {
+        return new GetComponentByCategoryResponse();
     }
 
     /**
@@ -109,14 +143,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetItemByCategory }
-     * 
-     */
-    public GetItemByCategory createGetItemByCategory() {
-        return new GetItemByCategory();
-    }
-
-    /**
      * Create an instance of {@link CheckApplicabilityResponse }
      * 
      */
@@ -125,19 +151,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetDoorDetailsResponse }
+     * Create an instance of {@link GetRoofDetails }
      * 
      */
-    public GetDoorDetailsResponse createGetDoorDetailsResponse() {
-        return new GetDoorDetailsResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetWindowDetailsResponse }
-     * 
-     */
-    public GetWindowDetailsResponse createGetWindowDetailsResponse() {
-        return new GetWindowDetailsResponse();
+    public GetRoofDetails createGetRoofDetails() {
+        return new GetRoofDetails();
     }
 
     /**
@@ -146,6 +164,22 @@ public class ObjectFactory {
      */
     public Door createDoor() {
         return new Door();
+    }
+
+    /**
+     * Create an instance of {@link DetailAvailability }
+     * 
+     */
+    public DetailAvailability createDetailAvailability() {
+        return new DetailAvailability();
+    }
+
+    /**
+     * Create an instance of {@link Roof }
+     * 
+     */
+    public Roof createRoof() {
+        return new Roof();
     }
 
     /**
@@ -182,12 +216,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetItemByCategory }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetRoofDetails }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "InventorySystem", name = "getItemByCategory")
-    public JAXBElement<GetItemByCategory> createGetItemByCategory(GetItemByCategory value) {
-        return new JAXBElement<GetItemByCategory>(_GetItemByCategory_QNAME, GetItemByCategory.class, null, value);
+    @XmlElementDecl(namespace = "InventorySystem", name = "getRoofDetails")
+    public JAXBElement<GetRoofDetails> createGetRoofDetails(GetRoofDetails value) {
+        return new JAXBElement<GetRoofDetails>(_GetRoofDetails_QNAME, GetRoofDetails.class, null, value);
     }
 
     /**
@@ -236,6 +270,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetComponentByCategory }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "getComponentByCategory")
+    public JAXBElement<GetComponentByCategory> createGetComponentByCategory(GetComponentByCategory value) {
+        return new JAXBElement<GetComponentByCategory>(_GetComponentByCategory_QNAME, GetComponentByCategory.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetDoorDetails }{@code >}}
      * 
      */
@@ -245,12 +288,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetItemByCategoryResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetRoofDetailsResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "InventorySystem", name = "getItemByCategoryResponse")
-    public JAXBElement<GetItemByCategoryResponse> createGetItemByCategoryResponse(GetItemByCategoryResponse value) {
-        return new JAXBElement<GetItemByCategoryResponse>(_GetItemByCategoryResponse_QNAME, GetItemByCategoryResponse.class, null, value);
+    @XmlElementDecl(namespace = "InventorySystem", name = "getRoofDetailsResponse")
+    public JAXBElement<GetRoofDetailsResponse> createGetRoofDetailsResponse(GetRoofDetailsResponse value) {
+        return new JAXBElement<GetRoofDetailsResponse>(_GetRoofDetailsResponse_QNAME, GetRoofDetailsResponse.class, null, value);
     }
 
     /**
@@ -260,6 +303,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "InventorySystem", name = "getCategoryResponse")
     public JAXBElement<GetCategoryResponse> createGetCategoryResponse(GetCategoryResponse value) {
         return new JAXBElement<GetCategoryResponse>(_GetCategoryResponse_QNAME, GetCategoryResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetComponentByCategoryResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "getComponentByCategoryResponse")
+    public JAXBElement<GetComponentByCategoryResponse> createGetComponentByCategoryResponse(GetComponentByCategoryResponse value) {
+        return new JAXBElement<GetComponentByCategoryResponse>(_GetComponentByCategoryResponse_QNAME, GetComponentByCategoryResponse.class, null, value);
     }
 
     /**

@@ -6,6 +6,7 @@ import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
 import com.verdicchio.domain.model.House;
 import com.verdicchio.infrastructure.dao.InventorySystemDao;
+import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
 import com.verdicchio.infrastructure.inventorysystem.InventorySystemService;
 import com.verdicchio.infrastructure.inventorysystem.InventorySystemService_Service;
 
@@ -46,28 +47,21 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
     @Override
     public List<Component> getComponentsByCategory(long idCategory)
     {
-        log.info("Looking for items belonging to idCategory= "+idCategory);
+        log.info("Looking for components belonging to idCategory= "+idCategory);
 
-        List<Object> technicalCategories =inventorySystemService.getItemByCategory(idCategory);
+        List<Object> technicalCategories =inventorySystemService.getComponentByCategory(idCategory);
         List<Component> components = componentConverter.fromModelToTechnical(technicalCategories);
         return components;
     }
     
     @Override
-    public boolean checkAvailability(long idComponent)
+    public     DetailAvailability checkApplicability(long idCategory, long idComponent,long idHouseDesign)
     {
-        //Todo  to be completed
-     boolean available = false;
-        return available;
+        log.info("Checking applicability/availability: idCategory = "+idCategory+" idComponent = "+idComponent+" idHouseDesign = "+idHouseDesign);
+        DetailAvailability detailAvailability = inventorySystemService.checkApplicability(idCategory,idComponent,idHouseDesign);
+        return detailAvailability;
     }
 
-    @Override
-    public boolean checkApplicability(House house,long idComponent)
-    {
-        //Todo to be completed
-        boolean available = false;
-        return available;
-    }
 
     @PostConstruct
     private void init()

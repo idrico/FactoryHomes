@@ -16,7 +16,11 @@ import java.io.Serializable;
 @Table(name = "Roof" )
 public class Roof extends Component implements Serializable{
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    public Roof(long idRoof,String name, String description,int price) {
+        super(idRoof,name, description,price);
+    }
+
+    public Roof()
+    {}
+
 }

@@ -1,4 +1,4 @@
-package com.verdicchio.admin;
+package com.verdicchio.admin.controller;
 
 import com.verdicchio.domain.model.Consultation;
 import com.verdicchio.domain.model.Customer;

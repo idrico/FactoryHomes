@@ -14,9 +14,13 @@ import java.io.Serializable;
 @Entity
 @XmlRootElement
 @Table(name = "Foundation" )
-public class Foundation implements Serializable{
+public class Foundation extends Component implements Serializable{
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    public Foundation(long idFoundation,String name, String description,int price) {
+        super(idFoundation,name, description,price);
+    }
+
+    public Foundation()
+    {}
+
 }

@@ -14,7 +14,7 @@ public class ComponentConverter<T extends Component> {
     public ComponentConverter() {
     }
 
-    public <T extends Component>T fromModelToTechnical(com.verdicchio.infrastructure.inventorysystem.Item technical)
+    public <T extends Component>T fromModelToTechnical(com.verdicchio.infrastructure.inventorysystem.Component technical)
     {
 
         Component component = new Component();
@@ -24,13 +24,13 @@ public class ComponentConverter<T extends Component> {
         return (T)component;
     }
 
-    public List<? extends Component> fromModelToTechnical(List<com.verdicchio.infrastructure.inventorysystem.Item> technical)
+    public List<? extends Component> fromModelToTechnical(List<com.verdicchio.infrastructure.inventorysystem.Component> technical)
     {
         List<Component> components = new ArrayList<Component>();
 
-        for(com.verdicchio.infrastructure.inventorysystem.Item item:technical)
+        for(com.verdicchio.infrastructure.inventorysystem.Component component:technical)
         {
-            components.add(this.fromModelToTechnical(item));
+            components.add(this.fromModelToTechnical(component));
         }
 
         return components;

@@ -1,6 +1,5 @@
 package com.verdicchio.converter;
 
-import com.verdicchio.controller.ConsultationController;
 import com.verdicchio.domain.repository.InventorySystemRepository;
 import com.verdicchio.domain.model.Category;
 
@@ -9,11 +8,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import javax.faces.event.AbortProcessingException;
-import javax.faces.event.ValueChangeEvent;
-import javax.faces.event.ValueChangeListener;
 import javax.inject.Inject;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -23,9 +18,6 @@ import java.util.List;
 @FacesConverter(value = "categoryConverter",forClass = Category.class)
 public class CategoryConverter implements Converter{
 
-
-    @Inject
-    ConsultationController consultationController;
 
     @Inject
     InventorySystemRepository inventorySystemRepository;

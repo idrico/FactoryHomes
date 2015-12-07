@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getItemByCategory complex type.
+ * <p>Java class for getRoofDetails complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getItemByCategory">
+ * &lt;complexType name="getRoofDetails">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -26,10 +26,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getItemByCategory", propOrder = {
+@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getRoofDetails", propOrder = {
     "arg0"
 })
-public class GetItemByCategory {
+public class GetRoofDetails {
 
     protected long arg0;
 

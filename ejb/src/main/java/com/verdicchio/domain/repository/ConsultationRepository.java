@@ -35,7 +35,7 @@ public class ConsultationRepository {
         // Swap criteria statements if you would like to try out type-safe criteria queries, a new
         // feature in JPA 2.0
         // criteria.select(Consultation).orderBy(cb.asc(Consultation.get(Consultation_.name)));
-        //todo grop by user and order by user
+        //todo group by user and order by user
         criteria.select(Consultation).orderBy(cb.asc(Consultation.get("id")));
         return em.createQuery(criteria).getResultList();
     }

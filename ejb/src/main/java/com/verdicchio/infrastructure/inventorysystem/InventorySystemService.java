@@ -26,14 +26,51 @@ public interface InventorySystemService {
 
     /**
      * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
      * @return
-     *     returns java.lang.Boolean
+     *     returns inventorysystem.DetailAvailability
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "checkApplicability", targetNamespace = "InventorySystem", className = "inventorysystem.CheckApplicability")
     @ResponseWrapper(localName = "checkApplicabilityResponse", targetNamespace = "InventorySystem", className = "inventorysystem.CheckApplicabilityResponse")
-    public Boolean checkApplicability();
+    public DetailAvailability checkApplicability(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        long arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        long arg2);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<inventorysystem.Roof>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getRoofDetails", targetNamespace = "InventorySystem", className = "inventorysystem.GetRoofDetails")
+    @ResponseWrapper(localName = "getRoofDetailsResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetRoofDetailsResponse")
+    public List<Roof> getRoofDetails(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getComponentByCategory", targetNamespace = "InventorySystem", className = "inventorysystem.GetComponentByCategory")
+    @ResponseWrapper(localName = "getComponentByCategoryResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetComponentByCategoryResponse")
+    public List<Object> getComponentByCategory(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0);
 
     /**
      * 
@@ -71,20 +108,6 @@ public interface InventorySystemService {
     @RequestWrapper(localName = "getWallDetails", targetNamespace = "InventorySystem", className = "inventorysystem.GetWallDetails")
     @ResponseWrapper(localName = "getWallDetailsResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetWallDetailsResponse")
     public List<Wall> getWallDetails(
-        @WebParam(name = "arg0", targetNamespace = "")
-        long arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getItemByCategory", targetNamespace = "InventorySystem", className = "inventorysystem.GetItemByCategory")
-    @ResponseWrapper(localName = "getItemByCategoryResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetItemByCategoryResponse")
-    public List<Object> getItemByCategory(
         @WebParam(name = "arg0", targetNamespace = "")
         long arg0);
 

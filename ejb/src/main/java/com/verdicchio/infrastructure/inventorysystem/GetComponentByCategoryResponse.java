@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getItemByCategoryResponse complex type.
+ * <p>Java class for getComponentByCategoryResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getItemByCategoryResponse">
+ * &lt;complexType name="getComponentByCategoryResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -29,10 +29,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getItemByCategoryResponse", propOrder = {
+@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getComponentByCategoryResponse", propOrder = {
     "_return"
 })
-public class GetItemByCategoryResponse {
+public class GetComponentByCategoryResponse {
 
     @XmlElement(name = "return")
     protected List<Object> _return;

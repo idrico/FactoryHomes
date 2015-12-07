@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "apertureTypeOfOpeningEnum")
+@XmlType(name = "apertureTypeOfOpeningEnum")
 @XmlEnum
 public enum ApertureTypeOfOpeningEnum {
 

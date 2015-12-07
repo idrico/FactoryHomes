@@ -1,11 +1,9 @@
 package com.verdicchio.domain.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by verdian on 19/08/2015.
@@ -16,20 +14,37 @@ import java.io.Serializable;
 @Table(name = "Wall" )
 public class Wall extends Component implements Serializable{
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-
     public Wall() {
         super();
     }
 
-    public Long getId() {
-        return id;
+    public Wall(long idWall,String name, String description,int price,List<Door> doors,List<Window> windows) {
+        super(idWall,name, description,price);
+        this.doors = doors;
+        this.windows = windows;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @OneToMany(cascade = CascadeType.ALL)
+    @OrderBy("id")
+    private List<Door> doors;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @OrderBy("id")
+    private List<Window> windows;
+
+    public List<Window> getWindows() {
+        return windows;
+    }
+
+    public void setWindows(List<Window> windows) {
+        this.windows = windows;
+    }
+
+    public List<Door> getDoors() {
+        return doors;
+    }
+
+    public void setDoors(List<Door> doors) {
+        this.doors = doors;
     }
 }

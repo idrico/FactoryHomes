@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="aperture">
  *   &lt;complexContent>
- *     &lt;extension base="{InventorySystem}item">
+ *     &lt;extension base="{InventorySystem}component">
  *       &lt;sequence>
  *         &lt;element name="typeOfOpening" type="{InventorySystem}apertureTypeOfOpeningEnum" minOccurs="0"/>
  *       &lt;/sequence>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
     Window.class
 })
 public abstract class Aperture
-    extends Item
+    extends Component
 {
 
     protected ApertureTypeOfOpeningEnum typeOfOpening;

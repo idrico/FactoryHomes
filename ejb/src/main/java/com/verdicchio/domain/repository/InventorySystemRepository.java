@@ -30,11 +30,4 @@ public class InventorySystemRepository {
        return inventorySystemDao.getComponentsByCategory(idCategory);
     }
 
-
-    public Category findCategoryById() {
-
-//todo implement real metod
-        return inventorySystemDao.getCategory().get(0);
-    }
-
 }

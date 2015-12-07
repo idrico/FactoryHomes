@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="wall">
  *   &lt;complexContent>
- *     &lt;extension base="{InventorySystem}item">
+ *     &lt;extension base="{InventorySystem}component">
  *       &lt;sequence>
  *         &lt;element name="height" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="width" type="{http://www.w3.org/2001/XMLSchema}int"/>
@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
     "width"
 })
 public class Wall
-    extends Item
+    extends Component
 {
 
     protected int height;
