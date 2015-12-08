@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 /**
  * Created by anonymous on 20/11/15.
  */
+/*todo: change name, it will be more general*/
 @Stateless
 public class InventorySystemService {
 
@@ -35,6 +36,23 @@ public class InventorySystemService {
     {
         List<Category> categories = inventorySystemRepository.findAllCategory();
         return categories;
+    }
+
+    public void addComponent(long idCategory, long idComponent,long idHouseDesign)
+    {
+
+        boolean isApplicable =false;
+
+        inventorySystemRepository.checkApplicability(idCategory,idComponent,idHouseDesign);
+
+        if(isApplicable)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
 

@@ -2,6 +2,7 @@ package com.verdicchio.domain.repository;
 
 import com.verdicchio.domain.model.Consultation;
 import com.verdicchio.domain.model.Customer;
+import com.verdicchio.domain.model.House;
 import com.verdicchio.domain.model.ZipCode;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -23,6 +24,13 @@ public class ConsultationRepository {
     @Inject
     private EntityManager em;
 
+
+    //// TODO: remove, it is only to try to rerive an house
+
+    public House findHouseById(long id)
+    {
+        return em.find(House.class, id);
+    }
 
     public Consultation findById(Long id) {
         return em.find(Consultation.class, id);

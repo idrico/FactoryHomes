@@ -32,6 +32,10 @@ public class Wall extends Component implements Serializable{
     @OrderBy("id")
     private List<Window> windows;
 
+    @ManyToOne
+    @JoinColumn(name = "HOUSE_ID")
+    private House  house;
+
     public List<Window> getWindows() {
         return windows;
     }

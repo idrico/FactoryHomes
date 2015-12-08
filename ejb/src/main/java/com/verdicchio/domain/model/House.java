@@ -18,21 +18,15 @@ public class House implements Serializable{
     @GeneratedValue
     private Long id;
 
-    @OneToOne(fetch=FetchType.EAGER, orphanRemoval = true, cascade = { javax.persistence.CascadeType.ALL })
-    @JoinColumn(name="id")
     Product product;
 
-    @OneToOne(fetch=FetchType.EAGER, orphanRemoval = true, cascade = { javax.persistence.CascadeType.ALL })
-    @JoinColumn(name="id")
-    Foundation foundation;
+    @OneToOne(mappedBy = "house", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    private Foundation foundation;
 
 
-    @OneToOne(fetch=FetchType.EAGER, orphanRemoval = true, cascade = { javax.persistence.CascadeType.ALL })
-    @JoinColumn(name="id")
-    Roof roof;
+    @OneToOne(mappedBy = "house", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    private Roof roof;
 
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @OrderBy("id")
+    @OneToMany(mappedBy = "house", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     private List<Wall> walls;
 }

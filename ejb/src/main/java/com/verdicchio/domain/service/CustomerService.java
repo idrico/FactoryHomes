@@ -29,6 +29,9 @@ public class CustomerService {
     @Inject
     private Event<Customer> customerEventSrc;
 
+
+    /*
+    *todo it does not work*/
     public void register(Customer customer) throws Exception {
         log.info("Registering " + customer.getName());
         em.persist(customer);

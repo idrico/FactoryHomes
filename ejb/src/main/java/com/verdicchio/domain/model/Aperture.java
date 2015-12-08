@@ -1,10 +1,13 @@
 package com.verdicchio.domain.model;
 
+import javax.persistence.MappedSuperclass;
+
 /**
  * Created by idrico on 07/12/15.
  */
 
 
+@MappedSuperclass
 public abstract class Aperture extends Component {
 
     private ApertureTypeOfOpeningEnum typeOfOpening;

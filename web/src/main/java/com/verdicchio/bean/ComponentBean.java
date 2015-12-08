@@ -76,6 +76,10 @@ public class ComponentBean implements Serializable {
         //todo When the user click finish/validate the exam it need to call a service the it will check if the user
         //added the minimum object that the house need to be considered an house?
 
+        //todo When the user click finish/validate the exam it need to call a service that veiry the correccteness of the
+        //whole project?
+
+
         //todo call the Inventory System and verify the applicability/availability. If you got a good response then add the component
         //and refresh the tree, otherwise display a message to the user
 

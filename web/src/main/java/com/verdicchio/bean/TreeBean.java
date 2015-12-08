@@ -1,5 +1,6 @@
 package com.verdicchio.bean;
 
+import com.verdicchio.domain.model.House;
 import com.verdicchio.domain.model.Roof;
 import com.verdicchio.domain.model.Wall;
 import org.primefaces.component.log.Log;
@@ -23,9 +24,14 @@ public class TreeBean implements Serializable {
 
     private TreeNode selectedNode;
 
+    //todo: verify if put some annotation here
+    private House house;
+
     @PostConstruct
     public void init() {
         root = new DefaultTreeNode("House", null);
+
+        //todo: the house should be initialized in accord with the housesytle chosen from the user
 
         Wall wall = new Wall();
         wall.setDescription("Test Tree");

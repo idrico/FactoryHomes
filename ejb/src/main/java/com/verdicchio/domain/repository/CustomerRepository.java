@@ -14,6 +14,9 @@ import java.util.List;
 /**
  * Created by verdian on 18/08/2015.
  */
+/*
+todo verify if it is better to use ApplicationScoped or stateless
+ */
 @ApplicationScoped
 public class CustomerRepository {
     

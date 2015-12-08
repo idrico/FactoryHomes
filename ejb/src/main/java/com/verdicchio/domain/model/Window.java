@@ -1,6 +1,8 @@
 package com.verdicchio.domain.model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -14,7 +16,9 @@ public class Window extends  Aperture{
 
     boolean withCurtain;
 
-
+    @ManyToOne
+    @JoinColumn(name = "WALL_ID")
+    private Wall  wall;
 
     public Window() {
         super();

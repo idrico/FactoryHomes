@@ -1,9 +1,6 @@
 package com.verdicchio.domain.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
@@ -15,6 +12,10 @@ import java.io.Serializable;
 @XmlRootElement
 @Table(name = "Roof" )
 public class Roof extends Component implements Serializable{
+
+    @OneToOne
+    @JoinColumn(name = "HOUSE_ID")
+    private House  house;
 
     public Roof(long idRoof,String name, String description,int price) {
         super(idRoof,name, description,price);
