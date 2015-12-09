@@ -13,15 +13,14 @@ import java.io.Serializable;
 @Table(name = "Foundation" )
 public class Foundation extends Component implements Serializable{
 
-    @OneToOne
-    @JoinColumn(name = "HOUSE_ID")
-    private House  house;
+
+
 
     public Foundation(long idFoundation,String name, String description,int price) {
         super(idFoundation,name, description,price);
     }
 
     public Foundation()
-    {}
+    {super();}
 
 }

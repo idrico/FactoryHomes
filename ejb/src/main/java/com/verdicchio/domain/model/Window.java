@@ -16,9 +16,6 @@ public class Window extends  Aperture{
 
     boolean withCurtain;
 
-    @ManyToOne
-    @JoinColumn(name = "WALL_ID")
-    private Wall  wall;
 
     public Window() {
         super();

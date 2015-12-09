@@ -13,9 +13,6 @@ import java.io.Serializable;
 @Table(name = "Roof" )
 public class Roof extends Component implements Serializable{
 
-    @OneToOne
-    @JoinColumn(name = "HOUSE_ID")
-    private House  house;
 
     public Roof(long idRoof,String name, String description,int price) {
         super(idRoof,name, description,price);

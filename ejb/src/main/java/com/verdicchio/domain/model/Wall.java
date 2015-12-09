@@ -24,17 +24,18 @@ public class Wall extends Component implements Serializable{
         this.windows = windows;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
+    private long external_wall_Id;
+
+
+    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name="external_door_Id")
     @OrderBy("id")
     private List<Door> doors;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name="external_window_Id")
     @OrderBy("id")
     private List<Window> windows;
-
-    @ManyToOne
-    @JoinColumn(name = "HOUSE_ID")
-    private House  house;
 
     public List<Window> getWindows() {
         return windows;

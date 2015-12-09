@@ -20,13 +20,15 @@ public class House implements Serializable{
 
     Product product;
 
-    @OneToOne(mappedBy = "house", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @PrimaryKeyJoinColumn
     private Foundation foundation;
 
-
-    @OneToOne(mappedBy = "house", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @OneToOne
+    @PrimaryKeyJoinColumn
     private Roof roof;
 
-    @OneToMany(mappedBy = "house", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name="external_wall_Id")
     private List<Wall> walls;
 }
