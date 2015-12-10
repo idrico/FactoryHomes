@@ -16,6 +16,8 @@ import java.io.Serializable;
 public class ZipCode implements Serializable{
 
     @Id
+    @Column( nullable = false)
+    @GeneratedValue
     private Long id;
 
     @NotNull

@@ -15,6 +15,7 @@ import java.util.List;
 public class House implements Serializable{
 
     @Id
+    @Column( nullable = false)
     @GeneratedValue
     private Long id;
 

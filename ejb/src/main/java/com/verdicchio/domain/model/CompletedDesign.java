@@ -14,11 +14,20 @@ import java.util.List;
 public class CompletedDesign implements Serializable {
 
     @Id
+    @Column(name = "COMPLETED_DESIGN_ID", nullable = false)
     @GeneratedValue
     private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @OrderBy("id")
+    //@OneToMany(cascade = CascadeType.ALL)
+    //@OrderBy("id")
+
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(name="COMPLETED_DESIGN_DETAIL",
+            joinColumns=
+            @JoinColumn(name="COMPLETED_DESIGN_ID", referencedColumnName="COMPLETED_DESIGN_ID"),
+            inverseJoinColumns=
+            @JoinColumn(name="PROD_ID", referencedColumnName="PROD_ID")
+    )
     private List<Product> products;
 
     @ManyToOne

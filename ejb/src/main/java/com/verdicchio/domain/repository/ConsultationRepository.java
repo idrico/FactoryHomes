@@ -1,9 +1,6 @@
 package com.verdicchio.domain.repository;
 
-import com.verdicchio.domain.model.Consultation;
-import com.verdicchio.domain.model.Customer;
-import com.verdicchio.domain.model.House;
-import com.verdicchio.domain.model.ZipCode;
+import com.verdicchio.domain.model.*;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -25,12 +22,19 @@ public class ConsultationRepository {
     private EntityManager em;
 
 
-    //// TODO: remove, it is only to try to rerive an house
-
+    //// TODO: remove, it is only to try to retrive an house
     public House findHouseById(long id)
     {
         return em.find(House.class, id);
     }
+
+    //// TODO: remove, it is only to try to retrive an product
+    public Product findProductById(long id)
+    {
+        return em.find(Product.class, id);
+    }
+
+
 
     public Consultation findById(Long id) {
         return em.find(Consultation.class, id);

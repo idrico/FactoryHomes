@@ -1,5 +1,6 @@
 package com.verdicchio.domain.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +10,9 @@ import java.io.Serializable;
  * Created by anonymous on 20/11/15.
  */
 public class Category implements Serializable {
+
     @Id
+    @Column( nullable = false)
     @GeneratedValue
     private Long id;
     private String name;

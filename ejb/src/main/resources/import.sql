@@ -37,6 +37,7 @@ insert into Window(id, name, description, price, typeOfOpening, withCurtain,exte
 
 insert into Door(id, name, description, price, typeOfOpening,external_door_Id)values (1,'Door1','Description Door1',10,1,1)
 
+insert into Product(PROD_ID,name, description, HOUSE_ID) values (1, 'HouseStyle_1','Description HouseStyle_1',1)
 
 insert into ZipCode(id, city, state) values (81027, 'San Felice a Cancello', 'Italy')
 insert into ZipCode(id, city, state) values (20133, 'Via Sismondi', 'Italy')
@@ -53,11 +54,11 @@ insert into Consultation(id, CUSTOMER_ID) values (3, 2)
 insert into Consultation(id, CUSTOMER_ID) values (4, 3)
 
 
-insert into CompletedDesign(id,CONSULTATION_ID) values (1,1)
-insert into CompletedDesign(id,CONSULTATION_ID) values (2,1)
-insert into CompletedDesign(id,CONSULTATION_ID) values (3,2)
-insert into CompletedDesign(id,CONSULTATION_ID) values (4,3)
-insert into CompletedDesign(id,CONSULTATION_ID) values (5,4)
+insert into CompletedDesign(COMPLETED_DESIGN_ID,CONSULTATION_ID) values (1,1)
+insert into CompletedDesign(COMPLETED_DESIGN_ID,CONSULTATION_ID) values (2,1)
+insert into CompletedDesign(COMPLETED_DESIGN_ID,CONSULTATION_ID) values (3,2)
+insert into CompletedDesign(COMPLETED_DESIGN_ID,CONSULTATION_ID) values (4,3)
+insert into CompletedDesign(COMPLETED_DESIGN_ID,CONSULTATION_ID) values (5,4)
 
 
 

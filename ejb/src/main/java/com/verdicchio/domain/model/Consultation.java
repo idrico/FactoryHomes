@@ -14,6 +14,7 @@ import java.util.List;
 public class Consultation implements Serializable {
 
     @Id
+    @Column( nullable = false)
     @GeneratedValue
     private Long id;
 

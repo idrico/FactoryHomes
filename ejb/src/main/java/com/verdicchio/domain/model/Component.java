@@ -1,5 +1,6 @@
 package com.verdicchio.domain.model;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -12,6 +13,7 @@ public class Component {
 
 
     @Id
+    @Column( nullable = false)
     @GeneratedValue
     private long id;
 

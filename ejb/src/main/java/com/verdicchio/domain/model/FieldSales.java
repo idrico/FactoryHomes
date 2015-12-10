@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class FieldSales implements Serializable {
 
     @Id
+    @Column( nullable = false)
     @GeneratedValue
     private Long id;
 
