@@ -9,6 +9,7 @@ package com.verdicchio.bean;
         import javax.annotation.PostConstruct;
         import javax.faces.bean.ManagedBean;
         import javax.faces.bean.ViewScoped;
+        import javax.faces.event.AjaxBehaviorEvent;
         import javax.faces.event.ValueChangeEvent;
         import javax.inject.Inject;
         import javax.inject.Named;
@@ -33,8 +34,24 @@ public class ComponentBean implements Serializable {
 
     }
 
+    public void fireSelection(ValueChangeEvent event) {
+        System.out.println("New: "+event.getNewValue()+", Old: "+event.getOldValue());
+    }
+
+    // Methods ---------------------------------------------------------------------------
+    public void listenForChange(AjaxBehaviorEvent event){
+        System.out.println("I CHANGED");
+    }
+
+
     public void searchComponentsByCategory(Category category)  {
         setComponents(inventorySystemService.getComponentsByCategory(category.getId()));
+    }
+
+    //todo: maybe this listener need to go in another place
+    public void houseStyleSelected(Product product)  {
+        if(product!=null)
+        System.out.println("The user have selected the house style: "+product.getName() );
     }
 
 

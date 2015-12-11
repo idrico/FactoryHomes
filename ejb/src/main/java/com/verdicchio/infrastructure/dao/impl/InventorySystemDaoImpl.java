@@ -53,7 +53,9 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
         List<Component> components = componentConverter.fromModelToTechnical(technicalCategories);
         return components;
     }
-    
+
+
+    //todo; verify if it is enough to pass idHouseDesign, maybe we need to pass the whole object HouseDesign
     @Override
     public     DetailAvailability checkApplicability(long idCategory, long idComponent,long idHouseDesign)
     {

@@ -22,8 +22,7 @@ public class Product implements Serializable{
 
     private String description;
 
-    @Column(name = "HOUSE_ID")
-    private long houseId;
+    private boolean isBasicDesign;
 
 
     @OneToOne(optional=false)
@@ -32,8 +31,8 @@ public class Product implements Serializable{
     House house;
 
 
-    @ManyToMany(mappedBy="products",fetch=FetchType.EAGER)
-    private List<CompletedDesign> completedDesignList;
+   // @ManyToMany(mappedBy="products",fetch=FetchType.EAGER)
+   // private List<CompletedDesign> completedDesignList;
 
 
     public Product()
@@ -41,12 +40,12 @@ public class Product implements Serializable{
 
     }
 
-    public long getHouseId() {
-        return houseId;
+    public boolean isBasicDesign() {
+        return isBasicDesign;
     }
 
-    public void setHouseId(long houseId) {
-        this.houseId = houseId;
+    public void setBasicDesign(boolean basicDesign) {
+        isBasicDesign = basicDesign;
     }
 
     public Long getId() {
@@ -81,13 +80,6 @@ public class Product implements Serializable{
         this.house = house;
     }
 
-    public List<CompletedDesign> getCompletedDesignList() {
-        return completedDesignList;
-    }
-
-    public void setCompletedDesignList(List<CompletedDesign> completedDesignList) {
-        this.completedDesignList = completedDesignList;
-    }
 
 //todo here maybe we need to insert indicative cost and minimum accesories
 

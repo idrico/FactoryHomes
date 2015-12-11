@@ -8,29 +8,35 @@
       xmlns:p="http://primefaces.org/ui"
         >
 <h:body>
+
 <ui:composition template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
-        <h:selectOneMenu id="houseStyle" label="House Style" converter="#{houseStyleBean}">
-            <f:selectItems  value="#{houseStyles}" var="s"
-                           itemValue="#{s}" itemLabel="#{s.description}"/>
-        </h:selectOneMenu>
 
         <h:panelGrid columns="2">
 
             <h:form id="categoryForm">
                 <h:panelGrid columns="2">
 
+                <h:outputLabel for="houseStyle" value="House Style:"/>
+
+                <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}" valueChangeListener="#{componentBean.fireSelection}" >
+                    <f:selectItems  value="#{houseStyles}" var="s"
+                                   itemValue="#{s}" itemLabel="#{s.name}"/>
+                    <f:ajax   immediate="true"/>
+                </h:selectOneMenu>
+
+
                     <h:outputLabel for="category" value="Category:"/>
 
-                    <h:selectOneMenu id="category"  binding="#{input1}"  converter="#{categoryBean}">
+                    <h:selectOneMenu id="category"  binding="#{input2}"  converter="#{categoryBean}">
                         <f:selectItems value="#{categories}" var="c"
                                        itemValue="#{c}" itemLabel="#{c.name}"/>
-                        <f:ajax listener="#{componentBean.searchComponentsByCategory(input1.value)}" render="component" />
+                        <f:ajax listener="#{componentBean.searchComponentsByCategory(input2.value)}" render="component" />
                     </h:selectOneMenu>
 
                     <h:outputLabel for="component" value="Component:"/>
 
-                    <h:selectOneMenu id="component" binding="#{input2}" valueChangeListener="#{componentBean.valueChangeMethod}">
+                    <h:selectOneMenu id="component" binding="#{input3}" valueChangeListener="#{componentBean.valueChangeMethod}">
                         <f:selectItems value="#{componentBean.components}"  var="i"
                                                itemValue="#{i}" itemLabel="#{i.name}"/>
                         <f:ajax listener="#{componentBean.addComponent(treeBean.selectedNode)}"/>
@@ -42,7 +48,7 @@
 
             <h:form id="treeForm">
                 <h3>Your House:</h3>
-                <p:tree value="#{treeBean.root}" var="node" dynamic="true" selectionMode="single" styleClass="treeStyle"
+                <p:tree id="treeHouse" value="#{treeBean.root}" var="node" dynamic="true" selectionMode="single" styleClass="treeStyle"
                         selection="#{treeBean.selectedNode}"
                         cache="false">
                     <p:ajax event="select" listener="#{treeBean.onNodeSelect}"/>

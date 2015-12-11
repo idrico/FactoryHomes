@@ -19,7 +19,7 @@ public class House implements Serializable{
     @GeneratedValue
     private Long id;
 
-    Product product;
+    //Product product;
 
     @OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     @PrimaryKeyJoinColumn

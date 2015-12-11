@@ -1,10 +1,7 @@
 package com.verdicchio.domain.service;
 
-import com.verdicchio.domain.model.House;
-import com.verdicchio.domain.model.Product;
+import com.verdicchio.domain.model.*;
 import com.verdicchio.domain.repository.ConsultationRepository;
-import com.verdicchio.domain.model.Consultation;
-import com.verdicchio.domain.model.ZipCode;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -31,7 +28,10 @@ public class ConsultationService {
 
     public List<Consultation> findByZipCode(ZipCode zipCode) {
 
-        //todo: remove, it is only to try to retrive an house
+        //todo: remove, it is only to try to retrieve an house
+        List<Product> houseDesignList = consultationRepository.getHouseDesign();
+        CompletedDesign completedDesign=consultationRepository.findCompletedDesignById(1);
+        CompletedDesign completedDesign2=consultationRepository.findCompletedDesignById(2);
         Product product=consultationRepository.findProductById(1);
         return consultationRepository.findByZipCode(zipCode);
     }

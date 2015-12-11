@@ -1,5 +1,8 @@
 package com.verdicchio.data;
 
+import com.verdicchio.domain.model.House;
+import com.verdicchio.domain.model.Product;
+import com.verdicchio.domain.repository.ConsultationRepository;
 import com.verdicchio.domain.repository.HouseStyleRepository;
 import com.verdicchio.domain.model.HouseStyle;
 
@@ -8,6 +11,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,19 +23,27 @@ public class HouseStyleProducer {
     @Inject
     private HouseStyleRepository houseStyleRepository;
 
-    private List<HouseStyle> houseStyleList;
+    @Inject
+    private ConsultationRepository consultationRepository;
+
+    private List<Product> houseStyles;
 
     // @Named provides access the return value via the EL variable name "customers" in the UI (e.g.,
     // Facelets or JSP view)
     @Produces
     @Named
-    public List<HouseStyle> getHouseStyles() {
-        return houseStyleList;
+    public List<Product> getHouseStyles() {
+        return houseStyles;
     }
 
 
     @PostConstruct
     public void retrieveAllCustomersOrderedByName() {
-        houseStyleList = houseStyleRepository.findAllOrderedByDescription();
+
+        //todo the service to retrieve the house style is temporany in ConsultationRepository
+houseStyles = consultationRepository.getHouseDesign();
+
+        //todo verify if we need to provide a repository ad hoc for retrieve the only house style
+        //houseStyleList = houseStyleRepository.findAllOrderedByDescription();
     }
 }
