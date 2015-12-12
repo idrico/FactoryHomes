@@ -1,8 +1,6 @@
 package com.verdicchio.bean;
 
-import com.verdicchio.domain.model.House;
-import com.verdicchio.domain.model.Roof;
-import com.verdicchio.domain.model.Wall;
+import com.verdicchio.domain.model.*;
 import org.primefaces.component.log.Log;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
@@ -24,46 +22,40 @@ public class TreeBean implements Serializable {
 
     private TreeNode selectedNode;
 
-    //todo: verify if put some annotation here
-    private House house;
+    public void createTree(Product product)
+    {
 
-    @PostConstruct
-    public void init() {
+        House house = product.getHouse();
         root = new DefaultTreeNode("House", null);
 
-        //todo: the house should be initialized in accord with the housesytle chosen from the user
+        Foundation foundation = house.getFoundation();
+        Roof roof = house.getRoof();
 
-        Wall wall = new Wall();
-        wall.setDescription("Test Tree");
-        wall.setName("Wall");
+        TreeNode productNode = new DefaultTreeNode(product, root);
+        TreeNode foundationNode = new DefaultTreeNode(foundation, productNode);
+        TreeNode roofNode = new DefaultTreeNode(roof, productNode);
 
-        Wall wall1= new Wall();
-        wall1.setDescription("Test Tree");
-        wall1.setName("Wall 1");
+        for(Wall wall:house.getWalls())
+        {
+            TreeNode wallNode = new DefaultTreeNode(wall, productNode);
 
-        Wall wall2 = new Wall();
-        wall2.setDescription("Test Tree");
-        wall2.setName("Wall  2");
+            for (Door door:wall.getDoors())
+            {
+                TreeNode doorNode = new DefaultTreeNode(door, wallNode);
+            }
 
-        Wall wall3 = new Wall();
-        wall3.setDescription("Test Tree");
-        wall3.setName("Wall  3");
+            for (Window window:wall.getWindows())
+            {
+                TreeNode windowNode = new DefaultTreeNode(window, wallNode);
+            }
+        }
 
-        Roof roof = new Roof();
-        roof.setName("Roof");
-
-        TreeNode node0 = new DefaultTreeNode(wall, root);
-        node0.setSelected(true);
-        TreeNode node00 = new DefaultTreeNode(wall1, node0);
-        node00.setSelected(true);
-
-        node00.getChildren().add(new DefaultTreeNode(wall2));
-        node0.getChildren().add(new DefaultTreeNode(wall3));
-
-        root.getChildren().add(new DefaultTreeNode(roof));
     }
 
-
+    public void addNode(Component componentToAdd,TreeNode treeNodeParent )
+    {
+        TreeNode roofNode = new DefaultTreeNode(componentToAdd, treeNodeParent);
+    }
 
     public void onNodeSelect() {
 
@@ -75,7 +67,21 @@ public class TreeBean implements Serializable {
         {
             Roof roof = (Roof) selectedNode.getData();
             System.out.println("The user have selected a roof: "+ roof.getName());
+        }else if(selectedNode.getData() instanceof Foundation)
+        {
+            Foundation foundation = (Foundation) selectedNode.getData();
+            System.out.println("The user have selected a foundation: "+ foundation.getName());
+        }else if(selectedNode.getData() instanceof Window)
+        {
+            Window window = (Window) selectedNode.getData();
+            System.out.println("The user have selected a window: "+ window.getName());
+        }else if(selectedNode.getData() instanceof Door)
+        {
+            Door door = (Door) selectedNode.getData();
+            System.out.println("The user have selected a door: "+ door.getName());
         }
+
+
 
    }
 

@@ -42,8 +42,12 @@ public class CategoryConverter implements Converter{
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object o) {
 
-        Category category = (Category) o;
-        return category.getName();
+        if(o!=null)
+        {
+            Category category = (Category) o;
+            return category.getName();
+        }
+        return null;
     }
 
 

@@ -1,5 +1,8 @@
 package com.verdicchio.domain.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -31,5 +34,39 @@ public class House implements Serializable{
 
     @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name="external_wall_Id")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Wall> walls;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Foundation getFoundation() {
+        return foundation;
+    }
+
+    public void setFoundation(Foundation foundation) {
+        this.foundation = foundation;
+    }
+
+    public Roof getRoof() {
+        return roof;
+    }
+
+    public void setRoof(Roof roof) {
+        this.roof = roof;
+    }
+
+    public List<Wall> getWalls() {
+        return walls;
+    }
+
+    public void setWalls(List<Wall> walls) {
+        this.walls = walls;
+    }
 }

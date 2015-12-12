@@ -12,23 +12,25 @@
 <ui:composition template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
 
-        <h:panelGrid columns="2">
-
             <h:form id="categoryForm">
                 <h:panelGrid columns="2">
 
                 <h:outputLabel for="houseStyle" value="House Style:"/>
 
-                <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}" valueChangeListener="#{componentBean.fireSelection}" >
+                <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}" immediate="true" >
+                    <f:selectItem itemLabel="Select the HouseStyle." itemValue="#{null}"
+                                  noSelectionOption="true" />
                     <f:selectItems  value="#{houseStyles}" var="s"
                                    itemValue="#{s}" itemLabel="#{s.name}"/>
-                    <f:ajax   immediate="true"/>
+                    <f:ajax listener="#{componentBean.updatePickupHouseStyle}" render="treeHouse"/>
                 </h:selectOneMenu>
 
 
                     <h:outputLabel for="category" value="Category:"/>
 
                     <h:selectOneMenu id="category"  binding="#{input2}"  converter="#{categoryBean}">
+                        <f:selectItem itemLabel="Select a Category." itemValue="#{null}"
+                                      noSelectionOption="true" />
                         <f:selectItems value="#{categories}" var="c"
                                        itemValue="#{c}" itemLabel="#{c.name}"/>
                         <f:ajax listener="#{componentBean.searchComponentsByCategory(input2.value)}" render="component" />
@@ -36,17 +38,19 @@
 
                     <h:outputLabel for="component" value="Component:"/>
 
-                    <h:selectOneMenu id="component" binding="#{input3}" valueChangeListener="#{componentBean.valueChangeMethod}">
+                    <h:selectOneMenu id="component" binding="#{input3}" immediate="true" converter="#{componentConverter}" >
+                        <f:selectItem itemLabel="Select a Component." itemValue="#{null}"
+                                      noSelectionOption="true" />
                         <f:selectItems value="#{componentBean.components}"  var="i"
                                                itemValue="#{i}" itemLabel="#{i.name}"/>
-                        <f:ajax listener="#{componentBean.addComponent(treeBean.selectedNode)}"/>
+                        <f:ajax listener="#{componentBean.updatePickupComponent}" />
                     </h:selectOneMenu>
+
                 </h:panelGrid>
 
-            </h:form>
 
 
-            <h:form id="treeForm">
+
                 <h3>Your House:</h3>
                 <p:tree id="treeHouse" value="#{treeBean.root}" var="node" dynamic="true" selectionMode="single" styleClass="treeStyle"
                         selection="#{treeBean.selectedNode}"
@@ -56,21 +60,22 @@
                         <h:outputText value="#{node.name}" />
                     </p:treeNode>
                 </p:tree>
-            </h:form>
 
 
-            <h:form id="completeForm">
                     <h:panelGrid columns="2">
                         <h:commandButton id="combleteDesign" action="#{adminController.searchConsultationByZipCode(input1.value)}" value="Complete Design" styleClass="button"/>
                         <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
                                     globalOnly="true"/>
                     </h:panelGrid>
+
+
             </h:form>
 
-        </h:panelGrid>
-
-
-
+<h:form>        <h:panelGrid columns="2">
+    <h:commandButton id="addComponentButton" action="#{componentBean.addComponent()}" value="Add Component" styleClass="button"/>
+    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                globalOnly="true"/>
+</h:panelGrid></h:form>
 
 
     </ui:define>

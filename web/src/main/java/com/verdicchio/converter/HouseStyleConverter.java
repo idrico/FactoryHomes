@@ -45,7 +45,13 @@ public class HouseStyleConverter implements Converter {
     @Override
     public String getAsString(FacesContext facesContext, UIComponent component, Object value) {
 
-        Product product = (Product) value;
-        return product.getName();
+        if(value!=null)
+        {
+            Product product = (Product) value;
+            return product.getName();
+        }
+
+        return null;
+
     }
 }

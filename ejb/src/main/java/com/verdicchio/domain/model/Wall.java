@@ -1,5 +1,8 @@
 package com.verdicchio.domain.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -30,11 +33,13 @@ public class Wall extends Component implements Serializable{
     @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name="external_door_Id")
     @OrderBy("id")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Door> doors;
 
     @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name="external_window_Id")
     @OrderBy("id")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Window> windows;
 
     public List<Window> getWindows() {
