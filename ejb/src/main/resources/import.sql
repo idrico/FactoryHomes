@@ -19,6 +19,12 @@
 
 
 --
+insert into Category(id,name) values (1,'Walls')
+insert into Category(id,name) values (2,'Windows')
+insert into Category(id,name) values (3,'Doors')
+insert into Category(id,name) values (4,'Roofs')
+insert into Category(id,name) values (5,'Foundations')
+
 insert into HouseStyle(id, description) values (1, 'Duplex')
 insert into HouseStyle(id, description) values (2, 'Green')
 insert into HouseStyle(id, description) values (3, 'Town House')
@@ -30,20 +36,20 @@ insert into House(id)values (3)
 insert into House(id)values (4)
 
 
-insert into Wall(id, name, description, price,external_wall_Id)values (1,'Wall1','Description Wall1',10,1)
-insert into Wall(id, name, description, price,external_wall_Id)values (2,'Wall2','Description Wall2',10,1)
-insert into Wall(id, name, description, price,external_wall_Id)values (3,'Wall3','Description Wall3',10,1)
-insert into Wall(id, name, description, price,external_wall_Id)values (4,'Wall1','Description Wall4',10,2)
+insert into Wall(id, name, description, price,external_wall_Id,category)values (1,'Wall1','Description Wall1',10,1,1)
+insert into Wall(id, name, description, price,external_wall_Id,category)values (2,'Wall2','Description Wall2',10,1,1)
+insert into Wall(id, name, description, price,external_wall_Id,category)values (3,'Wall3','Description Wall3',10,1,1)
+insert into Wall(id, name, description, price,external_wall_Id,category)values (4,'Wall1','Description Wall4',10,2,1)
 
 
-insert into Foundation(id, name, description, price)values (1,'Foundation1','Description Foundation1',10)
+insert into Foundation(id, name, description, price,category)values (1,'Foundation1','Description Foundation1',10,5)
 
-insert into Roof(id, name, description, price,)values (1,'Roof1','Description Roof1',10)
+insert into Roof(id, name, description, price,category)values (1,'Roof1','Description Roof1',10,4)
 
-insert into Window(id, name, description, price, typeOfOpening, withCurtain,external_window_Id)values (1,'Window1','Description Window1',10,1,true,1)
-insert into Window(id, name, description, price, typeOfOpening, withCurtain,external_window_Id)values (2,'Window2','Description Window2',10,1,true,2)
+insert into Window(id, name, description, price, typeOfOpening, withCurtain,external_window_Id,category)values (1,'Window1','Description Window1',10,1,true,1,2)
+insert into Window(id, name, description, price, typeOfOpening, withCurtain,external_window_Id,category)values (2,'Window2','Description Window2',10,1,true,2,2)
 
-insert into Door(id, name, description, price, typeOfOpening,external_door_Id)values (1,'Door1','Description Door1',10,1,1)
+insert into Door(id, name, description, price, typeOfOpening,external_door_Id,category)values (1,'Door1','Description Door1',10,1,1,3)
 
 insert into Product(PROD_ID,name, description, HOUSE_ID,isBasicDesign) values (1, 'Duplex','This is the description of the house_style Duplex',1,true)
 insert into Product(PROD_ID,name, description, HOUSE_ID,isBasicDesign) values (2, 'Green','This is the description of the house_style Green',2,true)

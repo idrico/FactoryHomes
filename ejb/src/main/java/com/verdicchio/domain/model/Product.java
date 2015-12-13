@@ -22,6 +22,7 @@ public class Product implements Serializable{
 
     private String description;
 
+    //Todo:after the use of the clonemaybe I don't need anymore of this property
     private boolean isBasicDesign;
 
 
@@ -81,6 +82,17 @@ public class Product implements Serializable{
     }
 
 
-//todo here maybe we need to insert indicative cost and minimum accesories
+//todo here maybe we need to insert indicative cost and minimum accesorie
+
+    public Product clone()
+    {
+        Product product = new Product();
+        product.setBasicDesign(this.isBasicDesign);
+        product.setDescription(this.getDescription());
+        product.setHouse(this.getHouse());
+        product.setName(this.getName());
+
+        return product;
+    }
 
 }

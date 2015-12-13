@@ -21,8 +21,8 @@ public class Wall extends Component implements Serializable{
         super();
     }
 
-    public Wall(long idWall,String name, String description,int price,List<Door> doors,List<Window> windows) {
-        super(idWall,name, description,price);
+    public Wall(long idWall,Category category,String name, String description,int price,List<Door> doors,List<Window> windows) {
+        super(idWall,category,name, description,price);
         this.doors = doors;
         this.windows = windows;
     }

@@ -20,8 +20,8 @@ public abstract class Aperture extends Component {
         this.typeOfOpening = typeOfOpening;
     }
 
-    public Aperture(long idAperture,String name, String description, int price, ApertureTypeOfOpeningEnum typeOfOpening) {
-        super(idAperture,name, description, price);
+    public Aperture(long idAperture,Category category,String name, String description, int price, ApertureTypeOfOpeningEnum typeOfOpening) {
+        super(idAperture,category,name, description, price);
         this.typeOfOpening = typeOfOpening;
     }
 

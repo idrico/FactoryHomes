@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="category" type="{InventorySystem}category" minOccurs="0"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -31,6 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "component", propOrder = {
+    "category",
     "description",
     "id",
     "name",
@@ -43,10 +45,35 @@ import javax.xml.bind.annotation.XmlType;
 })
 public abstract class Component {
 
+    protected Category category;
     protected String description;
     protected Long id;
     protected String name;
     protected int price;
+
+    /**
+     * Gets the value of the category property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Category }
+     *     
+     */
+    public Category getCategory() {
+        return category;
+    }
+
+    /**
+     * Sets the value of the category property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Category }
+     *     
+     */
+    public void setCategory(Category value) {
+        this.category = value;
+    }
 
     /**
      * Gets the value of the description property.

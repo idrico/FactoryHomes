@@ -12,12 +12,12 @@ import java.util.List;
  */
 
 
-public interface InventorySystemDao {
+public interface InventorySystemDao<T extends Component> {
 
 
      List<Category> getCategory();
 
-     List<Component> getComponentsByCategory(long idCategory);
+     List<T> getComponentsByCategory(long idCategory);
 
      DetailAvailability checkApplicability(long idCategory, long idComponent,long idHouseDesign);
 

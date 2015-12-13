@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem", name = "checkApplicability", propOrder = {
+@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "checkApplicability", propOrder = {
     "arg0",
     "arg1",
     "arg2"

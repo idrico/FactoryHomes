@@ -62,20 +62,23 @@
                 </p:tree>
 
 
-                    <h:panelGrid columns="2">
-                        <h:commandButton id="combleteDesign" action="#{adminController.searchConsultationByZipCode(input1.value)}" value="Complete Design" styleClass="button"/>
-                        <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
-                                    globalOnly="true"/>
-                    </h:panelGrid>
+
 
 
             </h:form>
 
-<h:form>        <h:panelGrid columns="2">
-    <h:commandButton id="addComponentButton" action="#{componentBean.addComponent()}" value="Add Component" styleClass="button"/>
-    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
-                globalOnly="true"/>
-</h:panelGrid></h:form>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:commandButton id="addComponentButton" action="#{componentBean.addComponent()}" value="Add Component" styleClass="button"/>
+                    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                            globalOnly="true"/>
+
+
+                    <h:commandButton id="combleteDesign" action="#{componentBean.completeDesign()}" value="Complete Design" styleClass="button"/>
+                    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                                globalOnly="true"/>
+                </h:panelGrid>
+            </h:form>
 
 
     </ui:define>

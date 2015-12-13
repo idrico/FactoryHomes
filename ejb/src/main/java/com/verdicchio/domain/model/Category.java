@@ -1,14 +1,15 @@
 package com.verdicchio.domain.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
  * Created by anonymous on 20/11/15.
  */
+@Entity
+@XmlRootElement
+@Table(name = "Category", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Category implements Serializable {
 
     @Id

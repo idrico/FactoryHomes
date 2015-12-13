@@ -22,8 +22,8 @@ public class Window extends  Aperture{
     }
 
 
-    public Window(long idWindow,String name, String description,int price, ApertureTypeOfOpeningEnum typeOfOpening,boolean withCurtain) {
-        super(idWindow,name, description,price,typeOfOpening);
+    public Window(long idWindow,Category category,String name, String description,int price, ApertureTypeOfOpeningEnum typeOfOpening,boolean withCurtain) {
+        super(idWindow,category,name, description,price,typeOfOpening);
         this.withCurtain = withCurtain;
     }
 

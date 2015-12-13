@@ -26,7 +26,7 @@ public class TreeBean implements Serializable {
     {
 
         House house = product.getHouse();
-        root = new DefaultTreeNode("House", null);
+        root = new DefaultTreeNode(product, null);
 
         Foundation foundation = house.getFoundation();
         Roof roof = house.getRoof();
@@ -54,7 +54,28 @@ public class TreeBean implements Serializable {
 
     public void addNode(Component componentToAdd,TreeNode treeNodeParent )
     {
-        TreeNode roofNode = new DefaultTreeNode(componentToAdd, treeNodeParent);
+
+        //TreeNode roofNode = new DefaultTreeNode(componentToAdd, treeNodeParent);
+        Component componentParent = (Component) treeNodeParent.getData();
+        Wall wall = (Wall) componentParent;
+
+        if(componentToAdd instanceof Window)
+        {
+            Window window = (Window) componentToAdd;
+            wall.getWindows().add(window);
+        }else if(componentToAdd instanceof Wall)
+        {
+            Door door = (Door) componentToAdd;
+            wall.getDoors().add(door);
+        }
+
+
+        Product productModified = (Product) root.getData();
+        productModified.setBasicDesign(false);
+
+        this.createTree(productModified);
+
+
     }
 
     public void onNodeSelect() {
@@ -99,5 +120,10 @@ public class TreeBean implements Serializable {
     }
 
 
+    public Product getProduct()
+    {
+        Product product = (Product) root.getData();
+        return product;
+    }
 
 }

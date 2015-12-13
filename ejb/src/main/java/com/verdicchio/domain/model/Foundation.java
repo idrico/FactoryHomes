@@ -16,8 +16,8 @@ public class Foundation extends Component implements Serializable{
 
 
 
-    public Foundation(long idFoundation,String name, String description,int price) {
-        super(idFoundation,name, description,price);
+    public Foundation(long idFoundation,Category category,String name, String description,int price) {
+        super(idFoundation,category,name, description,price);
     }
 
     public Foundation()

@@ -4,6 +4,7 @@ import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
 import com.verdicchio.domain.model.Customer;
 import com.verdicchio.domain.repository.InventorySystemRepository;
+import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -17,7 +18,7 @@ import java.util.logging.Logger;
  */
 /*todo: change name, it will be more general*/
 @Stateless
-public class InventorySystemService {
+public class InventorySystemService<T extends Component> {
 
     @Inject
     private Logger log;
@@ -25,9 +26,9 @@ public class InventorySystemService {
     @Inject
     private InventorySystemRepository inventorySystemRepository;
 
-    public List<Component> getComponentsByCategory(long idCategory)
+    public List<T> getComponentsByCategory(long idCategory)
     {
-        List<Component> components = inventorySystemRepository.findComponentByCategory(idCategory);
+        List<T> components = inventorySystemRepository.findComponentByCategory(idCategory);
         return components;
     }
 
@@ -38,21 +39,11 @@ public class InventorySystemService {
         return categories;
     }
 
-    public void addComponent(long idCategory, long idComponent,long idHouseDesign)
+
+    //todo to complete passing the houseDesign
+    public DetailAvailability checkApplicability(long idCategory, long idComponent, long idHouseDesign)
     {
-
-        boolean isApplicable =false;
-
-        inventorySystemRepository.checkApplicability(idCategory,idComponent,idHouseDesign);
-
-        if(isApplicable)
-        {
-
-        }
-        else
-        {
-
-        }
+        return inventorySystemRepository.checkApplicability(idCategory,idComponent,idHouseDesign);
     }
 
 

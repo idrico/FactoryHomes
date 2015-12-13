@@ -14,8 +14,8 @@ import java.io.Serializable;
 public class Roof extends Component implements Serializable{
 
 
-    public Roof(long idRoof,String name, String description,int price) {
-        super(idRoof,name, description,price);
+    public Roof(long idRoof,Category category,String name, String description,int price) {
+        super(idRoof,category,name, description,price);
     }
 
     public Roof()

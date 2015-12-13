@@ -16,8 +16,8 @@ public class Door extends Aperture {
 
     private long external_door_Id;
 
-    public Door(long idDoor,String name, String description,int price, ApertureTypeOfOpeningEnum typeOfOpening) {
-        super(idDoor,name, description,price, typeOfOpening);
+    public Door(long idDoor,Category category,String name, String description,int price, ApertureTypeOfOpeningEnum typeOfOpening) {
+        super(idDoor,category,name, description,price, typeOfOpening);
     }
 
     public Door() {

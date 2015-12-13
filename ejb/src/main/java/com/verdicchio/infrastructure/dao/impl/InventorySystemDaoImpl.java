@@ -19,8 +19,7 @@ import java.util.logging.Logger;
 /**
  * Created by verdian on 19/11/2015.
  */
-@ApplicationScoped
-public class InventorySystemDaoImpl implements InventorySystemDao{
+public class InventorySystemDaoImpl<T extends Component>  implements InventorySystemDao{
 
     @Inject
     private Logger log;
@@ -45,12 +44,12 @@ public class InventorySystemDaoImpl implements InventorySystemDao{
 
 
     @Override
-    public List<Component> getComponentsByCategory(long idCategory)
+    public List<T> getComponentsByCategory(long idCategory)
     {
         log.info("Looking for components belonging to idCategory= "+idCategory);
 
-        List<Object> technicalCategories =inventorySystemService.getComponentByCategory(idCategory);
-        List<Component> components = componentConverter.fromModelToTechnical(technicalCategories);
+        List<Object> technicalComponents =inventorySystemService.getComponentByCategory(idCategory);
+        List<T> components = componentConverter.fromModelToTechnical(technicalComponents);
         return components;
     }
 

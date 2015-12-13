@@ -26,9 +26,9 @@ package com.verdicchio.bean;
 
 @ManagedBean(name="componentBean")
 @ViewScoped
-public class ComponentBean implements Serializable {
+public class ComponentBean<T extends Component> implements Serializable {
 
-    private List<Component> components;
+    private List<T> components;
 
     private Component component;
 
@@ -56,11 +56,11 @@ public class ComponentBean implements Serializable {
         setComponents(inventorySystemService.getComponentsByCategory(category.getId()));
     }
 
-    public List<Component> getComponents() {
+    public List<T> getComponents() {
         return components;
     }
 
-    public void setComponents(List<Component> components) {
+    public void setComponents(List<T> components) {
         this.components = components;
     }
 
@@ -155,9 +155,36 @@ public class ComponentBean implements Serializable {
     public void addComponent()  {
 
         Component treeComponent = (Component) treeBean.getSelectedNode().getData();
+
+        //Todo: pass the houseDesign
+        inventorySystemService.checkApplicability(componentSelected.getCategory().getId(),componentSelected.getId(),00000000);
+
         log.info("Adding component: "+componentSelected.getName() + " to: "+treeComponent.getName());
         treeBean.addNode(componentSelected,treeBean.getSelectedNode());
     }
+
+
+    public void completeDesign()  {
+
+        //Todo: several check with either IS and/or 3D model
+
+        log.info("Completing the Design");
+        Product product = treeBean.getProduct();
+
+        if(!product.isBasicDesign())
+        {
+            log.info("The user has changed something of the original design.");
+            product = product.clone();
+        }
+
+        log.info("Storing the CompleteDesign");
+
+
+
+
+
+    }
+
 
     /*
     public void addComponent( TreeNode treeNode)  {

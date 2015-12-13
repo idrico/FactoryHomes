@@ -13,8 +13,8 @@ import java.util.List;
  * Created by anonymous on 19/11/15.
  */
 
-@ApplicationScoped
-public class InventorySystemRepository {
+
+public class InventorySystemRepository<T extends Component> {
 
     @Inject
     private InventorySystemDao inventorySystemDao;
@@ -26,7 +26,7 @@ public class InventorySystemRepository {
         return inventorySystemDao.getCategory();
     }
 
-    public List<Component> findComponentByCategory(Long idCategory)
+    public List<T> findComponentByCategory(Long idCategory)
     {
        return inventorySystemDao.getComponentsByCategory(idCategory);
     }

@@ -1,9 +1,6 @@
 package com.verdicchio.domain.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 /**
  * Created by anonymous on 20/11/15.
@@ -21,17 +18,33 @@ public class Component {
 
     private String description;
 
+
+    @ManyToOne
+    @JoinColumn(name = "category")
+    private Category category;
+
     private int price;
 
 
     public Component() {
     }
 
-    public Component(long id,String description, String name, int price) {
+    public Component(long id,Category category,String description, String name, int price) {
         this.id = id;
+        this.category = category;
         this.description = description;
         this.name = name;
         this.price = price;
+    }
+
+
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getPrice() {

@@ -19,7 +19,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="applicable" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="avialable" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="available" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="component" type="{http://www.w3.org/2001/XMLSchema}anyType" minOccurs="0"/>
  *         &lt;element name="dateNextAvailability" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -32,13 +33,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "detailAvailability", propOrder = {
     "applicable",
-    "avialable",
+    "available",
+    "component",
     "dateNextAvailability"
 })
 public class DetailAvailability {
 
     protected boolean applicable;
-    protected boolean avialable;
+    protected boolean available;
+    protected Object component;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dateNextAvailability;
 
@@ -59,19 +62,43 @@ public class DetailAvailability {
     }
 
     /**
-     * Gets the value of the avialable property.
+     * Gets the value of the available property.
      * 
      */
-    public boolean isAvialable() {
-        return avialable;
+    public boolean isAvailable() {
+        return available;
     }
 
     /**
-     * Sets the value of the avialable property.
+     * Sets the value of the available property.
      * 
      */
-    public void setAvialable(boolean value) {
-        this.avialable = value;
+    public void setAvailable(boolean value) {
+        this.available = value;
+    }
+
+    /**
+     * Gets the value of the component property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getComponent() {
+        return component;
+    }
+
+    /**
+     * Sets the value of the component property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setComponent(Object value) {
+        this.component = value;
     }
 
     /**
