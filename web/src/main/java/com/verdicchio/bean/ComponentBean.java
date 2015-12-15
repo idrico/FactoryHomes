@@ -47,6 +47,9 @@ public class ComponentBean<T extends Component> implements Serializable {
     @ManagedProperty(value="#{treeBean}")
     private TreeBean treeBean;
 
+    @ManagedProperty(value = "#{houseStylesBean}")
+    private HouseStylesBean houseStylesBean;
+
     @PostConstruct
     public void init() {
 
@@ -79,12 +82,13 @@ public class ComponentBean<T extends Component> implements Serializable {
         String productString = (String) selectOneMenu.getSubmittedValue();
 
         //todo: maybe in the future I will change the place of the "getHouseDesign()"
-        List<Product> products = consultationRepository.getHouseDesign();
+        List<Product> products = houseStylesBean.getHouseStyles(); //consultationRepository.getHouseDesign();
 
 
         if (productString != null && productString.trim().length() > 0) {
             for(Product product:products)
             {
+                System.out.println("HouseStyle: "+ product.getName());
                 if(product.getName().equals(productString))
                 {
                     treeBean.createTree(product);
@@ -157,7 +161,7 @@ public class ComponentBean<T extends Component> implements Serializable {
         Component treeComponent = (Component) treeBean.getSelectedNode().getData();
 
         //Todo: pass the houseDesign
-        inventorySystemService.checkApplicability(componentSelected.getCategory().getId(),componentSelected.getId(),00000000);
+        inventorySystemService.checkApplicability(componentSelected.getCategories().getId(),componentSelected.getId(),00000000);
 
         log.info("Adding component: "+componentSelected.getName() + " to: "+treeComponent.getName());
         treeBean.addNode(componentSelected,treeBean.getSelectedNode());
@@ -236,5 +240,14 @@ public class ComponentBean<T extends Component> implements Serializable {
 
     public void setTreeBean(TreeBean treeBean) {
         this.treeBean = treeBean;
+    }
+
+
+    public HouseStylesBean getHouseStylesBean() {
+        return houseStylesBean;
+    }
+
+    public void setHouseStylesBean(HouseStylesBean houseStylesBean) {
+        this.houseStylesBean = houseStylesBean;
     }
 }

@@ -74,6 +74,20 @@ public interface InventorySystemService {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns inventorysystem.House
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getHouseDetails", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseDetails")
+    @ResponseWrapper(localName = "getHouseDetailsResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseDetailsResponse")
+    public House getHouseDetails(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0);
+
+    /**
+     * 
      * @return
      *     returns java.util.List<inventorysystem.Category>
      */
@@ -124,5 +138,16 @@ public interface InventorySystemService {
     public List<Window> getWindowDetails(
         @WebParam(name = "arg0", targetNamespace = "")
         long arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<inventorysystem.Product>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getHouseStyle", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseStyle")
+    @ResponseWrapper(localName = "getHouseStyleResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseStyleResponse")
+    public List<Product> getHouseStyle();
 
 }

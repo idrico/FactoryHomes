@@ -2,9 +2,11 @@ package com.verdicchio.infrastructure.dao.impl;
 
 import com.verdicchio.domain.converter.CategoryConverter;
 import com.verdicchio.domain.converter.ComponentConverter;
+import com.verdicchio.domain.converter.ProductConverter;
 import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
 import com.verdicchio.domain.model.House;
+import com.verdicchio.domain.model.Product;
 import com.verdicchio.infrastructure.dao.InventorySystemDao;
 import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
 import com.verdicchio.infrastructure.inventorysystem.InventorySystemService;
@@ -30,15 +32,30 @@ public class InventorySystemDaoImpl<T extends Component>  implements InventorySy
     @Inject
     private ComponentConverter componentConverter;
 
+    @Inject
+            private ProductConverter productConverter;
+
     InventorySystemService inventorySystemService;
 
     @Override
-    public List<Category> getCategory()
+    public List<Product> getHouseStyles()
     {
-        log.info("Calling getCategory()");
+        log.info("Calling getHouseStyles()");
+
+        List<com.verdicchio.infrastructure.inventorysystem.Product> technicalHouseStyles =inventorySystemService.getHouseStyle();
+        List<Product> products = productConverter.fromTechnicalToModel(technicalHouseStyles);
+        return products;
+}
+
+
+
+    @Override
+    public List<Category> getCategories()
+    {
+        log.info("Calling getCategories()");
 
         List<com.verdicchio.infrastructure.inventorysystem.Category> technicalCategories =inventorySystemService.getCategory();
-        List<Category> categories = categoryConverter.fromModelToTechnical(technicalCategories);
+        List<Category> categories = categoryConverter.fromTechnicalToModel(technicalCategories);
         return categories;
     }
 
@@ -49,7 +66,7 @@ public class InventorySystemDaoImpl<T extends Component>  implements InventorySy
         log.info("Looking for components belonging to idCategory= "+idCategory);
 
         List<Object> technicalComponents =inventorySystemService.getComponentByCategory(idCategory);
-        List<T> components = componentConverter.fromModelToTechnical(technicalComponents);
+        List<T> components = componentConverter.fromTechnicalToModel(technicalComponents);
         return components;
     }
 

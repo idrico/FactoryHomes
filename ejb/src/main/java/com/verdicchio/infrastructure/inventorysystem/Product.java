@@ -4,25 +4,24 @@ package com.verdicchio.infrastructure.inventorysystem;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for component complex type.
+ * <p>Java class for product complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="component">
+ * &lt;complexType name="product">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{InventorySystem}category" minOccurs="0"/>
+ *         &lt;element name="basicDesign" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element ref="{InventorySystem}house" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,50 +31,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "component", propOrder = {
-    "category",
+@XmlType(name = "product", propOrder = {
+    "basicDesign",
     "description",
+    "house",
     "id",
-    "name",
-    "price"
+    "name"
 })
-@XmlSeeAlso({
-    Foundation.class,
-    Roof.class,
-    Wall.class,
-    Aperture.class
-})
-public abstract class Component {
+public class Product {
 
-
-    protected Category category;
+    protected boolean basicDesign;
     protected String description;
+
+    protected House house;
     protected Long id;
     protected String name;
-    protected int price;
 
     /**
-     * Gets the value of the category property.
+     * Gets the value of the basicDesign property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Category }
-     *     
      */
-    public Category getCategory() {
-        return category;
+    public boolean isBasicDesign() {
+        return basicDesign;
     }
 
     /**
-     * Sets the value of the category property.
+     * Sets the value of the basicDesign property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Category }
-     *     
      */
-    public void setCategory(Category value) {
-        this.category = value;
+    public void setBasicDesign(boolean value) {
+        this.basicDesign = value;
     }
 
     /**
@@ -100,6 +85,30 @@ public abstract class Component {
      */
     public void setDescription(String value) {
         this.description = value;
+    }
+
+    /**
+     * Gets the value of the house property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link House }
+     *     
+     */
+    public House getHouse() {
+        return house;
+    }
+
+    /**
+     * Sets the value of the house property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link House }
+     *     
+     */
+    public void setHouse(House value) {
+        this.house = value;
     }
 
     /**
@@ -148,22 +157,6 @@ public abstract class Component {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /**
-     * Gets the value of the price property.
-     * 
-     */
-    public int getPrice() {
-        return price;
-    }
-
-    /**
-     * Sets the value of the price property.
-     * 
-     */
-    public void setPrice(int value) {
-        this.price = value;
     }
 
 }

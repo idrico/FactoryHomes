@@ -14,7 +14,7 @@ public class CategoryConverter {
     public CategoryConverter() {
     }
 
-    public Category fromModelToTechnical(com.verdicchio.infrastructure.inventorysystem.Category technical)
+    public Category fromTechnicalToModel(com.verdicchio.infrastructure.inventorysystem.Category technical)
     {
         Category category = new Category();
 
@@ -25,13 +25,13 @@ public class CategoryConverter {
         return category;
     }
 
-    public List<Category> fromModelToTechnical(List<com.verdicchio.infrastructure.inventorysystem.Category> technical)
+    public List<Category> fromTechnicalToModel(List<com.verdicchio.infrastructure.inventorysystem.Category> technical)
     {
         List<Category> categoryList = new ArrayList<Category>();
 
         for(com.verdicchio.infrastructure.inventorysystem.Category category:technical)
         {
-            categoryList.add(this.fromModelToTechnical(category));
+            categoryList.add(this.fromTechnicalToModel(category));
         }
 
         return categoryList;

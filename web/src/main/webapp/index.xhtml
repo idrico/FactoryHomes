@@ -20,7 +20,7 @@
                 <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}" immediate="true" >
                     <f:selectItem itemLabel="Select the HouseStyle." itemValue="#{null}"
                                   noSelectionOption="true" />
-                    <f:selectItems  value="#{houseStyles}" var="s"
+                    <f:selectItems  value="#{houseStylesBean.houseStyles}" var="s"
                                    itemValue="#{s}" itemLabel="#{s.name}"/>
                     <f:ajax listener="#{componentBean.updatePickupHouseStyle}" render="treeHouse"/>
                 </h:selectOneMenu>

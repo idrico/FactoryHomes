@@ -1,7 +1,13 @@
 package com.verdicchio.domain.converter;
 
 
+import com.verdicchio.domain.model.*;
+import com.verdicchio.domain.model.Aperture;
 import com.verdicchio.domain.model.Component;
+import com.verdicchio.infrastructure.inventorysystem.*;
+import com.verdicchio.infrastructure.inventorysystem.Door;
+import com.verdicchio.infrastructure.inventorysystem.Foundation;
+import com.verdicchio.infrastructure.inventorysystem.Roof;
 import com.verdicchio.infrastructure.inventorysystem.Wall;
 import com.verdicchio.infrastructure.inventorysystem.Window;
 
@@ -12,59 +18,97 @@ import java.util.List;
 /**
  * Created by verdian on 27/11/2015.
  */
-public class ComponentConverter<T extends Component, S extends com.verdicchio.infrastructure.inventorysystem.Component> {
+public class ComponentConverter<T extends com.verdicchio.domain.model.Component, S extends com.verdicchio.infrastructure.inventorysystem.Component> {
 
     @Inject
     CategoryConverter categoryConverter;
 
+    @Inject
+    ApertureConverter apertureConverter;
+
+
     public ComponentConverter() {
     }
 
-    public T fromModelToTechnical(S technical)
+
+
+    public T fromTechnicalToModel(S technical)
     {
 
-        Component component = new Component();
+        com.verdicchio.domain.model.Component component = new com.verdicchio.domain.model.Component();
 
         if(technical instanceof Wall)
         {
+
+            Wall technicalWall = (Wall) technical;
+
+
             com.verdicchio.domain.model.Wall wall = new com.verdicchio.domain.model.Wall();
-            wall.setId(technical.getId());
-            wall.setCategory(categoryConverter.fromModelToTechnical(technical.getCategory()));
-            wall.setName(technical.getName());
-            wall.setDescription(technical.getDescription());
+            wall.setId(technicalWall.getId());
+            wall.setCategory(categoryConverter.fromTechnicalToModel(technicalWall.getCategory()));
+            wall.setName(technicalWall.getName());
+            wall.setDescription(technicalWall.getDescription());
+            wall.setWindows(apertureConverter.fromTechnicalToModel(technicalWall.getWindows()));
+            wall.setDoors(apertureConverter.fromTechnicalToModel(technicalWall.getDoors()));
+
+
 
             return (T) wall;
-        }if(technical instanceof Window)
-        {
-            Window technicalWindow = (Window) technical;
+        }else if(technical instanceof Foundation)
+            {
+        Foundation technicalFoundation = (Foundation) technical;
 
-            com.verdicchio.domain.model.Window window = new com.verdicchio.domain.model.Window();
-            window.setId(technical.getId());
-            window.setCategory(categoryConverter.fromModelToTechnical(technical.getCategory()));
-            window.setName(technical.getName());
-            window.setDescription(technical.getDescription());
-            window.setWithCurtain(technicalWindow.isWithCurtain());
+        com.verdicchio.domain.model.Foundation fountation = new com.verdicchio.domain.model.Foundation();
+        fountation.setId(technicalFoundation.getId());
+        fountation.setCategory(categoryConverter.fromTechnicalToModel(technicalFoundation.getCategory()));
+        fountation.setName(technicalFoundation.getName());
+        fountation.setDescription(technicalFoundation.getDescription());
+        fountation.setPrice(technicalFoundation.getPrice());
+        return (T) fountation;
 
-            return (T) window;
-        }
+        }else if(technical instanceof Roof)
+            {
+        Roof technicalRoof = (Roof) technical;
+
+        com.verdicchio.domain.model.Roof roof = new com.verdicchio.domain.model.Roof();
+        roof.setId(technicalRoof.getId());
+        roof.setCategory(categoryConverter.fromTechnicalToModel(technicalRoof.getCategory()));
+        roof.setName(technicalRoof.getName());
+        roof.setDescription(technicalRoof.getDescription());
+        roof.setPrice(technicalRoof.getPrice());
+
+        return (T) roof;
+    }
 
         return null;
 
         /*component.setId(technical.getId());
-        component.setCategory(categoryConverter.fromModelToTechnical(technical.getCategory()));
+        component.setCategory(categoryConverter.fromTechnicalToModel(technical.getCategories()));
         component.setDescription(technical.getDescription());
         component.setName(technical.getName());
 
         return (T)component;*/
     }
 
-    public List<T> fromModelToTechnical(List<S> technical)
+  /* public List<T> fromTechnicalToModel(List<S> technical)
     {
         List<T> components = new ArrayList<T>();
 
         for(S component:technical)
         {
-            components.add(this.fromModelToTechnical(component));
+            components.add(this.fromTechnicalToModel(component));
+        }
+
+        return components;
+    }*/
+
+    public List<T> fromTechnicalToModel(List<S> technical)
+    {
+        List<T> components = new ArrayList<T>();
+
+        for(S component:technical)
+        {
+            components.add(this.fromTechnicalToModel(component));
         }
 
         return components;

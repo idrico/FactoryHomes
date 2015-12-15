@@ -3,6 +3,7 @@ package com.verdicchio.infrastructure.dao;
 import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
 import com.verdicchio.domain.model.House;
+import com.verdicchio.domain.model.Product;
 import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
 
 import java.util.List;
@@ -15,13 +16,12 @@ import java.util.List;
 public interface InventorySystemDao<T extends Component> {
 
 
-     List<Category> getCategory();
+     List<Category> getCategories();
 
      List<T> getComponentsByCategory(long idCategory);
 
      DetailAvailability checkApplicability(long idCategory, long idComponent,long idHouseDesign);
 
-
-
+     List<Product> getHouseStyles();
 
 }

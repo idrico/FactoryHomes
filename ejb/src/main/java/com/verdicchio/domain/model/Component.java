@@ -39,7 +39,7 @@ public class Component {
 
 
 
-    public Category getCategory() {
+    public Category getCategories() {
         return category;
     }
 
