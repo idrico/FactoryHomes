@@ -32,10 +32,40 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
 
 
 
+    //todo I miss the category
+    public S fromModelToTechnical(T model) {
+
+        if (model instanceof com.verdicchio.domain.model.Wall) {
+            Wall wall = new Wall();
+            wall.setName(model.getName());
+            wall.setDescription(model.getDescription());
+            wall.setPrice(model.getPrice());
+            wall.setId(model.getId());
+            wall.setDoors(apertureConverter.fromModelToTechnical(((com.verdicchio.domain.model.Wall) model).getDoors()));
+            wall.setWindows(apertureConverter.fromModelToTechnical(((com.verdicchio.domain.model.Wall) model).getWindows()));
+            return (S) wall;
+        }else if (model instanceof com.verdicchio.domain.model.Foundation) {
+            Foundation foundation = new Foundation();
+            foundation.setName(model.getName());
+            foundation.setDescription(model.getDescription());
+            foundation.setPrice(model.getPrice());
+            foundation.setId(model.getId());
+            return (S) foundation;
+        }else if (model instanceof com.verdicchio.domain.model.Roof) {
+            Roof roof = new Roof();
+            roof.setName(model.getName());
+            roof.setDescription(model.getDescription());
+            roof.setPrice(model.getPrice());
+            roof.setId(model.getId());
+
+            return (S) roof;
+        }
+
+        return null;
+    }
+
     public T fromTechnicalToModel(S technical)
     {
-
-        com.verdicchio.domain.model.Component component = new com.verdicchio.domain.model.Component();
 
         if(technical instanceof Wall)
         {
@@ -90,17 +120,6 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
         return (T)component;*/
     }
 
-  /* public List<T> fromTechnicalToModel(List<S> technical)
-    {
-        List<T> components = new ArrayList<T>();
-
-        for(S component:technical)
-        {
-            components.add(this.fromTechnicalToModel(component));
-        }
-
-        return components;
-    }*/
 
     public List<T> fromTechnicalToModel(List<S> technical)
     {
@@ -113,6 +132,20 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
 
         return components;
     }
+
+
+    public List<S> fromModelToTechnical(List<T> technical)
+    {
+        List<S> components = new ArrayList<S>();
+
+        for(T component:technical)
+        {
+            components.add(this.fromModelToTechnical(component));
+        }
+
+        return components;
+    }
+
 
 }
 

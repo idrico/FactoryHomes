@@ -36,6 +36,17 @@ public class HouseConverter {
         return house;
     }
 
+    public com.verdicchio.infrastructure.inventorysystem.House fromModelToTechnical(House model)
+    {
+        com.verdicchio.infrastructure.inventorysystem.House house = new com.verdicchio.infrastructure.inventorysystem.House();
+
+        house.setWalls(componentConverter.fromModelToTechnical(model.getWalls()));
+        house.setFoundation((com.verdicchio.infrastructure.inventorysystem.Foundation) componentConverter.fromModelToTechnical(model.getFoundation()));
+        house.setRoof((com.verdicchio.infrastructure.inventorysystem.Roof) componentConverter.fromModelToTechnical(model.getRoof()));
+
+        return house;
+    }
+
     public List<House> fromTechnicalToModel(List<com.verdicchio.infrastructure.inventorysystem.House> technical)
     {
         List<House> houseList = new ArrayList<House>();

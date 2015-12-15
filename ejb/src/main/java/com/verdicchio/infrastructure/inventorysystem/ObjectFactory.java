@@ -29,6 +29,7 @@ public class ObjectFactory {
     private final static QName _GetWindowDetails_QNAME = new QName("InventorySystem", "getWindowDetails");
     private final static QName _CheckApplicabilityResponse_QNAME = new QName("InventorySystem", "checkApplicabilityResponse");
     private final static QName _Window_QNAME = new QName("InventorySystem", "window");
+    private final static QName _SaveProduct_QNAME = new QName("InventorySystem", "saveProduct");
     private final static QName _Product_QNAME = new QName("InventorySystem", "product");
     private final static QName _Roof_QNAME = new QName("InventorySystem", "roof");
     private final static QName _GetComponentByCategoryResponse_QNAME = new QName("InventorySystem", "getComponentByCategoryResponse");
@@ -50,6 +51,7 @@ public class ObjectFactory {
     private final static QName _Door_QNAME = new QName("InventorySystem", "door");
     private final static QName _House_QNAME = new QName("InventorySystem", "house");
     private final static QName _GetComponentByCategory_QNAME = new QName("InventorySystem", "getComponentByCategory");
+    private final static QName _SaveProductResponse_QNAME = new QName("InventorySystem", "saveProductResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: inventorysystem
@@ -64,6 +66,14 @@ public class ObjectFactory {
      */
     public GetComponentByCategory createGetComponentByCategory() {
         return new GetComponentByCategory();
+    }
+
+    /**
+     * Create an instance of {@link SaveProductResponse }
+     * 
+     */
+    public SaveProductResponse createSaveProductResponse() {
+        return new SaveProductResponse();
     }
 
     /**
@@ -235,6 +245,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SaveProduct }
+     * 
+     */
+    public SaveProduct createSaveProduct() {
+        return new SaveProduct();
+    }
+
+    /**
      * Create an instance of {@link GetWindowDetails }
      * 
      */
@@ -317,6 +335,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "InventorySystem", name = "window")
     public JAXBElement<Window> createWindow(Window value) {
         return new JAXBElement<Window>(_Window_QNAME, Window.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveProduct }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "saveProduct")
+    public JAXBElement<SaveProduct> createSaveProduct(SaveProduct value) {
+        return new JAXBElement<SaveProduct>(_SaveProduct_QNAME, SaveProduct.class, null, value);
     }
 
     /**
@@ -506,6 +533,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "InventorySystem", name = "getComponentByCategory")
     public JAXBElement<GetComponentByCategory> createGetComponentByCategory(GetComponentByCategory value) {
         return new JAXBElement<GetComponentByCategory>(_GetComponentByCategory_QNAME, GetComponentByCategory.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveProductResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "saveProductResponse")
+    public JAXBElement<SaveProductResponse> createSaveProductResponse(SaveProductResponse value) {
+        return new JAXBElement<SaveProductResponse>(_SaveProductResponse_QNAME, SaveProductResponse.class, null, value);
     }
 
 }

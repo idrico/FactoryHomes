@@ -31,7 +31,8 @@ public class CustomerService {
 
 
     /*
-    *todo it does not work*/
+    *todo it does not work
+    * todo: everything around EntityManager will go in RepositoryLayer */
     public void register(Customer customer) throws Exception {
         log.info("Registering " + customer.getName());
         em.persist(customer);

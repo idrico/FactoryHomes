@@ -28,6 +28,18 @@ public class ProductConverter {
         return product;
     }
 
+    public com.verdicchio.infrastructure.inventorysystem.Product fromModelToTechnical(Product model)
+    {
+        com.verdicchio.infrastructure.inventorysystem.Product product = new com.verdicchio.infrastructure.inventorysystem.Product();
+
+        product.setName(model.getName());
+        product.setDescription(model.getDescription());
+        product.setHouse(houseConverter.fromModelToTechnical(model.getHouse()));
+
+        return product;
+    }
+
+
     public List<Product> fromTechnicalToModel(List<com.verdicchio.infrastructure.inventorysystem.Product> technical)
     {
         List<Product> productList = new ArrayList<Product>();

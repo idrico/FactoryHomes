@@ -30,6 +30,12 @@ public class InventorySystemRepository<T extends Component> {
     }
 
 
+    public long saveProduct(Product product)
+    {
+
+        return inventorySystemDao.saveProduct(product);
+    }
+
     public List<T> findComponentByCategory(Long idCategory)
     {
        return inventorySystemDao.getComponentsByCategory(idCategory);

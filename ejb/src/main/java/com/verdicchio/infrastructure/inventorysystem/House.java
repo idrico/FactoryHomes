@@ -149,4 +149,8 @@ public class House {
         return this.walls;
     }
 
+
+    public void setWalls(List<Wall> walls) {
+        this.walls = walls;
+    }
 }

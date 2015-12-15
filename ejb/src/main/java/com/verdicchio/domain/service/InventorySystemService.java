@@ -53,6 +53,13 @@ public class InventorySystemService<T extends Component> {
         return inventorySystemRepository.checkApplicability(idCategory,idComponent,idHouseDesign);
     }
 
+    public void saveProduct(Product product)
+    {
+        //todo as soon as we saved the product you need to take the ID that  the next row return and use it to store in FactoryHomesDB the
+        //relation CompletedDesign-Product
+        inventorySystemRepository.saveProduct(product);
+    }
+
 
 
 }

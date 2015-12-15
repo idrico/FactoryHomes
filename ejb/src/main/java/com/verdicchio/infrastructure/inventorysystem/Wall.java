@@ -139,4 +139,11 @@ public class Wall
         return this.windows;
     }
 
+    public void setDoors(List<Door> doors) {
+        this.doors = doors;
+    }
+
+    public void setWindows(List<Window> windows) {
+        this.windows = windows;
+    }
 }

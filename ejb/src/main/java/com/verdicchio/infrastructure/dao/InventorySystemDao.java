@@ -24,4 +24,6 @@ public interface InventorySystemDao<T extends Component> {
 
      List<Product> getHouseStyles();
 
+     long saveProduct(Product product);
+
 }

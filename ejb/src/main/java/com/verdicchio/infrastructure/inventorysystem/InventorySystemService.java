@@ -129,6 +129,20 @@ public interface InventorySystemService {
      * 
      * @param arg0
      * @return
+     *     returns long
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "saveProduct", targetNamespace = "InventorySystem", className = "inventorysystem.SaveProduct")
+    @ResponseWrapper(localName = "saveProductResponse", targetNamespace = "InventorySystem", className = "inventorysystem.SaveProductResponse")
+    public long saveProduct(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Product arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<inventorysystem.Window>
      */
     @WebMethod

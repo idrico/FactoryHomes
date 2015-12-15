@@ -181,7 +181,9 @@ public class ComponentBean<T extends Component> implements Serializable {
             product = product.clone();
         }
 
-        log.info("Storing the CompleteDesign");
+        log.info("Storing the Product");
+
+        inventorySystemService.saveProduct(product);
 
 
 

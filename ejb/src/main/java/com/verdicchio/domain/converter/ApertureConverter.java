@@ -6,6 +6,7 @@ import com.verdicchio.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum;
 import com.verdicchio.infrastructure.inventorysystem.Door;
 import com.verdicchio.infrastructure.inventorysystem.Window;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,12 @@ import java.util.List;
 public class ApertureConverter <T extends Aperture, S extends com.verdicchio.infrastructure.inventorysystem.Aperture> {
 
 
+    @Inject
+    ApertureTypeOfOpeningEnumConverter apertureTypeOfOpeningEnumConverter;
+
     public ApertureConverter() {
     }
+
 
     public T fromTechnicalToModel(S technical)
     {
@@ -28,8 +33,7 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
             door.setName(technical.getName());
             door.setDescription(technical.getDescription());
             door.setPrice(technical.getPrice());
-            //todo: set The kind of the aperture
-            //door.setTypeOfOpening(ApertureTypeOfOpeningEnum.valueOf(technical.getTypeOfOpening().name()));
+            door.setTypeOfOpening(apertureTypeOfOpeningEnumConverter.fromTechnicalToModel(technical.getTypeOfOpening()));
 
             return (T) door;
 
@@ -41,8 +45,7 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
             window.setDescription(technical.getDescription());
             window.setPrice(technical.getPrice());
             window.setWithCurtain(((Window) technical).isWithCurtain());
-            //todo: set The kind of the aperture
-            //door.setTypeOfOpening(ApertureTypeOfOpeningEnum.valueOf(technical.getTypeOfOpening().name()));
+            window.setTypeOfOpening(apertureTypeOfOpeningEnumConverter.fromTechnicalToModel(technical.getTypeOfOpening()));
 
             return (T) window;
 
@@ -51,6 +54,41 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
 
         return null;
     }
+
+
+    public S fromModelToTechnical(T model)
+    {
+
+        if(model instanceof com.verdicchio.domain.model.Door)
+        {
+            Door door = new Door();
+            door.setId(model.getId());
+            door.setName(model.getName());
+            door.setDescription(model.getDescription());
+            door.setPrice(model.getPrice());
+            door.setTypeOfOpening(apertureTypeOfOpeningEnumConverter.fromModelToTechnical(model.getTypeOfOpening()));
+
+            return (S) door;
+
+        }else if(model instanceof com.verdicchio.domain.model.Window)
+        {
+            Window window = new Window();
+            window.setId(model.getId());
+            window.setName(model.getName());
+            window.setDescription(model.getDescription());
+            window.setPrice(model.getPrice());
+            window.setWithCurtain(((com.verdicchio.domain.model.Window) model).isWithCurtain());
+            window.setTypeOfOpening(apertureTypeOfOpeningEnumConverter.fromModelToTechnical(model.getTypeOfOpening()));
+
+            return (S) window;
+
+        }
+
+
+        return null;
+    }
+
+
 
     public List<T> fromTechnicalToModel(List<S> technical)
     {
@@ -63,5 +101,18 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
 
         return wallList;
     }
+
+    public List<S> fromModelToTechnical(List<T> model)
+    {
+        List<S> apertureList = new ArrayList<S>();
+
+        for(T aperture:model)
+        {
+            apertureList.add(this.fromModelToTechnical(aperture));
+        }
+
+        return apertureList;
+    }
+
 
 }
