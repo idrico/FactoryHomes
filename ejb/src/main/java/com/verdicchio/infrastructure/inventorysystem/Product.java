@@ -4,7 +4,9 @@ package com.verdicchio.infrastructure.inventorysystem;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -18,10 +20,11 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="basicDesign" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element ref="{InventorySystem}house" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="timeToComplete" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,19 +36,22 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "product", propOrder = {
     "basicDesign",
-    "description",
     "house",
     "id",
-    "name"
+    "name",
+    "price",
+    "timeToComplete"
 })
 public class Product {
 
     protected boolean basicDesign;
-    protected String description;
 
     protected House house;
     protected Long id;
     protected String name;
+    protected int price;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar timeToComplete;
 
     /**
      * Gets the value of the basicDesign property.
@@ -61,30 +67,6 @@ public class Product {
      */
     public void setBasicDesign(boolean value) {
         this.basicDesign = value;
-    }
-
-    /**
-     * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDescription(String value) {
-        this.description = value;
     }
 
     /**
@@ -157,6 +139,46 @@ public class Product {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * Gets the value of the price property.
+     * 
+     */
+    public int getPrice() {
+        return price;
+    }
+
+    /**
+     * Sets the value of the price property.
+     * 
+     */
+    public void setPrice(int value) {
+        this.price = value;
+    }
+
+    /**
+     * Gets the value of the timeToComplete property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getTimeToComplete() {
+        return timeToComplete;
+    }
+
+    /**
+     * Sets the value of the timeToComplete property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setTimeToComplete(XMLGregorianCalendar value) {
+        this.timeToComplete = value;
     }
 
 }

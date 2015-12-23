@@ -19,6 +19,9 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
     @Inject
     ApertureTypeOfOpeningEnumConverter apertureTypeOfOpeningEnumConverter;
 
+    @Inject
+    CategoryConverter categoryConverter;
+
     public ApertureConverter() {
     }
 
@@ -30,6 +33,7 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
         {
             com.verdicchio.domain.model.Door door = new com.verdicchio.domain.model.Door();
             door.setId(technical.getId());
+            door.setCategory(categoryConverter.fromTechnicalToModel(technical.getCategory()));
             door.setName(technical.getName());
             door.setDescription(technical.getDescription());
             door.setPrice(technical.getPrice());
@@ -41,6 +45,7 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
         {
             com.verdicchio.domain.model.Window window = new com.verdicchio.domain.model.Window();
             window.setId(technical.getId());
+            window.setCategory(categoryConverter.fromTechnicalToModel(technical.getCategory()));
             window.setName(technical.getName());
             window.setDescription(technical.getDescription());
             window.setPrice(technical.getPrice());
@@ -62,23 +67,25 @@ public class ApertureConverter <T extends Aperture, S extends com.verdicchio.inf
         if(model instanceof com.verdicchio.domain.model.Door)
         {
             Door door = new Door();
-            door.setId(model.getId());
             door.setName(model.getName());
             door.setDescription(model.getDescription());
             door.setPrice(model.getPrice());
             door.setTypeOfOpening(apertureTypeOfOpeningEnumConverter.fromModelToTechnical(model.getTypeOfOpening()));
+            door.setCategory(categoryConverter.fromModelToTechnical(model.getCategories()));
+
 
             return (S) door;
 
         }else if(model instanceof com.verdicchio.domain.model.Window)
         {
             Window window = new Window();
-            window.setId(model.getId());
             window.setName(model.getName());
             window.setDescription(model.getDescription());
             window.setPrice(model.getPrice());
             window.setWithCurtain(((com.verdicchio.domain.model.Window) model).isWithCurtain());
             window.setTypeOfOpening(apertureTypeOfOpeningEnumConverter.fromModelToTechnical(model.getTypeOfOpening()));
+            window.setCategory(categoryConverter.fromModelToTechnical(model.getCategories()));
+
 
             return (S) window;
 

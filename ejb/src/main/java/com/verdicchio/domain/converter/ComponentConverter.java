@@ -5,6 +5,7 @@ import com.verdicchio.domain.model.*;
 import com.verdicchio.domain.model.Aperture;
 import com.verdicchio.domain.model.Component;
 import com.verdicchio.infrastructure.inventorysystem.*;
+import com.verdicchio.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum;
 import com.verdicchio.infrastructure.inventorysystem.Door;
 import com.verdicchio.infrastructure.inventorysystem.Foundation;
 import com.verdicchio.infrastructure.inventorysystem.Roof;
@@ -31,8 +32,6 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
     }
 
 
-
-    //todo I miss the category
     public S fromModelToTechnical(T model) {
 
         if (model instanceof com.verdicchio.domain.model.Wall) {
@@ -40,25 +39,29 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
             wall.setName(model.getName());
             wall.setDescription(model.getDescription());
             wall.setPrice(model.getPrice());
-            wall.setId(model.getId());
             wall.setDoors(apertureConverter.fromModelToTechnical(((com.verdicchio.domain.model.Wall) model).getDoors()));
             wall.setWindows(apertureConverter.fromModelToTechnical(((com.verdicchio.domain.model.Wall) model).getWindows()));
+            wall.setCategory(categoryConverter.fromModelToTechnical(model.getCategories()));
             return (S) wall;
         }else if (model instanceof com.verdicchio.domain.model.Foundation) {
             Foundation foundation = new Foundation();
             foundation.setName(model.getName());
             foundation.setDescription(model.getDescription());
             foundation.setPrice(model.getPrice());
-            foundation.setId(model.getId());
+            foundation.setCategory(categoryConverter.fromModelToTechnical(model.getCategories()));
+
             return (S) foundation;
         }else if (model instanceof com.verdicchio.domain.model.Roof) {
             Roof roof = new Roof();
             roof.setName(model.getName());
             roof.setDescription(model.getDescription());
             roof.setPrice(model.getPrice());
-            roof.setId(model.getId());
+            roof.setCategory(categoryConverter.fromModelToTechnical(model.getCategories()));
 
             return (S) roof;
+        }else if (model instanceof Aperture)
+        {
+            return (S) apertureConverter.fromModelToTechnical((Aperture) model);
         }
 
         return null;
@@ -71,8 +74,6 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
         {
 
             Wall technicalWall = (Wall) technical;
-
-
             com.verdicchio.domain.model.Wall wall = new com.verdicchio.domain.model.Wall();
             wall.setId(technicalWall.getId());
             wall.setCategory(categoryConverter.fromTechnicalToModel(technicalWall.getCategory()));
@@ -81,15 +82,13 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
             wall.setWindows(apertureConverter.fromTechnicalToModel(technicalWall.getWindows()));
             wall.setDoors(apertureConverter.fromTechnicalToModel(technicalWall.getDoors()));
 
-
-
             return (T) wall;
         }else if(technical instanceof Foundation)
             {
         Foundation technicalFoundation = (Foundation) technical;
 
         com.verdicchio.domain.model.Foundation fountation = new com.verdicchio.domain.model.Foundation();
-        fountation.setId(technicalFoundation.getId());
+                fountation.setId(technicalFoundation.getId());
         fountation.setCategory(categoryConverter.fromTechnicalToModel(technicalFoundation.getCategory()));
         fountation.setName(technicalFoundation.getName());
         fountation.setDescription(technicalFoundation.getDescription());
@@ -101,29 +100,27 @@ public class ComponentConverter<T extends com.verdicchio.domain.model.Component,
         Roof technicalRoof = (Roof) technical;
 
         com.verdicchio.domain.model.Roof roof = new com.verdicchio.domain.model.Roof();
-        roof.setId(technicalRoof.getId());
+                roof.setId(technicalRoof.getId());
         roof.setCategory(categoryConverter.fromTechnicalToModel(technicalRoof.getCategory()));
         roof.setName(technicalRoof.getName());
         roof.setDescription(technicalRoof.getDescription());
         roof.setPrice(technicalRoof.getPrice());
 
         return (T) roof;
-    }
+    }else if(technical instanceof com.verdicchio.infrastructure.inventorysystem.Aperture)
+        {
+            return (T) apertureConverter.fromTechnicalToModel((com.verdicchio.infrastructure.inventorysystem.Aperture) technical);
+        }
 
         return null;
-
-        /*component.setId(technical.getId());
-        component.setCategory(categoryConverter.fromTechnicalToModel(technical.getCategories()));
-        component.setDescription(technical.getDescription());
-        component.setName(technical.getName());
-
-        return (T)component;*/
     }
 
 
     public List<T> fromTechnicalToModel(List<S> technical)
     {
         List<T> components = new ArrayList<T>();
+
+
 
         for(S component:technical)
         {

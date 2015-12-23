@@ -17,28 +17,39 @@
 
                 <h:outputLabel for="houseStyle" value="House Style:"/>
 
-                <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}" immediate="true" >
+                <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}">
                     <f:selectItem itemLabel="Select the HouseStyle." itemValue="#{null}"
                                   noSelectionOption="true" />
                     <f:selectItems  value="#{houseStylesBean.houseStyles}" var="s"
                                    itemValue="#{s}" itemLabel="#{s.name}"/>
-                    <f:ajax listener="#{componentBean.updatePickupHouseStyle}" render="treeHouse"/>
+                    <f:ajax listener="#{componentBean.updatePickupHouseStyle(input1.value)}" render="houseModel"/>
                 </h:selectOneMenu>
+
+
+                    <h:outputLabel for="houseModel" value="Model:"/>
+
+                    <h:selectOneMenu id="houseModel" binding="#{input2}" converter="#{houseModelConverter}" immediate="true" >
+                        <f:selectItem itemLabel="Select the Model." itemValue="#{null}"
+                                      noSelectionOption="true" />
+                        <f:selectItems  value="#{houseModelBean.products}" var="m"
+                                        itemValue="#{m}" itemLabel="#{m.id}"/>
+                        <f:ajax listener="#{componentBean.updatePickupHouseModel(input2.value)}" render="treeHouse"/>
+                    </h:selectOneMenu>
 
 
                     <h:outputLabel for="category" value="Category:"/>
 
-                    <h:selectOneMenu id="category"  binding="#{input2}"  converter="#{categoryBean}">
+                    <h:selectOneMenu id="category"  binding="#{input3}"  converter="#{categoryBean}">
                         <f:selectItem itemLabel="Select a Category." itemValue="#{null}"
                                       noSelectionOption="true" />
                         <f:selectItems value="#{categories}" var="c"
                                        itemValue="#{c}" itemLabel="#{c.name}"/>
-                        <f:ajax listener="#{componentBean.searchComponentsByCategory(input2.value)}" render="component" />
+                        <f:ajax listener="#{componentBean.searchComponentsByCategory(input3.value)}" render="component" />
                     </h:selectOneMenu>
 
                     <h:outputLabel for="component" value="Component:"/>
 
-                    <h:selectOneMenu id="component" binding="#{input3}" immediate="true" converter="#{componentConverter}" >
+                    <h:selectOneMenu id="component" binding="#{input4}" immediate="true" converter="#{componentConverter}" >
                         <f:selectItem itemLabel="Select a Component." itemValue="#{null}"
                                       noSelectionOption="true" />
                         <f:selectItems value="#{componentBean.components}"  var="i"

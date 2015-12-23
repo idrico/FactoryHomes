@@ -1,9 +1,6 @@
 package com.verdicchio.domain.service;
 
-import com.verdicchio.domain.model.Category;
-import com.verdicchio.domain.model.Component;
-import com.verdicchio.domain.model.Customer;
-import com.verdicchio.domain.model.Product;
+import com.verdicchio.domain.model.*;
 import com.verdicchio.domain.repository.InventorySystemRepository;
 import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
 
@@ -40,9 +37,15 @@ public class InventorySystemService<T extends Component> {
         return categories;
     }
 
-    public List<Product> getHouseStyles()
+    public List<HouseStyleEnum> getHouseStyles()
     {
-        List<Product> products = inventorySystemRepository.getHouseStyles();
+        List<HouseStyleEnum> houseStyleEnums = inventorySystemRepository.getHouseStyles();
+        return houseStyleEnums;
+    }
+
+    public List<Product> getProductByStyle(HouseStyleEnum houseStyleEnum)
+    {
+        List<Product> products = inventorySystemRepository.getProductByStyle(houseStyleEnum);
         return products;
     }
 

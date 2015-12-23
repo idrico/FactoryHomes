@@ -1,9 +1,6 @@
 package com.verdicchio.infrastructure.dao;
 
-import com.verdicchio.domain.model.Category;
-import com.verdicchio.domain.model.Component;
-import com.verdicchio.domain.model.House;
-import com.verdicchio.domain.model.Product;
+import com.verdicchio.domain.model.*;
 import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
 
 import java.util.List;
@@ -22,7 +19,9 @@ public interface InventorySystemDao<T extends Component> {
 
      DetailAvailability checkApplicability(long idCategory, long idComponent,long idHouseDesign);
 
-     List<Product> getHouseStyles();
+     List<HouseStyleEnum> getHouseStyles();
+
+     List<House> getHouseByStyle(HouseStyleEnum houseStyleEnum);
 
      long saveProduct(Product product);
 

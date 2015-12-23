@@ -19,6 +19,9 @@ public class HouseConverter {
     @Inject
     ComponentConverter componentConverter;
 
+    @Inject
+    HouseStyleEnumConverter houseStyleEnumConverter;
+
 
     public HouseConverter() {
     }
@@ -27,11 +30,10 @@ public class HouseConverter {
     {
         House house = new House();
 
-        //todo forse non è corretto prender l'id dal ws
-        house.setId(technical.getId());
         house.setWalls(componentConverter.fromTechnicalToModel(technical.getWalls()));
         house.setFoundation((Foundation) componentConverter.fromTechnicalToModel(technical.getFoundation()));
         house.setRoof((Roof) componentConverter.fromTechnicalToModel(technical.getRoof()));
+        house.setHouseStyle(houseStyleEnumConverter.fromTechnicalToModel(technical.getHouseStyle()));
 
         return house;
     }
@@ -43,6 +45,7 @@ public class HouseConverter {
         house.setWalls(componentConverter.fromModelToTechnical(model.getWalls()));
         house.setFoundation((com.verdicchio.infrastructure.inventorysystem.Foundation) componentConverter.fromModelToTechnical(model.getFoundation()));
         house.setRoof((com.verdicchio.infrastructure.inventorysystem.Roof) componentConverter.fromModelToTechnical(model.getRoof()));
+        house.setHouseStyle(houseStyleEnumConverter.fromModelToTechnical(model.getHouseStyle()));
 
         return house;
     }

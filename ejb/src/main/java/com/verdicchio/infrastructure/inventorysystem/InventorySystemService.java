@@ -89,6 +89,17 @@ public interface InventorySystemService {
     /**
      * 
      * @return
+     *     returns java.util.List<inventorysystem.HouseStyleEnum>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getHouseStyles", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseStyles")
+    @ResponseWrapper(localName = "getHouseStylesResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseStylesResponse")
+    public List<HouseStyleEnum> getHouseStyles();
+
+    /**
+     * 
+     * @return
      *     returns java.util.List<inventorysystem.Category>
      */
     @WebMethod
@@ -96,6 +107,20 @@ public interface InventorySystemService {
     @RequestWrapper(localName = "getCategory", targetNamespace = "InventorySystem", className = "inventorysystem.GetCategory")
     @ResponseWrapper(localName = "getCategoryResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetCategoryResponse")
     public List<Category> getCategory();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<inventorysystem.Product>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getHouseByStyle", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseByStyle")
+    @ResponseWrapper(localName = "getHouseByStyleResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseByStyleResponse")
+    public List<Product> getHouseByStyle(
+        @WebParam(name = "arg0", targetNamespace = "")
+        HouseStyleEnum arg0);
 
     /**
      * 
@@ -152,16 +177,5 @@ public interface InventorySystemService {
     public List<Window> getWindowDetails(
         @WebParam(name = "arg0", targetNamespace = "")
         long arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<inventorysystem.Product>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getHouseStyle", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseStyle")
-    @ResponseWrapper(localName = "getHouseStyleResponse", targetNamespace = "InventorySystem", className = "inventorysystem.GetHouseStyleResponse")
-    public List<Product> getHouseStyle();
 
 }

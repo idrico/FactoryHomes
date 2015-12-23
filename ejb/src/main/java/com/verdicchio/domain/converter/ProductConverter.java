@@ -3,6 +3,7 @@ package com.verdicchio.domain.converter;
 import com.verdicchio.domain.model.Product;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -19,9 +20,8 @@ public class ProductConverter {
     {
         Product product = new Product();
 
-        //todo forse non è corretto prender l'id dal ws
         product.setName(technical.getName());
-        product.setDescription(technical.getDescription());
+        product.setPrice(technical.getPrice());
         product.setId(technical.getId());
         product.setHouse(houseConverter.fromTechnicalToModel(technical.getHouse()));
 
@@ -33,7 +33,7 @@ public class ProductConverter {
         com.verdicchio.infrastructure.inventorysystem.Product product = new com.verdicchio.infrastructure.inventorysystem.Product();
 
         product.setName(model.getName());
-        product.setDescription(model.getDescription());
+        product.setPrice(model.getPrice());
         product.setHouse(houseConverter.fromModelToTechnical(model.getHouse()));
 
         return product;

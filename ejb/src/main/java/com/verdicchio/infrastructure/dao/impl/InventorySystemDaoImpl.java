@@ -2,11 +2,9 @@ package com.verdicchio.infrastructure.dao.impl;
 
 import com.verdicchio.domain.converter.CategoryConverter;
 import com.verdicchio.domain.converter.ComponentConverter;
+import com.verdicchio.domain.converter.HouseStyleEnumConverter;
 import com.verdicchio.domain.converter.ProductConverter;
-import com.verdicchio.domain.model.Category;
-import com.verdicchio.domain.model.Component;
-import com.verdicchio.domain.model.House;
-import com.verdicchio.domain.model.Product;
+import com.verdicchio.domain.model.*;
 import com.verdicchio.infrastructure.dao.InventorySystemDao;
 import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
 import com.verdicchio.infrastructure.inventorysystem.InventorySystemService;
@@ -33,20 +31,32 @@ public class InventorySystemDaoImpl<T extends Component>  implements InventorySy
     private ComponentConverter componentConverter;
 
     @Inject
-            private ProductConverter productConverter;
+    private ProductConverter productConverter;
+
+    @Inject
+    private HouseStyleEnumConverter houseStyleEnumConverter;
 
     InventorySystemService inventorySystemService;
 
     @Override
-    public List<Product> getHouseStyles()
+    public List<HouseStyleEnum> getHouseStyles()
     {
         log.info("Calling getHouseStyles()");
 
-        List<com.verdicchio.infrastructure.inventorysystem.Product> technicalHouseStyles =inventorySystemService.getHouseStyle();
-        List<Product> products = productConverter.fromTechnicalToModel(technicalHouseStyles);
-        return products;
-}
+        List<com.verdicchio.infrastructure.inventorysystem.HouseStyleEnum> technicalHouseStyles =inventorySystemService.getHouseStyles();
+        List<HouseStyleEnum> houseStyleEnums = houseStyleEnumConverter.fromTechnicalToModel(technicalHouseStyles);
+        return houseStyleEnums;
+    }
 
+    @Override
+    public List<Product> getHouseByStyle(HouseStyleEnum houseStyleEnum)
+    {
+        log.info("Calling getHouseByStyle() with houseStyleEnum "+ houseStyleEnum.getName());
+
+        List<com.verdicchio.infrastructure.inventorysystem.Product> productList =inventorySystemService.getHouseByStyle(houseStyleEnumConverter.fromModelToTechnical(houseStyleEnum));
+        List<Product> products = productConverter.fromTechnicalToModel(productList);
+        return products;
+    }
 
     @Override
     public long saveProduct(Product product)
@@ -81,7 +91,7 @@ public class InventorySystemDaoImpl<T extends Component>  implements InventorySy
 
     //todo; verify if it is enough to pass idHouseDesign, maybe we need to pass the whole object HouseDesign
     @Override
-    public     DetailAvailability checkApplicability(long idCategory, long idComponent,long idHouseDesign)
+    public DetailAvailability checkApplicability(long idCategory, long idComponent,long idHouseDesign)
     {
         log.info("Checking applicability/availability: idCategory = "+idCategory+" idComponent = "+idComponent+" idHouseDesign = "+idHouseDesign);
         DetailAvailability detailAvailability = inventorySystemService.checkApplicability(idCategory,idComponent,idHouseDesign);

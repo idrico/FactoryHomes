@@ -1,7 +1,9 @@
 package com.verdicchio.converter;
 
+import com.verdicchio.bean.HouseModelBean;
 import com.verdicchio.bean.HouseStylesBean;
 import com.verdicchio.domain.model.HouseStyleEnum;
+import com.verdicchio.domain.model.Product;
 import com.verdicchio.domain.repository.ConsultationRepository;
 
 import javax.faces.bean.ManagedBean;
@@ -14,29 +16,29 @@ import javax.inject.Inject;
 import java.util.List;
 
 /**
- * Created by anonymous on 09/11/15.
+ * Created by idrico on 21/12/15.
  */
-@ManagedBean(name = "houseStyleBean")
-@FacesConverter(value = "houseStyleConverter",forClass = HouseStyleEnum.class)
-public class HouseStyleConverter implements Converter {
-
-    @ManagedProperty(value = "#{houseStylesBean}")
-    private HouseStylesBean houseStyleBean;
+@ManagedBean(name = "houseModelConverter")
+@FacesConverter(value = "houseModelConverter",forClass = Product.class)
+public class HouseModelConverter implements Converter {
 
 
-    @Inject
-    ConsultationRepository consultationRepository;
+    @ManagedProperty(value = "#{houseModelBean}")
+    private HouseModelBean houseModelBean;
+
+
 
     @Override
     public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 
-        List<HouseStyleEnum> houseStyleEnums = houseStyleBean.getHouseStyles();
+        List<Product> productList = houseModelBean.getProducts();
+
 
         if (value != null && value.trim().length() > 0) {
-            for(HouseStyleEnum houseStyleEnum:houseStyleEnums)
+            for(Product product:productList)
             {
-                if(houseStyleEnum.getName().equals(value))
-                    return houseStyleEnum;
+                if(product.getName().toString().equals(value))
+                    return product;
             }
         }
         return null;
@@ -47,7 +49,7 @@ public class HouseStyleConverter implements Converter {
 
         if(value!=null)
         {
-            HouseStyleEnum product = (HouseStyleEnum) value;
+            Product product = (Product) value;
             return product.getName();
         }
 
@@ -55,11 +57,11 @@ public class HouseStyleConverter implements Converter {
 
     }
 
-    public HouseStylesBean getHouseStyleBean() {
-        return houseStyleBean;
+    public HouseModelBean getHouseModelBean() {
+        return houseModelBean;
     }
 
-    public void setHouseStyleBean(HouseStylesBean houseStyleBean) {
-        this.houseStyleBean = houseStyleBean;
+    public void setHouseModelBean(HouseModelBean houseModelBean) {
+        this.houseModelBean = houseModelBean;
     }
 }

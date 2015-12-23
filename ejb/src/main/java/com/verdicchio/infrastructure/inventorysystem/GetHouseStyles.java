@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getHouseStyle complex type.
+ * <p>Java class for getHouseStyles complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getHouseStyle">
+ * &lt;complexType name="getHouseStyles">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getHouseStyle")
-public class GetHouseStyle {
+@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getHouseStyles")
+public class GetHouseStyles {
 
 
 }

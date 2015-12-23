@@ -10,9 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-/**
- * Created by verdian on 18/08/2015.
- */
+
 @ApplicationScoped
 public class ZipCodeRepository {
 

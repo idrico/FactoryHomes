@@ -27,12 +27,6 @@ public class ConsultationService {
 
 
     public List<Consultation> findByZipCode(ZipCode zipCode) {
-
-        //todo: remove, it is only to try to retrieve an house
-        List<Product> houseDesignList = consultationRepository.getHouseDesign();
-        CompletedDesign completedDesign=consultationRepository.findCompletedDesignById(1);
-        CompletedDesign completedDesign2=consultationRepository.findCompletedDesignById(2);
-        Product product=consultationRepository.findProductById(1);
         return consultationRepository.findByZipCode(zipCode);
     }
 

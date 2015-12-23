@@ -3,6 +3,7 @@ package com.verdicchio.domain.model;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,22 +19,19 @@ public class Product implements Serializable{
     @GeneratedValue
     private Long id;
 
-    private String name;
+    private int price;
 
-    private String description;
+    private Date timeToComplete;
 
-    //Todo:after the use of the clonemaybe I don't need anymore of this property
     private boolean isBasicDesign;
+
+    private String name;
 
 
     @OneToOne(optional=false)
     @JoinColumn(name="HOUSE_ID",
             insertable =  false, updatable = false)
     House house;
-
-
-   // @ManyToMany(mappedBy="products",fetch=FetchType.EAGER)
-   // private List<CompletedDesign> completedDesignList;
 
 
     public Product()
@@ -57,20 +55,20 @@ public class Product implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public int getPrice() {
+        return price;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getDescription() {
-        return description;
+    public Date getTimeToComplete() {
+        return timeToComplete;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTimeToComplete(Date timeToComplete) {
+        this.timeToComplete = timeToComplete;
     }
 
     public House getHouse() {
@@ -81,16 +79,22 @@ public class Product implements Serializable{
         this.house = house;
     }
 
+    public String getName() {
+        return name;
+    }
 
-//todo here maybe we need to insert indicative cost and minimum accesorie
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Product clone()
     {
         Product product = new Product();
         product.setBasicDesign(this.isBasicDesign);
-        product.setDescription(this.getDescription());
+        product.setPrice(this.getPrice());
         product.setHouse(this.getHouse());
-        product.setName(this.getName());
+        product.setTimeToComplete(this.getTimeToComplete());
+        product.setName(this.getName()+"_CLONED");
 
         return product;
     }

@@ -2,18 +2,12 @@ package com.verdicchio.domain.repository;
 
 import com.verdicchio.domain.model.Category;
 import com.verdicchio.domain.model.Component;
+import com.verdicchio.domain.model.HouseStyleEnum;
 import com.verdicchio.domain.model.Product;
 import com.verdicchio.infrastructure.dao.InventorySystemDao;
 import com.verdicchio.infrastructure.inventorysystem.DetailAvailability;
-
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
-
-/**
- * Created by anonymous on 19/11/15.
- */
-
 
 public class InventorySystemRepository<T extends Component> {
 
@@ -25,8 +19,12 @@ public class InventorySystemRepository<T extends Component> {
         return inventorySystemDao.getCategories();
     }
 
-    public List<Product> getHouseStyles() {
+    public List<HouseStyleEnum> getHouseStyles() {
         return inventorySystemDao.getHouseStyles();
+    }
+
+    public List<Product> getProductByStyle(HouseStyleEnum houseStyleEnum) {
+        return inventorySystemDao.getHouseByStyle(houseStyleEnum);
     }
 
 

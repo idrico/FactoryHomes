@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import java.io.Serializable;
+import java.util.logging.Logger;
 
 /**
  * Created by verdian on 03/12/2015.
@@ -21,6 +22,9 @@ public class TreeBean implements Serializable {
     private TreeNode root;
 
     private TreeNode selectedNode;
+
+    @Inject
+    private Logger log;
 
     public void createTree(Product product)
     {
@@ -56,17 +60,40 @@ public class TreeBean implements Serializable {
     {
 
         //TreeNode roofNode = new DefaultTreeNode(componentToAdd, treeNodeParent);
-        Component componentParent = (Component) treeNodeParent.getData();
-        Wall wall = (Wall) componentParent;
+        log.info("Adding component: "+componentToAdd.getName() + " to: ???????");
+
+
 
         if(componentToAdd instanceof Window)
         {
+            Component componentParent = (Component) treeNodeParent.getData();
+            Wall wall = (Wall) componentParent;
             Window window = (Window) componentToAdd;
             wall.getWindows().add(window);
-        }else if(componentToAdd instanceof Wall)
+        }else if(componentToAdd instanceof Door)
         {
+            Component componentParent = (Component) treeNodeParent.getData();
+            Wall wall = (Wall) componentParent;
             Door door = (Door) componentToAdd;
             wall.getDoors().add(door);
+        }else
+        {
+            Product product = (Product) treeNodeParent.getData();
+            House house = product.getHouse();
+
+            if(componentToAdd instanceof Roof)
+            {
+                Roof roof = (Roof) componentToAdd;
+                house.setRoof(roof);
+            } else if(componentToAdd instanceof Foundation)
+            {
+                Foundation foundation = (Foundation) componentToAdd;
+                house.setFoundation(foundation);
+            } else if(componentToAdd instanceof Wall)
+            {
+                Wall wall = (Wall) componentToAdd;
+                house.getWalls().add(wall);
+            }
         }
 
 

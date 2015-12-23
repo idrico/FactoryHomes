@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element ref="{InventorySystem}foundation" minOccurs="0"/>
+ *         &lt;element name="houseStyle" type="{InventorySystem}houseStyleEnum" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element ref="{InventorySystem}roof" minOccurs="0"/>
  *         &lt;element name="walls" type="{InventorySystem}wall" maxOccurs="unbounded" minOccurs="0"/>
@@ -34,6 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "house", propOrder = {
     "foundation",
+    "houseStyle",
     "id",
     "roof",
     "walls"
@@ -42,6 +44,7 @@ public class House {
 
 
     protected Foundation foundation;
+    protected HouseStyleEnum houseStyle;
     protected Long id;
 
     protected Roof roof;
@@ -70,6 +73,30 @@ public class House {
      */
     public void setFoundation(Foundation value) {
         this.foundation = value;
+    }
+
+    /**
+     * Gets the value of the houseStyle property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link HouseStyleEnum }
+     *     
+     */
+    public HouseStyleEnum getHouseStyle() {
+        return houseStyle;
+    }
+
+    /**
+     * Sets the value of the houseStyle property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link HouseStyleEnum }
+     *     
+     */
+    public void setHouseStyle(HouseStyleEnum value) {
+        this.houseStyle = value;
     }
 
     /**
@@ -148,7 +175,6 @@ public class House {
         }
         return this.walls;
     }
-
 
     public void setWalls(List<Wall> walls) {
         this.walls = walls;

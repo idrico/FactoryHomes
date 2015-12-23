@@ -30,22 +30,24 @@ public class ObjectFactory {
     private final static QName _CheckApplicabilityResponse_QNAME = new QName("InventorySystem", "checkApplicabilityResponse");
     private final static QName _Window_QNAME = new QName("InventorySystem", "window");
     private final static QName _SaveProduct_QNAME = new QName("InventorySystem", "saveProduct");
-    private final static QName _Product_QNAME = new QName("InventorySystem", "product");
     private final static QName _Roof_QNAME = new QName("InventorySystem", "roof");
+    private final static QName _Product_QNAME = new QName("InventorySystem", "product");
     private final static QName _GetComponentByCategoryResponse_QNAME = new QName("InventorySystem", "getComponentByCategoryResponse");
     private final static QName _GetCategory_QNAME = new QName("InventorySystem", "getCategory");
     private final static QName _Category_QNAME = new QName("InventorySystem", "category");
-    private final static QName _GetHouseStyleResponse_QNAME = new QName("InventorySystem", "getHouseStyleResponse");
+    private final static QName _GetHouseStylesResponse_QNAME = new QName("InventorySystem", "getHouseStylesResponse");
+    private final static QName _GetHouseStyles_QNAME = new QName("InventorySystem", "getHouseStyles");
     private final static QName _GetDoorDetailsResponse_QNAME = new QName("InventorySystem", "getDoorDetailsResponse");
+    private final static QName _GetHouseByStyle_QNAME = new QName("InventorySystem", "getHouseByStyle");
     private final static QName _GetDoorDetails_QNAME = new QName("InventorySystem", "getDoorDetails");
     private final static QName _GetRoofDetailsResponse_QNAME = new QName("InventorySystem", "getRoofDetailsResponse");
     private final static QName _CheckApplicability_QNAME = new QName("InventorySystem", "checkApplicability");
     private final static QName _GetWallDetailsResponse_QNAME = new QName("InventorySystem", "getWallDetailsResponse");
     private final static QName _GetWallDetails_QNAME = new QName("InventorySystem", "getWallDetails");
     private final static QName _GetHouseDetailsResponse_QNAME = new QName("InventorySystem", "getHouseDetailsResponse");
-    private final static QName _GetHouseStyle_QNAME = new QName("InventorySystem", "getHouseStyle");
     private final static QName _Foundation_QNAME = new QName("InventorySystem", "foundation");
     private final static QName _GetHouseDetails_QNAME = new QName("InventorySystem", "getHouseDetails");
+    private final static QName _GetHouseByStyleResponse_QNAME = new QName("InventorySystem", "getHouseByStyleResponse");
     private final static QName _GetCategoryResponse_QNAME = new QName("InventorySystem", "getCategoryResponse");
     private final static QName _GetWindowDetailsResponse_QNAME = new QName("InventorySystem", "getWindowDetailsResponse");
     private final static QName _Door_QNAME = new QName("InventorySystem", "door");
@@ -109,6 +111,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetHouseByStyleResponse }
+     * 
+     */
+    public GetHouseByStyleResponse createGetHouseByStyleResponse() {
+        return new GetHouseByStyleResponse();
+    }
+
+    /**
      * Create an instance of {@link GetHouseDetails }
      * 
      */
@@ -149,14 +159,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetHouseStyle }
-     * 
-     */
-    public GetHouseStyle createGetHouseStyle() {
-        return new GetHouseStyle();
-    }
-
-    /**
      * Create an instance of {@link GetRoofDetailsResponse }
      * 
      */
@@ -181,11 +183,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetHouseStyleResponse }
+     * Create an instance of {@link GetHouseByStyle }
      * 
      */
-    public GetHouseStyleResponse createGetHouseStyleResponse() {
-        return new GetHouseStyleResponse();
+    public GetHouseByStyle createGetHouseByStyle() {
+        return new GetHouseByStyle();
     }
 
     /**
@@ -197,11 +199,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Product }
+     * Create an instance of {@link GetHouseStylesResponse }
      * 
      */
-    public Product createProduct() {
-        return new Product();
+    public GetHouseStylesResponse createGetHouseStylesResponse() {
+        return new GetHouseStylesResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetHouseStyles }
+     * 
+     */
+    public GetHouseStyles createGetHouseStyles() {
+        return new GetHouseStyles();
     }
 
     /**
@@ -210,6 +220,14 @@ public class ObjectFactory {
      */
     public Roof createRoof() {
         return new Roof();
+    }
+
+    /**
+     * Create an instance of {@link Product }
+     * 
+     */
+    public Product createProduct() {
+        return new Product();
     }
 
     /**
@@ -347,21 +365,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Product }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "InventorySystem", name = "product")
-    public JAXBElement<Product> createProduct(Product value) {
-        return new JAXBElement<Product>(_Product_QNAME, Product.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Roof }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "InventorySystem", name = "roof")
     public JAXBElement<Roof> createRoof(Roof value) {
         return new JAXBElement<Roof>(_Roof_QNAME, Roof.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Product }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "product")
+    public JAXBElement<Product> createProduct(Product value) {
+        return new JAXBElement<Product>(_Product_QNAME, Product.class, null, value);
     }
 
     /**
@@ -392,12 +410,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHouseStyleResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHouseStylesResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "InventorySystem", name = "getHouseStyleResponse")
-    public JAXBElement<GetHouseStyleResponse> createGetHouseStyleResponse(GetHouseStyleResponse value) {
-        return new JAXBElement<GetHouseStyleResponse>(_GetHouseStyleResponse_QNAME, GetHouseStyleResponse.class, null, value);
+    @XmlElementDecl(namespace = "InventorySystem", name = "getHouseStylesResponse")
+    public JAXBElement<GetHouseStylesResponse> createGetHouseStylesResponse(GetHouseStylesResponse value) {
+        return new JAXBElement<GetHouseStylesResponse>(_GetHouseStylesResponse_QNAME, GetHouseStylesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHouseStyles }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "getHouseStyles")
+    public JAXBElement<GetHouseStyles> createGetHouseStyles(GetHouseStyles value) {
+        return new JAXBElement<GetHouseStyles>(_GetHouseStyles_QNAME, GetHouseStyles.class, null, value);
     }
 
     /**
@@ -407,6 +434,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "InventorySystem", name = "getDoorDetailsResponse")
     public JAXBElement<GetDoorDetailsResponse> createGetDoorDetailsResponse(GetDoorDetailsResponse value) {
         return new JAXBElement<GetDoorDetailsResponse>(_GetDoorDetailsResponse_QNAME, GetDoorDetailsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHouseByStyle }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "getHouseByStyle")
+    public JAXBElement<GetHouseByStyle> createGetHouseByStyle(GetHouseByStyle value) {
+        return new JAXBElement<GetHouseByStyle>(_GetHouseByStyle_QNAME, GetHouseByStyle.class, null, value);
     }
 
     /**
@@ -464,15 +500,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHouseStyle }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "InventorySystem", name = "getHouseStyle")
-    public JAXBElement<GetHouseStyle> createGetHouseStyle(GetHouseStyle value) {
-        return new JAXBElement<GetHouseStyle>(_GetHouseStyle_QNAME, GetHouseStyle.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Foundation }{@code >}}
      * 
      */
@@ -488,6 +515,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "InventorySystem", name = "getHouseDetails")
     public JAXBElement<GetHouseDetails> createGetHouseDetails(GetHouseDetails value) {
         return new JAXBElement<GetHouseDetails>(_GetHouseDetails_QNAME, GetHouseDetails.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHouseByStyleResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "InventorySystem", name = "getHouseByStyleResponse")
+    public JAXBElement<GetHouseByStyleResponse> createGetHouseByStyleResponse(GetHouseByStyleResponse value) {
+        return new JAXBElement<GetHouseByStyleResponse>(_GetHouseByStyleResponse_QNAME, GetHouseByStyleResponse.class, null, value);
     }
 
     /**

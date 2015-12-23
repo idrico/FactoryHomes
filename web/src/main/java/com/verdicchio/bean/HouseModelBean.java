@@ -7,32 +7,34 @@ import com.verdicchio.domain.service.InventorySystemService;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by verdian on 15/12/2015.
+ * Created by idrico on 21/12/15.
  */
-@ManagedBean(name="houseStylesBean")
+@ManagedBean(name="houseModelBean")
 @SessionScoped
-public class HouseStylesBean implements Serializable {
+public class HouseModelBean implements Serializable {
 
 
     @Inject
     InventorySystemService inventorySystemService;
 
-    private List<HouseStyleEnum> houseStyles;
+    private List<Product> products;
 
-    public List<HouseStyleEnum> getHouseStyles() {
-        return houseStyles;
+    public List<Product> getProducts() {
+        return products;
     }
 
+    public void searchHousesByStyle(HouseStyleEnum houseStyleEnum)
+    {
+        products = inventorySystemService.getProductByStyle(houseStyleEnum);
+    }
 
     @PostConstruct
     public void init() {
-        houseStyles = inventorySystemService.getHouseStyles();
 
     }
 

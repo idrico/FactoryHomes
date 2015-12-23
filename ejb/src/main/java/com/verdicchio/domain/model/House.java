@@ -22,7 +22,7 @@ public class House implements Serializable{
     @GeneratedValue
     private Long id;
 
-    //Product product;
+    private HouseStyleEnum houseStyle;
 
     @OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     @PrimaryKeyJoinColumn
@@ -68,5 +68,14 @@ public class House implements Serializable{
 
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
+    }
+
+
+    public HouseStyleEnum getHouseStyle() {
+        return houseStyle;
+    }
+
+    public void setHouseStyle(HouseStyleEnum houseStyle) {
+        this.houseStyle = houseStyle;
     }
 }

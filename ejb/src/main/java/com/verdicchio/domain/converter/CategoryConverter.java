@@ -17,10 +17,17 @@ public class CategoryConverter {
     public Category fromTechnicalToModel(com.verdicchio.infrastructure.inventorysystem.Category technical)
     {
         Category category = new Category();
-
-        //todo forse non è corretto prender l'id dal ws
         category.setId(technical.getId());
         category.setName(technical.getName());
+
+        return category;
+    }
+
+    public com.verdicchio.infrastructure.inventorysystem.Category fromModelToTechnical(Category model)
+    {
+        com.verdicchio.infrastructure.inventorysystem.Category category = new com.verdicchio.infrastructure.inventorysystem.Category();
+        category.setId(model.getId());
+        category.setName(model.getName());
 
         return category;
     }

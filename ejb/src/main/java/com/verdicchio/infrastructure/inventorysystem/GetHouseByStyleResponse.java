@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getHouseStyleResponse complex type.
+ * <p>Java class for getHouseByStyleResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getHouseStyleResponse">
+ * &lt;complexType name="getHouseByStyleResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -29,10 +29,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getHouseStyleResponse", propOrder = {
+@XmlType(namespace = "com.verdicchio.infrastructure.inventorysystem",name = "getHouseByStyleResponse", propOrder = {
     "_return"
 })
-public class GetHouseStyleResponse {
+public class GetHouseByStyleResponse {
 
     @XmlElement(name = "return")
     protected List<Product> _return;

@@ -31,7 +31,6 @@ public class ComponentConverter implements Converter {
 
         List<Component> components = componentBean.getComponents();
 
-            //todo: se necessario risolvere (Con SessionScope in ComponentBean.java components is not null, ma poi non funziona il listener component)
         if (value != null && value.trim().length() > 0) {
 
                 for (Component component : components) {
