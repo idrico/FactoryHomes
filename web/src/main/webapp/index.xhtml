@@ -17,12 +17,12 @@
 
                 <h:outputLabel for="houseStyle" value="House Style:"/>
 
-                <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}">
+                <h:selectOneMenu id="houseStyle" binding="#{input1}" converter="#{houseStyleBean}" immediate="true">
                     <f:selectItem itemLabel="Select the HouseStyle." itemValue="#{null}"
                                   noSelectionOption="true" />
                     <f:selectItems  value="#{houseStylesBean.houseStyles}" var="s"
                                    itemValue="#{s}" itemLabel="#{s.name}"/>
-                    <f:ajax listener="#{componentBean.updatePickupHouseStyle(input1.value)}" render="houseModel"/>
+                    <f:ajax listener="#{houseStyleController.updatePickupHouseStyle(input1.value)}" render="houseModel"/>
                 </h:selectOneMenu>
 
 
@@ -33,7 +33,7 @@
                                       noSelectionOption="true" />
                         <f:selectItems  value="#{houseModelBean.products}" var="m"
                                         itemValue="#{m}" itemLabel="#{m.id}"/>
-                        <f:ajax listener="#{componentBean.updatePickupHouseModel(input2.value)}" render="treeHouse"/>
+                        <f:ajax listener="#{houseStyleController.updatePickupHouseModel(input2.value)}" render="treeHouse"/>
                     </h:selectOneMenu>
 
 
@@ -44,7 +44,7 @@
                                       noSelectionOption="true" />
                         <f:selectItems value="#{categories}" var="c"
                                        itemValue="#{c}" itemLabel="#{c.name}"/>
-                        <f:ajax listener="#{componentBean.searchComponentsByCategory(input3.value)}" render="component" />
+                        <f:ajax listener="#{componentController.searchComponentsByCategory(input3.value)}" render="component" />
                     </h:selectOneMenu>
 
                     <h:outputLabel for="component" value="Component:"/>
@@ -54,7 +54,7 @@
                                       noSelectionOption="true" />
                         <f:selectItems value="#{componentBean.components}"  var="i"
                                                itemValue="#{i}" itemLabel="#{i.name}"/>
-                        <f:ajax listener="#{componentBean.updatePickupComponent}" />
+                        <f:ajax listener="#{composedHouseController.updatePickupComponent}" />
                     </h:selectOneMenu>
 
                 </h:panelGrid>
@@ -63,10 +63,10 @@
 
 
                 <h3>Your House:</h3>
-                <p:tree id="treeHouse" value="#{treeBean.root}" var="node" dynamic="true" selectionMode="single" styleClass="treeStyle"
-                        selection="#{treeBean.selectedNode}"
+                <p:tree id="treeHouse" value="#{composedHouseBean.root}" var="node" dynamic="true" selectionMode="single" styleClass="treeStyle"
+                        selection="#{composedHouseBean.selectedNode}"
                         cache="false">
-                    <p:ajax event="select" listener="#{treeBean.onNodeSelect}"/>
+                    <p:ajax event="select" listener="#{composedHouseBean.onNodeSelect}"/>
                     <p:treeNode>
                         <h:outputText value="#{node.name}" />
                     </p:treeNode>
@@ -80,12 +80,12 @@
 
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:commandButton id="addComponentButton" action="#{componentBean.addComponent()}" value="Add Component" styleClass="button"/>
+                    <h:commandButton id="addComponentButton" action="#{composedHouseController.addComponent()}" value="Add Component" styleClass="button"/>
                     <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
                             globalOnly="true"/>
 
 
-                    <h:commandButton id="combleteDesign" action="#{componentBean.completeDesign()}" value="Complete Design" styleClass="button"/>
+                    <h:commandButton id="combleteDesign" action="#{composedHouseController.completeDesign()}" value="Complete Design" styleClass="button"/>
                     <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
                                 globalOnly="true"/>
                 </h:panelGrid>
