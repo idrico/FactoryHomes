@@ -100,6 +100,17 @@ public class InventorySystemDaoImpl<T extends Component>  implements InventorySy
     }
 
 
+    @Override
+    public Product finalizeHouse(House house)
+    {
+        //TODO implement this code, here and InventorySystem
+        Product product = new Product();
+        return product;
+    }
+
+
+
+
     @PostConstruct
     private void init()
     {

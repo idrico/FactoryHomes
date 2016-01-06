@@ -86,9 +86,14 @@
                             globalOnly="true"/>
 
 
-                    <h:commandButton id="combleteDesign" action="#{composedHouseController.completeDesign()}" value="Complete Design" styleClass="button"/>
+                    <h:commandButton id="combleteDesign" action="#{composedHouseController.completeDesign(house)}" value="Complete Design" styleClass="button"/>
                     <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
                                 globalOnly="true"/>
+
+                    <h:commandButton id="acceptDesign" action="#{composedHouseController.acceptDesign()}" value="Accept Design" styleClass="button"/>
+                    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                                globalOnly="true"/>
+
                 </h:panelGrid>
             </h:form>
 

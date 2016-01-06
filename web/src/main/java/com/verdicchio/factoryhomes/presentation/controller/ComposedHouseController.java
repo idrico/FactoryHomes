@@ -4,6 +4,7 @@ import com.verdicchio.factoryhomes.domain.model.*;
 import com.verdicchio.factoryhomes.domain.service.InventorySystemService;
 import com.verdicchio.factoryhomes.presentation.bean.ComponentBean;
 import com.verdicchio.factoryhomes.presentation.bean.ComposedHouseBean;
+import com.verdicchio.factoryhomes.presentation.bean.ConsultationBean;
 import org.primefaces.model.TreeNode;
 
 import javax.faces.bean.ManagedBean;
@@ -33,6 +34,9 @@ public class ComposedHouseController<T extends  Component> {
 
     @Inject
     private ComponentBean componentBean;
+
+    @Inject
+    private ConsultationBean consultationBean;
 
     @Inject
     private Logger log;
@@ -72,7 +76,7 @@ public class ComposedHouseController<T extends  Component> {
 
 
 
-    public void completeDesign()  {
+    public void completeDesign(House house)  {
 
         //Todo: several check with either IS and/or 3D model
 
@@ -87,7 +91,15 @@ public class ComposedHouseController<T extends  Component> {
 
         log.info("Storing the Product");
 
+        inventorySystemService.finalizeHouse(house,consultationBean.getKindOfRendering());
+    }
+
+    public void acceptDesign()  {
+
+        log.info("Completing the Design");
+        Product product = composedHouseBean.getProduct();
         inventorySystemService.saveProduct(product);
+
     }
 
     public void updatePickupComponent(AjaxBehaviorEvent event) {

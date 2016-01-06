@@ -1,6 +1,8 @@
 package com.verdicchio.factoryhomes.domain.service;
 
+import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.*;
+import com.verdicchio.factoryhomes.integration.db.entity.Product;
 import com.verdicchio.factoryhomes.integration.inventorysystem.DetailAvailability;
 
 import java.util.List;
@@ -16,9 +18,11 @@ public interface InventorySystemService<T extends Component>  {
 
     List<HouseStyleEnum> getHouseStyles();
 
-    List<Product> getProductByStyle(HouseStyleEnum houseStyleEnum);
+    List<com.verdicchio.factoryhomes.domain.model.Product> getProductByStyle(HouseStyleEnum houseStyleEnum);
 
     DetailAvailability checkApplicability(long idCategory, long idComponent, House house);
 
-    void saveProduct(Product product);
+    void saveProduct(com.verdicchio.factoryhomes.domain.model.Product product);
+
+    Product finalizeHouse(House house, KindOfRenderingEnum kindOfRendering);
 }

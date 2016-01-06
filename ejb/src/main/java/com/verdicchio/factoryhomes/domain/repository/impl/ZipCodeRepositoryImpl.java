@@ -1,5 +1,6 @@
 package com.verdicchio.factoryhomes.domain.repository.impl;
 
+import com.verdicchio.factoryhomes.integration.dao.ZipCodeDao;
 import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 import com.verdicchio.factoryhomes.domain.repository.ZipCodeRepository;
 
@@ -16,23 +17,16 @@ import java.util.List;
 public class ZipCodeRepositoryImpl implements ZipCodeRepository{
 
     @Inject
-    private EntityManager em;
+    private ZipCodeDao zipCodeDao;
 
     @Override
     public ZipCode findById(Long id) {
-        return em.find(ZipCode.class, id);
+        return zipCodeDao.findById(id);
     }
 
     @Override
-    public List<ZipCode> findAllOrderedByCity() {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<ZipCode> criteria = cb.createQuery(ZipCode.class);
-        Root<ZipCode> ZipCode = criteria.from(ZipCode.class);
-        // Swap criteria statements if you would like to try out type-safe criteria queries, a new
-        // feature in JPA 2.0
-        // criteria.select(ZipCode).orderBy(cb.asc(ZipCode.get(ZipCode_.name)));
-        criteria.select(ZipCode).orderBy(cb.asc(ZipCode.get("city")));
-        return em.createQuery(criteria).getResultList();
+    public List<ZipCode> findAllZipCodeOrderedByCity() {
+        return zipCodeDao.findAllZipCodeOrderedByCity();
     }
 
 }

@@ -21,4 +21,7 @@ public interface InventorySystemRepository<T extends Component>  {
     List<T> findComponentByCategory(Long idCategory);
 
     DetailAvailability checkApplicability(long idCategory, long idComponent, House house);
+
+    Product finalizeHouse(House house);
+
 }

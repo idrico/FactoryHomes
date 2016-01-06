@@ -13,22 +13,8 @@ package com.verdicchio.factoryhomes.domain.repository;
 
 public interface ConsultationRepository {
 
-    House findHouseById(long id);
-
-    Product findProductById(long id);
-
-    CompletedDesign findCompletedDesignById(long id);
-
-    List<Product> getHouseDesign();
-
     Consultation findById(Long id);
 
     List<Consultation> findByZipCode(ZipCode zipCode);
-
-    List<Consultation> findAllOrderedByCustomer();
-
-    List<ZipCode> findAllOrderedByCode();
-
-    List<ZipCode> findAllOrderedByCity();
 
 }

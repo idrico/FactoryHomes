@@ -1,13 +1,15 @@
 package com.verdicchio.factoryhomes.domain.repository;
 
-import com.sun.org.apache.xpath.internal.operations.String;
+import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.House;
 
+import java.io.ByteArrayOutputStream;
+
 /**
- * Created by idrico on 05/01/16.
+ * Created by verdian on 06/01/2016.
  */
 public interface ModelingToolRepository {
 
-    void getModel(House house, String kindOfFormat);
+    ByteArrayOutputStream getRendering(House house, KindOfRenderingEnum kindOfRendering );
 
 }

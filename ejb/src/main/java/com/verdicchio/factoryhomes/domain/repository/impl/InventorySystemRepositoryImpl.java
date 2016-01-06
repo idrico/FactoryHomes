@@ -45,4 +45,12 @@ public class InventorySystemRepositoryImpl<T extends Component> implements com.v
         return inventorySystemDao.checkApplicability( idCategory, idComponent, house);
     }
 
+
+    @Override
+    public Product finalizeHouse(House house)
+        {
+        return inventorySystemDao.finalizeHouse( house);
+    }
+
+
 }

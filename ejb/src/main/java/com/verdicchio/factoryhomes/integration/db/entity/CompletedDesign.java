@@ -23,7 +23,7 @@ public class CompletedDesign implements Serializable {
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
-    private List<ProductEntity> productEntities;
+    private List<Product> productEntities;
 
     @ManyToOne
     @JoinColumn(name = "CONSULTATION_ID")

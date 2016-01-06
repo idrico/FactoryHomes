@@ -2,6 +2,8 @@ package com.verdicchio.factoryhomes.integration.db.entity;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 
 /**
@@ -9,8 +11,8 @@ import java.io.Serializable;
  */
 @Entity
 @XmlRootElement
-@Table(name = "ProductEntity")
-public class ProductEntity implements Serializable {
+@Table(name = "Product")
+public class Product implements Serializable {
 
         @Id
         @Column( nullable = false)
@@ -19,7 +21,10 @@ public class ProductEntity implements Serializable {
 
         private Long inventorySystemProductID;
 
-    public ProductEntity() {
+        private ByteArrayOutputStream rendering;
+
+
+    public Product() {
     }
 
     public Long getInventorySystemProductID() {
@@ -36,5 +41,13 @@ public class ProductEntity implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public ByteArrayOutputStream getRendering() {
+        return rendering;
+    }
+
+    public void setRendering(ByteArrayOutputStream rendering) {
+        this.rendering = rendering;
     }
 }

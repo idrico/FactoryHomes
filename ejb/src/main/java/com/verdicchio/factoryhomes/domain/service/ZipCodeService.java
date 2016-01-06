@@ -1,13 +1,13 @@
-package com.verdicchio.factoryhomes.domain.repository;
+package com.verdicchio.factoryhomes.domain.service;
 
 import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 
 import java.util.List;
 
 /**
- * Created by idrico on 28/12/15.
+ * Created by verdian on 06/01/2016.
  */
-public interface ZipCodeRepository {
+public interface ZipCodeService {
 
     ZipCode findById(Long id);
 

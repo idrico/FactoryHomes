@@ -25,4 +25,7 @@ public interface InventorySystemDao<T extends Component> {
 
      long saveProduct(Product product);
 
+     Product finalizeHouse(House house);
+
+
 }

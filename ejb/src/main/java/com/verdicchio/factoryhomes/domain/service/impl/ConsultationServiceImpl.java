@@ -1,5 +1,6 @@
 package com.verdicchio.factoryhomes.domain.service.impl;
 
+import com.verdicchio.factoryhomes.domain.repository.ConsultationRepository;
 import com.verdicchio.factoryhomes.domain.repository.impl.ConsultationRepositoryImpl;
 import com.verdicchio.factoryhomes.domain.service.ConsultationService;
 import com.verdicchio.factoryhomes.integration.db.entity.Consultation;
@@ -25,13 +26,15 @@ public class ConsultationServiceImpl implements ConsultationService {
     private EntityManager em;
 
     @Inject
-    private ConsultationRepositoryImpl consultationRepository;
+    private ConsultationRepository consultationRepository;
 
 
     @Override
     public List<Consultation> findByZipCode(ZipCode zipCode) {
         return consultationRepository.findByZipCode(zipCode);
     }
+
+
 
 
 }
