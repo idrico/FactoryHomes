@@ -94,13 +94,7 @@ public class ComposedHouseController<T extends  Component> {
         inventorySystemService.finalizeHouse(house,consultationBean.getKindOfRendering());
     }
 
-    public void acceptDesign()  {
 
-        log.info("Completing the Design");
-        Product product = composedHouseBean.getProduct();
-        inventorySystemService.saveProduct(product);
-
-    }
 
     public void updatePickupComponent(AjaxBehaviorEvent event) {
 

@@ -90,9 +90,19 @@
                     <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
                                 globalOnly="true"/>
 
-                    <h:commandButton id="acceptDesign" action="#{composedHouseController.acceptDesign()}" value="Accept Design" styleClass="button"/>
+                    <h:commandButton id="acceptDesign" action="#{consultationController.acceptDesign()}" value="Accept Design" styleClass="button"/>
                     <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
                                 globalOnly="true"/>
+
+
+                    <h:commandButton id="sendCustomerDetail" action="#{consultationController.customerDetail(customer)}" value="Send Customer Detail" styleClass="button"/>
+                    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                                globalOnly="true"/>
+
+                    <h:commandButton id="selectKindOfRendering" action="#{consultationController.selectKindOfRendering(customer)}" value="Select Kind of Rendering" styleClass="button"/>
+                    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                                globalOnly="true"/>
+
 
                 </h:panelGrid>
             </h:form>

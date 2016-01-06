@@ -13,6 +13,8 @@ import java.util.List;
 @Table(name = "CompletedDesign" )
 public class CompletedDesign implements Serializable {
 
+    /*TODO for documentation: the completed design is a house design that has been accepted from the customer */
+
     @Id
     @Column(nullable = false)
     @GeneratedValue
