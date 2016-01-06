@@ -15,7 +15,7 @@ public class ProductConverter {
     @Inject
     HouseConverter houseConverter;
 
-    public Product fromTechnicalToModel(com.verdicchio.factoryhomes.infrastructure.inventorysystem.Product technical)
+    public Product fromTechnicalToModel(com.verdicchio.factoryhomes.integration.inventorysystem.Product technical)
     {
         Product product = new Product();
 
@@ -27,9 +27,9 @@ public class ProductConverter {
         return product;
     }
 
-    public com.verdicchio.factoryhomes.infrastructure.inventorysystem.Product fromModelToTechnical(Product model)
+    public com.verdicchio.factoryhomes.integration.inventorysystem.Product fromModelToTechnical(Product model)
     {
-        com.verdicchio.factoryhomes.infrastructure.inventorysystem.Product product = new com.verdicchio.factoryhomes.infrastructure.inventorysystem.Product();
+        com.verdicchio.factoryhomes.integration.inventorysystem.Product product = new com.verdicchio.factoryhomes.integration.inventorysystem.Product();
 
         product.setName(model.getName());
         product.setPrice(model.getPrice());
@@ -39,13 +39,13 @@ public class ProductConverter {
     }
 
 
-    public List<Product> fromTechnicalToModel(List<com.verdicchio.factoryhomes.infrastructure.inventorysystem.Product> technical)
+    public List<Product> fromTechnicalToModel(List<com.verdicchio.factoryhomes.integration.inventorysystem.Product> technical)
     {
         List<Product> productList = new ArrayList<Product>();
 
         if(technical!=null)
         {
-            for(com.verdicchio.factoryhomes.infrastructure.inventorysystem.Product product:technical)
+            for(com.verdicchio.factoryhomes.integration.inventorysystem.Product product:technical)
             {
                 productList.add(this.fromTechnicalToModel(product));
             }

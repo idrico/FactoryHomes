@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.presentation.converter;
 
 import com.verdicchio.factoryhomes.domain.repository.impl.ZipCodeRepositoryImpl;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.ZipCode;
+import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

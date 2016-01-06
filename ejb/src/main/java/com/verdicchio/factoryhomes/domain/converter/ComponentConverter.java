@@ -2,9 +2,9 @@ package com.verdicchio.factoryhomes.domain.converter;
 
 
 import com.verdicchio.factoryhomes.domain.model.Aperture;
-import com.verdicchio.factoryhomes.infrastructure.inventorysystem.Foundation;
-import com.verdicchio.factoryhomes.infrastructure.inventorysystem.Roof;
-import com.verdicchio.factoryhomes.infrastructure.inventorysystem.Wall;
+import com.verdicchio.factoryhomes.integration.inventorysystem.Foundation;
+import com.verdicchio.factoryhomes.integration.inventorysystem.Roof;
+import com.verdicchio.factoryhomes.integration.inventorysystem.Wall;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by verdian on 27/11/2015.
  */
-public class ComponentConverter<T extends com.verdicchio.factoryhomes.domain.model.Component, S extends com.verdicchio.factoryhomes.infrastructure.inventorysystem.Component> {
+public class ComponentConverter<T extends com.verdicchio.factoryhomes.domain.model.Component, S extends com.verdicchio.factoryhomes.integration.inventorysystem.Component> {
 
     @Inject
     CategoryConverter categoryConverter;
@@ -101,9 +101,9 @@ public class ComponentConverter<T extends com.verdicchio.factoryhomes.domain.mod
         roof.setPrice(technicalRoof.getPrice());
 
         return (T) roof;
-    }else if(technical instanceof com.verdicchio.factoryhomes.infrastructure.inventorysystem.Aperture)
+    }else if(technical instanceof com.verdicchio.factoryhomes.integration.inventorysystem.Aperture)
         {
-            return (T) apertureConverter.fromTechnicalToModel((com.verdicchio.factoryhomes.infrastructure.inventorysystem.Aperture) technical);
+            return (T) apertureConverter.fromTechnicalToModel((com.verdicchio.factoryhomes.integration.inventorysystem.Aperture) technical);
         }
 
         return null;

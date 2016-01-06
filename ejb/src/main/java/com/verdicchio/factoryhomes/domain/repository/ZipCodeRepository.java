@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.domain.repository;
 
-import com.verdicchio.factoryhomes.infrastructure.db.entity.ZipCode;
+import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 
 import java.util.List;
 

@@ -2,9 +2,9 @@ package com.verdicchio.factoryhomes.presentation.admin.controller;
 
 import com.verdicchio.factoryhomes.domain.service.ConsultationService;
 import com.verdicchio.factoryhomes.domain.service.CustomerService;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.Consultation;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.Customer;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.ZipCode;
+import com.verdicchio.factoryhomes.integration.db.entity.Consultation;
+import com.verdicchio.factoryhomes.integration.db.entity.Customer;
+import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;

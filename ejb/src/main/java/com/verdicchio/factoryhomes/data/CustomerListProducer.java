@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.data;
 
 import com.verdicchio.factoryhomes.domain.repository.impl.CustomerRepositoryImpl;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.Customer;
+import com.verdicchio.factoryhomes.integration.db.entity.Customer;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

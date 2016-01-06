@@ -16,8 +16,7 @@ import java.util.List;
 @SessionScoped
 public class HouseModelBean implements Serializable {
 
-    @Inject
-    private InventorySystemService inventorySystemService;
+
 
     private List<Product> products;
 
@@ -27,9 +26,7 @@ public class HouseModelBean implements Serializable {
         return products;
     }
 
-    public void searchHousesByStyle(HouseStyleEnum houseStyleEnum)
-    {
-        products = inventorySystemService.getProductByStyle(houseStyleEnum);
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
-
 }

@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.domain.repository.impl;
 
-import com.verdicchio.factoryhomes.infrastructure.db.entity.Customer;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.ZipCode;
+import com.verdicchio.factoryhomes.integration.db.entity.Customer;
+import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 import com.verdicchio.factoryhomes.domain.repository.CustomerRepository;
 
 import javax.enterprise.context.ApplicationScoped;

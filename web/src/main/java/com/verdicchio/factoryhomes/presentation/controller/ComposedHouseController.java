@@ -43,7 +43,6 @@ public class ComposedHouseController<T extends  Component> {
         if(checkLocalApplicability(componentSelected, composedHouseBean.getSelectedNode()))
         {
             //Todo: pass the houseDesign
-            inventorySystemService.checkApplicability(componentSelected.getCategories().getId(),componentSelected.getId(),00000000);
             composedHouseBean.addNode(componentSelected, composedHouseBean.getSelectedNode());
         }
         else
@@ -109,6 +108,12 @@ public class ComposedHouseController<T extends  Component> {
                 }
             }
         }
-
     }
+
+    public void updatePickupHouseModel(Product product) {
+
+        System.out.println("The HouseModel Selected is: "+product.getId());
+        composedHouseBean.createHouse(product);
+    }
+
 }

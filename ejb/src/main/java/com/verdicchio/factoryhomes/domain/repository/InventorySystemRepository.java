@@ -1,10 +1,7 @@
 package com.verdicchio.factoryhomes.domain.repository;
 
-import com.verdicchio.factoryhomes.domain.model.Category;
-import com.verdicchio.factoryhomes.domain.model.Component;
-import com.verdicchio.factoryhomes.domain.model.HouseStyleEnum;
-import com.verdicchio.factoryhomes.domain.model.Product;
-import com.verdicchio.factoryhomes.infrastructure.inventorysystem.DetailAvailability;
+import com.verdicchio.factoryhomes.domain.model.*;
+import com.verdicchio.factoryhomes.integration.inventorysystem.DetailAvailability;
 
 import java.util.List;
 
@@ -13,7 +10,7 @@ import java.util.List;
  */
 public interface InventorySystemRepository<T extends Component>  {
 
-    List<Category> findAllCategory();
+    List<Category> findCategoriesByHouseStyle(HouseStyleEnum houseStyle);
 
     List<HouseStyleEnum> getHouseStyles();
 
@@ -23,5 +20,5 @@ public interface InventorySystemRepository<T extends Component>  {
 
     List<T> findComponentByCategory(Long idCategory);
 
-    DetailAvailability checkApplicability(long idCategory, long idComponent, long idHouseDesign);
+    DetailAvailability checkApplicability(long idCategory, long idComponent, House house);
 }

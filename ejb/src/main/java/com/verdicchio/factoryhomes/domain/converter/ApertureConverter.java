@@ -1,8 +1,8 @@
 package com.verdicchio.factoryhomes.domain.converter;
 
 import com.verdicchio.factoryhomes.domain.model.Aperture;
-import com.verdicchio.factoryhomes.infrastructure.inventorysystem.Door;
-import com.verdicchio.factoryhomes.infrastructure.inventorysystem.Window;
+import com.verdicchio.factoryhomes.integration.inventorysystem.Door;
+import com.verdicchio.factoryhomes.integration.inventorysystem.Window;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by verdian on 15/12/2015.
  */
-public class ApertureConverter <T extends Aperture, S extends com.verdicchio.factoryhomes.infrastructure.inventorysystem.Aperture> {
+public class ApertureConverter <T extends Aperture, S extends com.verdicchio.factoryhomes.integration.inventorysystem.Aperture> {
 
 
     @Inject

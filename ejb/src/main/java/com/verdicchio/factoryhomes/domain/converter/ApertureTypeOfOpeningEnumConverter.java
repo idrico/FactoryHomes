@@ -13,40 +13,40 @@ public class ApertureTypeOfOpeningEnumConverter {
     public ApertureTypeOfOpeningEnumConverter() {
     }
 
-    public ApertureTypeOfOpeningEnum fromTechnicalToModel(com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum technical)
+    public ApertureTypeOfOpeningEnum fromTechnicalToModel(com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum technical)
     {
 
-        if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_A))
+        if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_A))
             return ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_A;
-        else if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_B))
+        else if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_B))
             return ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_B;
-        else if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_C))
+        else if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_C))
             return ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_C;
 
         return null;
     }
 
 
-    public com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum fromModelToTechnical(ApertureTypeOfOpeningEnum model)
+    public com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum fromModelToTechnical(ApertureTypeOfOpeningEnum model)
     {
 
         if(model.equals(ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_A))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_A;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_A;
         else if(model.equals(ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_B))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_B;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_B;
         else if(model.equals(ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_C))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_C;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum.TYPE_OF_OPENING_C;
 
         return null;
     }
 
 
 
-    public List<ApertureTypeOfOpeningEnum> fromTechnicalToModel(List<com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum> technical)
+    public List<ApertureTypeOfOpeningEnum> fromTechnicalToModel(List<com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum> technical)
     {
         List<ApertureTypeOfOpeningEnum> apertureTypeOfOpeningEnumList = new ArrayList<ApertureTypeOfOpeningEnum>();
 
-        for(com.verdicchio.factoryhomes.infrastructure.inventorysystem.ApertureTypeOfOpeningEnum apertureTypeOfOpeningEnum:technical)
+        for(com.verdicchio.factoryhomes.integration.inventorysystem.ApertureTypeOfOpeningEnum apertureTypeOfOpeningEnum:technical)
         {
             apertureTypeOfOpeningEnumList.add(this.fromTechnicalToModel(apertureTypeOfOpeningEnum));
         }

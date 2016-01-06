@@ -1,8 +1,8 @@
 package com.verdicchio.factoryhomes.domain.service.impl;
 
 import com.verdicchio.factoryhomes.domain.repository.impl.CustomerRepositoryImpl;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.Customer;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.ZipCode;
+import com.verdicchio.factoryhomes.integration.db.entity.Customer;
+import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 import com.verdicchio.factoryhomes.domain.service.CustomerService;
 
 import javax.ejb.Stateless;

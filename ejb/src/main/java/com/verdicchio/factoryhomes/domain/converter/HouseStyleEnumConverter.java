@@ -14,46 +14,46 @@ public class HouseStyleEnumConverter {
     public HouseStyleEnumConverter() {
     }
 
-    public HouseStyleEnum fromTechnicalToModel(com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum technical)
+    public HouseStyleEnum fromTechnicalToModel(com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum technical)
     {
 
-        if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.DUPLEX))
+        if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.DUPLEX))
             return HouseStyleEnum.DUPLEX;
-        else if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.GREEN))
+        else if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.GREEN))
             return HouseStyleEnum.GREEN;
-        else if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.MULTIPLE_SECTION))
+        else if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.MULTIPLE_SECTION))
             return HouseStyleEnum.MULTIPLE_SECTION;
-        else if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.SINGLE_SECTION))
+        else if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.SINGLE_SECTION))
             return HouseStyleEnum.SINGLE_SECTION;
-        else if(technical.equals(com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.TOWN))
+        else if(technical.equals(com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.TOWN))
             return HouseStyleEnum.TOWN;
 
         return null;
     }
 
 
-    public com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum fromModelToTechnical(HouseStyleEnum model)
+    public com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum fromModelToTechnical(HouseStyleEnum model)
     {
 
         if(model.equals(HouseStyleEnum.DUPLEX))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.DUPLEX;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.DUPLEX;
         else if(model.equals(HouseStyleEnum.GREEN))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.GREEN;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.GREEN;
         else if(model.equals(HouseStyleEnum.SINGLE_SECTION))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.SINGLE_SECTION;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.SINGLE_SECTION;
         else if(model.equals(HouseStyleEnum.MULTIPLE_SECTION))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.MULTIPLE_SECTION;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.MULTIPLE_SECTION;
         else if(model.equals(HouseStyleEnum.TOWN))
-            return com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum.TOWN;
+            return com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum.TOWN;
 
         return null;
     }
 
-    public List<HouseStyleEnum> fromTechnicalToModel(List<com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum> technical)
+    public List<HouseStyleEnum> fromTechnicalToModel(List<com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum> technical)
     {
         List<HouseStyleEnum> houseStyleEnums = new ArrayList<HouseStyleEnum>();
 
-        for(com.verdicchio.factoryhomes.infrastructure.inventorysystem.HouseStyleEnum apertureTypeOfOpeningEnum:technical)
+        for(com.verdicchio.factoryhomes.integration.inventorysystem.HouseStyleEnum apertureTypeOfOpeningEnum:technical)
         {
             houseStyleEnums.add(this.fromTechnicalToModel(apertureTypeOfOpeningEnum));
         }

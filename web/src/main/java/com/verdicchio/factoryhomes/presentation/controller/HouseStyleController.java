@@ -2,6 +2,7 @@ package com.verdicchio.factoryhomes.presentation.controller;
 
 import com.verdicchio.factoryhomes.domain.model.HouseStyleEnum;
 import com.verdicchio.factoryhomes.domain.model.Product;
+import com.verdicchio.factoryhomes.domain.service.InventorySystemService;
 import com.verdicchio.factoryhomes.presentation.bean.ComposedHouseBean;
 import com.verdicchio.factoryhomes.presentation.bean.HouseModelBean;
 
@@ -23,17 +24,16 @@ public class HouseStyleController {
     @Inject
     private HouseModelBean houseModelBean;
 
+    @Inject
+    private InventorySystemService inventorySystemService;
+
 
     public void updatePickupHouseStyle(HouseStyleEnum houseStyleEnum) {
 
         System.out.println("The HouseStyle Selected is: "+houseStyleEnum.getName());
-        houseModelBean.searchHousesByStyle(houseStyleEnum);
+        houseModelBean.setProducts(inventorySystemService.getProductByStyle(houseStyleEnum));
     }
 
 
-    public void updatePickupHouseModel(Product product) {
 
-        System.out.println("The HouseModel Selected is: "+product.getId());
-        composedHouseBean.createTree(product);
-    }
 }

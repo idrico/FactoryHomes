@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.data;
 
 import com.verdicchio.factoryhomes.domain.repository.impl.ZipCodeRepositoryImpl;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.ZipCode;
+import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

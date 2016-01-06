@@ -23,6 +23,7 @@
                     <f:selectItems  value="#{houseStylesBean.houseStyles}" var="s"
                                    itemValue="#{s}" itemLabel="#{s.name}"/>
                     <f:ajax listener="#{houseStyleController.updatePickupHouseStyle(input1.value)}" render="houseModel"/>
+                    <f:ajax listener="#{categoryController.updatePickupHouseStyle(input1.value)}" render="houseModel"/>
                 </h:selectOneMenu>
 
 
@@ -33,7 +34,7 @@
                                       noSelectionOption="true" />
                         <f:selectItems  value="#{houseModelBean.products}" var="m"
                                         itemValue="#{m}" itemLabel="#{m.id}"/>
-                        <f:ajax listener="#{houseStyleController.updatePickupHouseModel(input2.value)}" render="treeHouse"/>
+                        <f:ajax listener="#{composedHouseController.updatePickupHouseModel(input2.value)}" render="treeHouse"/>
                     </h:selectOneMenu>
 
 
@@ -54,7 +55,7 @@
                                       noSelectionOption="true" />
                         <f:selectItems value="#{componentBean.components}"  var="i"
                                                itemValue="#{i}" itemLabel="#{i.name}"/>
-                        <f:ajax listener="#{composedHouseController.updatePickupComponent}" />
+                        <f:ajax listener="#{componentController.updatePickupComponent(input4.value)}" />
                     </h:selectOneMenu>
 
                 </h:panelGrid>

@@ -2,6 +2,7 @@ package com.verdicchio.factoryhomes.presentation.controller;
 
 import com.verdicchio.factoryhomes.domain.model.Category;
 import com.verdicchio.factoryhomes.domain.model.Component;
+import com.verdicchio.factoryhomes.domain.model.HouseStyleEnum;
 import com.verdicchio.factoryhomes.domain.service.InventorySystemService;
 import com.verdicchio.factoryhomes.presentation.bean.ComponentBean;
 
@@ -30,5 +31,10 @@ public class ComponentController<T extends Component>  {
     public void setComponents(List<T> components) {
         componentBean.setComponents(components);
     }
+
+    public void updatePickupComponent(Component component) {
+
+        System.out.println("The HouseStyle Selected is: "+component.getName());
+        inventorySystemService.checkApplicability(component.getCategories().getId(),component.getId(),00000000);    }
 
 }

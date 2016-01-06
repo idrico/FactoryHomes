@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.presentation.converter;
 
-import com.verdicchio.factoryhomes.domain.repository.impl.InventorySystemRepository;
+import com.verdicchio.factoryhomes.domain.repository.impl.InventorySystemRepositoryImpl;
 import com.verdicchio.factoryhomes.domain.model.Category;
 
 import javax.faces.bean.ManagedBean;
@@ -20,13 +20,13 @@ public class CategoryConverter implements Converter{
 
 
     @Inject
-    InventorySystemRepository inventorySystemRepository;
+    InventorySystemRepositoryImpl inventorySystemRepositoryImpl;
 
 
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
 
-        List<Category> categories = inventorySystemRepository.findAllCategory();
+        List<Category> categories = inventorySystemRepositoryImpl.findAllCategory();
 
 
         if (value != null && value.trim().length() > 0) {

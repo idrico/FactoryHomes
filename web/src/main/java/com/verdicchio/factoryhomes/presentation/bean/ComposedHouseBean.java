@@ -28,7 +28,7 @@ public class ComposedHouseBean implements Serializable {
     @Inject
     private Logger log;
 
-    public void createTree(Product product)
+    public void createHouse(Product product)
     {
 
         House house = product.getHouse();
@@ -102,7 +102,7 @@ public class ComposedHouseBean implements Serializable {
         Product productModified = (Product) root.getData();
         productModified.setBasicDesign(false);
 
-        this.createTree(productModified);
+        this.createHouse(productModified);
 
 
     }

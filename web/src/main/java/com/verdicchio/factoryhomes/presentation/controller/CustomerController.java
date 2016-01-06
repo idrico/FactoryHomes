@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.presentation.controller;
 
 import com.verdicchio.factoryhomes.domain.service.CustomerService;
-import com.verdicchio.factoryhomes.infrastructure.db.entity.Customer;
+import com.verdicchio.factoryhomes.integration.db.entity.Customer;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;

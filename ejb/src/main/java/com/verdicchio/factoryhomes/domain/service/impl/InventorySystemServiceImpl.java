@@ -1,9 +1,10 @@
 package com.verdicchio.factoryhomes.domain.service.impl;
 
 import com.verdicchio.factoryhomes.domain.model.*;
-import com.verdicchio.factoryhomes.domain.repository.impl.InventorySystemRepository;
+import com.verdicchio.factoryhomes.domain.repository.InventorySystemRepository;
+import com.verdicchio.factoryhomes.domain.repository.impl.InventorySystemRepositoryImpl;
 import com.verdicchio.factoryhomes.domain.service.InventorySystemService;
-import com.verdicchio.factoryhomes.infrastructure.inventorysystem.DetailAvailability;
+import com.verdicchio.factoryhomes.integration.inventorysystem.DetailAvailability;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -32,9 +33,9 @@ public class InventorySystemServiceImpl<T extends Component> implements Inventor
 
 
     @Override
-    public List<Category> getAllCategory()
+    public List<Category> findCategoriesByHouseStyle(HouseStyleEnum houseStyle)
     {
-        List<Category> categories = inventorySystemRepository.findAllCategory();
+        List<Category> categories = inventorySystemRepository.findCategoriesByHouseStyle(houseStyle);
         return categories;
     }
 
@@ -55,9 +56,9 @@ public class InventorySystemServiceImpl<T extends Component> implements Inventor
 
     //todo to complete passing the houseDesign
     @Override
-    public DetailAvailability checkApplicability(long idCategory, long idComponent, long idHouseDesign)
+    public DetailAvailability checkApplicability(long idCategory, long idComponent, House house)
     {
-        return inventorySystemRepository.checkApplicability(idCategory,idComponent,idHouseDesign);
+        return inventorySystemRepository.checkApplicability(idCategory,idComponent,house);
     }
 
     @Override
