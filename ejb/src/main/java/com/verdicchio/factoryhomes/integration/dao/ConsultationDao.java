@@ -17,4 +17,7 @@ public interface ConsultationDao {
 
     List<Consultation> findByZipCode(ZipCode zipCode);
 
+    long saveConsultation(Consultation consultation);
+
+    long updateConsultation(Consultation consultation);
 }

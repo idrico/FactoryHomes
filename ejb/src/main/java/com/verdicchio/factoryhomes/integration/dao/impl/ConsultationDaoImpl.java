@@ -1,6 +1,8 @@
 package com.verdicchio.factoryhomes.integration.dao.impl;
 
+import com.verdicchio.factoryhomes.domain.model.Product;
 import com.verdicchio.factoryhomes.integration.dao.ConsultationDao;
+import com.verdicchio.factoryhomes.integration.db.entity.CompletedDesign;
 import com.verdicchio.factoryhomes.integration.db.entity.Consultation;
 import com.verdicchio.factoryhomes.integration.db.entity.Customer;
 import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
@@ -43,5 +45,20 @@ public class ConsultationDaoImpl implements ConsultationDao {
         criteria.select(consultation).where(cb.equal(customerConsultationJoin.get("zipCode"), zipCode));
         return em.createQuery(criteria).getResultList();
     }
+
+
+
+    @Override
+    public long saveConsultation(Consultation consultation)
+    {
+        return 0;
+    }
+
+    @Override
+    public long updateConsultation(Consultation consultation)
+    {
+        return 0;
+    }
+
 
 }

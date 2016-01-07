@@ -1,17 +1,11 @@
 package com.verdicchio.factoryhomes.domain.repository.impl;
 
-import com.verdicchio.factoryhomes.domain.model.*;
 import com.verdicchio.factoryhomes.domain.repository.ConsultationRepository;
 import com.verdicchio.factoryhomes.integration.dao.ConsultationDao;
-import com.verdicchio.factoryhomes.integration.db.entity.CompletedDesign;
-import com.verdicchio.factoryhomes.integration.db.entity.Consultation;
-import com.verdicchio.factoryhomes.integration.db.entity.Customer;
-import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
+import com.verdicchio.factoryhomes.integration.db.entity.*;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.*;
 import java.util.List;
 
 /**
@@ -35,6 +29,22 @@ public class ConsultationRepositoryImpl implements ConsultationRepository{
     @Override
     public List<Consultation> findByZipCode(ZipCode zipCode) {
         return consultationDao.findByZipCode(zipCode);
+    }
+
+
+    @Override
+    public long saveOrUpdateConsultation(Consultation consultation)
+    {
+        if(consultation==null)
+        {
+            consultationDao.saveConsultation(consultation);
+        }
+        else
+        {
+            consultationDao.updateConsultation(consultation);
+        }
+
+        return 0;
     }
 
 

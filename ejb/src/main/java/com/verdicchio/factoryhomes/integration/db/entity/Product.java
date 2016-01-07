@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by idrico on 29/12/15.
@@ -19,21 +20,19 @@ public class Product implements Serializable {
         @GeneratedValue
         private Long id;
 
-        private Long inventorySystemProductID;
+        private int price;
+
+        private Date timeToComplete;
+
+        private String name;
+
+        private long houseIdExternalSystem;
 
         private ByteArrayOutputStream rendering;
 
 
-    public Product() {
-    }
-
-    public Long getInventorySystemProductID() {
-        return inventorySystemProductID;
-    }
-
-    public void setInventorySystemProductID(Long inventorySystemProductID) {
-        this.inventorySystemProductID = inventorySystemProductID;
-    }
+        public Product() {
+        }
 
     public Long getId() {
         return id;
@@ -42,6 +41,39 @@ public class Product implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public Date getTimeToComplete() {
+        return timeToComplete;
+    }
+
+    public void setTimeToComplete(Date timeToComplete) {
+        this.timeToComplete = timeToComplete;
+    }
+
+    public long getHouseIdExternalSystem() {
+        return houseIdExternalSystem;
+    }
+
+    public void setHouseIdExternalSystem(long houseIdExternalSystem) {
+        this.houseIdExternalSystem = houseIdExternalSystem;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public ByteArrayOutputStream getRendering() {
         return rendering;

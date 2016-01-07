@@ -25,8 +25,7 @@ public class InventorySystemServiceImpl<T extends Component> implements Inventor
     @Inject
     private InventorySystemRepository inventorySystemRepository;
 
-    @Inject
-    private ModelingToolRepository modelingToolRepository;
+
 
     @Override
     public List<T> getComponentsByCategory(long idCategory)
@@ -64,28 +63,5 @@ public class InventorySystemServiceImpl<T extends Component> implements Inventor
     {
         return inventorySystemRepository.checkApplicability(idCategory,idComponent,house);
     }
-
-    @Override
-    public void saveProduct(com.verdicchio.factoryhomes.domain.model.Product product)
-    {
-        //todo as soon as we saved the product you need to take the ID that  the next row return and use it to store in FactoryHomesDB the
-        //relation CompletedDesign-Product
-        inventorySystemRepository.saveProduct(product);
-
-
-    }
-
-
-    @Override
-    public com.verdicchio.factoryhomes.integration.db.entity.Product finalizeHouse(House house, KindOfRenderingEnum kindOfRendering)
-    {
-        com.verdicchio.factoryhomes.integration.db.entity.Product product = new com.verdicchio.factoryhomes.integration.db.entity.Product();
-        product.setInventorySystemProductID(inventorySystemRepository.finalizeHouse(house).getId());
-        product.setRendering(modelingToolRepository.getRendering(house,kindOfRendering));
-        return product;
-    }
-
-
-
 
 }

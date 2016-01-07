@@ -11,24 +11,11 @@ public class Product implements Serializable{
 
     private Date timeToComplete;
 
-    private boolean isBasicDesign;
-
     private String name;
-
-    private House house;
-
 
     public Product()
     {
 
-    }
-
-    public boolean isBasicDesign() {
-        return isBasicDesign;
-    }
-
-    public void setBasicDesign(boolean basicDesign) {
-        isBasicDesign = basicDesign;
     }
 
     public Long getId() {
@@ -55,13 +42,7 @@ public class Product implements Serializable{
         this.timeToComplete = timeToComplete;
     }
 
-    public House getHouse() {
-        return house;
-    }
 
-    public void setHouse(House house) {
-        this.house = house;
-    }
 
     public String getName() {
         return name;
@@ -74,9 +55,7 @@ public class Product implements Serializable{
     public Product clone()
     {
         Product product = new Product();
-        product.setBasicDesign(this.isBasicDesign);
         product.setPrice(this.getPrice());
-        product.setHouse(this.getHouse());
         product.setTimeToComplete(this.getTimeToComplete());
         product.setName(this.getName()+"_CLONED");
 

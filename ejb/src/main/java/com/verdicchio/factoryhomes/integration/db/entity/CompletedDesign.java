@@ -25,7 +25,7 @@ public class CompletedDesign implements Serializable {
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
-    private List<Product> productEntities;
+    private List<Product> products;
 
     @ManyToOne
     @JoinColumn(name = "CONSULTATION_ID")
@@ -45,5 +45,13 @@ public class CompletedDesign implements Serializable {
 
     public void setConsultation(Consultation consultation) {
         this.consultation = consultation;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

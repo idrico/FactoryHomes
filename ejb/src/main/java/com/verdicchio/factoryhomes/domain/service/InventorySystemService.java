@@ -22,7 +22,5 @@ public interface InventorySystemService<T extends Component>  {
 
     DetailAvailability checkApplicability(long idCategory, long idComponent, House house);
 
-    void saveProduct(com.verdicchio.factoryhomes.domain.model.Product product);
 
-    Product finalizeHouse(House house, KindOfRenderingEnum kindOfRendering);
 }

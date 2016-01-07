@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.presentation.bean;
 
 import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
-import com.verdicchio.factoryhomes.domain.model.Product;
+import com.verdicchio.factoryhomes.integration.db.entity.Product;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;

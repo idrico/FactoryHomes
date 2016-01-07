@@ -58,12 +58,14 @@ public class InventorySystemDaoImpl<T extends Component>  implements InventorySy
     }
 
     @Override
-    public long saveProduct(Product product)
+    public long saveHouse(House house)
     {
         log.info("Saving the product");
         //Todo provide Try/catch block
-        return inventorySystemService.saveProduct(productConverter.fromModelToTechnical(product));
+        //Todo is changed from save product to save house
+       //return inventorySystemService.saveProduct(productConverter.fromModelToTechnical(product));
 
+        return 0;
     }
 
     @Override

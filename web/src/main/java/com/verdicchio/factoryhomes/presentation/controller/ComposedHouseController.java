@@ -1,6 +1,7 @@
 package com.verdicchio.factoryhomes.presentation.controller;
 
 import com.verdicchio.factoryhomes.domain.model.*;
+import com.verdicchio.factoryhomes.domain.service.ConsultationService;
 import com.verdicchio.factoryhomes.domain.service.InventorySystemService;
 import com.verdicchio.factoryhomes.presentation.bean.ComponentBean;
 import com.verdicchio.factoryhomes.presentation.bean.ComposedHouseBean;
@@ -27,7 +28,7 @@ public class ComposedHouseController<T extends  Component> {
 
 
     @Inject
-    private InventorySystemService inventorySystemService;
+    private ConsultationService consultationService;
 
     @Inject
     private ComposedHouseBean composedHouseBean;
@@ -91,7 +92,7 @@ public class ComposedHouseController<T extends  Component> {
 
         log.info("Storing the Product");
 
-        inventorySystemService.finalizeHouse(house,consultationBean.getKindOfRendering());
+        consultationService.finalizeHouse(house,consultationBean.getKindOfRendering());
     }
 
 

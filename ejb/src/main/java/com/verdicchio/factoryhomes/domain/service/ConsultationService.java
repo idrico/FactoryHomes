@@ -1,6 +1,10 @@
 package com.verdicchio.factoryhomes.domain.service;
 
+import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
+import com.verdicchio.factoryhomes.domain.model.House;
 import com.verdicchio.factoryhomes.integration.db.entity.Consultation;
+
+import com.verdicchio.factoryhomes.integration.db.entity.Product;
 import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 
 import java.util.List;
@@ -11,4 +15,8 @@ import java.util.List;
 public interface ConsultationService {
 
     List<Consultation> findByZipCode(ZipCode zipCode);
+
+    Product finalizeHouse(House house, KindOfRenderingEnum kindOfRendering);
+
+    boolean saveAcceptedDesign(Product product,House house);
 }

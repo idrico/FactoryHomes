@@ -23,7 +23,7 @@ public interface InventorySystemDao<T extends Component> {
 
      List<House> getHouseByStyle(HouseStyleEnum houseStyleEnum);
 
-     long saveProduct(Product product);
+     long saveHouse(House house);
 
      Product finalizeHouse(House house);
 

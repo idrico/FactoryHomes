@@ -27,10 +27,10 @@ public class InventorySystemRepositoryImpl<T extends Component> implements com.v
     }
 
     @Override
-    public long saveProduct(Product product)
+    public long saveHouse(House house)
     {
 
-        return inventorySystemDao.saveProduct(product);
+        return inventorySystemDao.saveHouse(house);
     }
 
     @Override

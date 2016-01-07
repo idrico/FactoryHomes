@@ -16,7 +16,7 @@ public interface InventorySystemRepository<T extends Component>  {
 
     List<Product> getProductByStyle(HouseStyleEnum houseStyleEnum);
 
-    long saveProduct(Product product);
+    long saveHouse(House house);
 
     List<T> findComponentByCategory(Long idCategory);
 
