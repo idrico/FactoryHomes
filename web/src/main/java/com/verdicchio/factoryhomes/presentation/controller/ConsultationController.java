@@ -1,10 +1,9 @@
 package com.verdicchio.factoryhomes.presentation.controller;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
+import com.verdicchio.factoryhomes.domain.enumeration.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.Product;
 import com.verdicchio.factoryhomes.domain.service.InventorySystemService;
 import com.verdicchio.factoryhomes.integration.db.entity.Customer;
-import com.verdicchio.factoryhomes.presentation.bean.ComponentBean;
 import com.verdicchio.factoryhomes.presentation.bean.ComposedHouseBean;
 import com.verdicchio.factoryhomes.presentation.bean.ConsultationBean;
 

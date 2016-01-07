@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.domain.repository;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
+import com.verdicchio.factoryhomes.domain.enumeration.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.House;
 
 import java.io.ByteArrayOutputStream;

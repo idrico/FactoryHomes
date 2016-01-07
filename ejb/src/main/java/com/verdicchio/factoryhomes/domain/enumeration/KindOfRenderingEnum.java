@@ -1,4 +1,4 @@
-package com.verdicchio.factoryhomes.domain;
+package com.verdicchio.factoryhomes.domain.enumeration;
 
 /**
  * Created by verdian on 06/01/2016.

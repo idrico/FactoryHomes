@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.domain.repository.impl;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
+import com.verdicchio.factoryhomes.domain.enumeration.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.House;
 import com.verdicchio.factoryhomes.domain.repository.ModelingToolRepository;
 import com.verdicchio.factoryhomes.integration.dao.ModelingToolDao;

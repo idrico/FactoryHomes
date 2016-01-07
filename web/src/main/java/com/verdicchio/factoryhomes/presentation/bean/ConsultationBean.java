@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.presentation.bean;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
+import com.verdicchio.factoryhomes.domain.enumeration.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.integration.db.entity.Product;
 
 import javax.enterprise.context.SessionScoped;
