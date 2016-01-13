@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.presentation.converter;
 
-import com.verdicchio.factoryhomes.presentation.bean.HouseModelBean;
+import com.verdicchio.factoryhomes.presentation.bean.CatalogBean;
 import com.verdicchio.factoryhomes.domain.model.Product;
 
 import javax.faces.bean.ManagedBean;
@@ -21,14 +21,14 @@ public class HouseModelConverter implements Converter {
 
 
     @Inject
-    private HouseModelBean houseModelBean;
+    private CatalogBean catalogBean;
 
 
 
     @Override
     public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 
-        List<Product> productList = houseModelBean.getProducts();
+        List<Product> productList = catalogBean.getProducts();
 
 
         if (value != null && value.trim().length() > 0) {
@@ -54,11 +54,11 @@ public class HouseModelConverter implements Converter {
 
     }
 
-    public HouseModelBean getHouseModelBean() {
-        return houseModelBean;
+    public CatalogBean getCatalogBean() {
+        return catalogBean;
     }
 
-    public void setHouseModelBean(HouseModelBean houseModelBean) {
-        this.houseModelBean = houseModelBean;
+    public void setCatalogBean(CatalogBean catalogBean) {
+        this.catalogBean = catalogBean;
     }
 }

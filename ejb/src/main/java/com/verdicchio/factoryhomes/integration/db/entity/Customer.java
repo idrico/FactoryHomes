@@ -40,10 +40,6 @@ public class Customer implements Serializable {
     @Digits(fraction = 0, integer = 12)
     private String phoneNumber;
 
-    @OneToOne
-    @JoinColumn(name = "zipCode")
-    private ZipCode zipCode;
-
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
     List<Consultation> consultations;
 
@@ -77,14 +73,6 @@ public class Customer implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public ZipCode getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(ZipCode zipCode) {
-        this.zipCode = zipCode;
     }
 
     public List<Consultation> getConsultations() {

@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.domain.service;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
+import com.verdicchio.factoryhomes.domain.enumeration.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.House;
 import com.verdicchio.factoryhomes.integration.db.entity.Consultation;
 
@@ -17,6 +17,8 @@ public interface ConsultationService {
     List<Consultation> findByZipCode(ZipCode zipCode);
 
     Product finalizeHouse(House house, KindOfRenderingEnum kindOfRendering);
+
+    List<ZipCode> findAllZipCodeOrderedByCity();
 
     boolean saveAcceptedDesign(Product product,House house);
 }

@@ -1,4 +1,4 @@
-package com.verdicchio.factoryhomes.domain.repository;
+package com.verdicchio.factoryhomes.integration.modelingtool.dao;
 
 import com.verdicchio.factoryhomes.domain.enumeration.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.House;
@@ -6,9 +6,9 @@ import com.verdicchio.factoryhomes.domain.model.House;
 import java.io.ByteArrayOutputStream;
 
 /**
- * Created by verdian on 06/01/2016.
+ * Created by idrico on 05/01/16.
  */
-public interface ModelingToolRepository {
+public interface ModelingToolDao {
 
     ByteArrayOutputStream getRendering(House house, KindOfRenderingEnum kindOfRendering );
 

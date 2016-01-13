@@ -1,8 +1,6 @@
 package com.verdicchio.factoryhomes.domain.service;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.*;
-import com.verdicchio.factoryhomes.integration.db.entity.Product;
 import com.verdicchio.factoryhomes.integration.inventorysystem.DetailAvailability;
 
 import java.util.List;

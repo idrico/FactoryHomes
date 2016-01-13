@@ -1,9 +1,7 @@
 package com.verdicchio.factoryhomes.domain.service.impl;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.*;
 import com.verdicchio.factoryhomes.domain.repository.InventorySystemRepository;
-import com.verdicchio.factoryhomes.domain.repository.ModelingToolRepository;
 import com.verdicchio.factoryhomes.domain.service.InventorySystemService;
 import com.verdicchio.factoryhomes.integration.inventorysystem.DetailAvailability;
 

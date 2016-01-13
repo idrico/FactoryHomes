@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.domain.repository.impl;
 
 import com.verdicchio.factoryhomes.domain.model.*;
-import com.verdicchio.factoryhomes.integration.dao.InventorySystemDao;
+import com.verdicchio.factoryhomes.integration.inventorysystem.dao.InventorySystemDao;
 import com.verdicchio.factoryhomes.integration.inventorysystem.DetailAvailability;
 import javax.inject.Inject;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.verdicchio.factoryhomes.domain.repository.impl;
 
 import com.verdicchio.factoryhomes.domain.repository.ConsultationRepository;
-import com.verdicchio.factoryhomes.integration.dao.ConsultationDao;
+import com.verdicchio.factoryhomes.integration.db.dao.ConsultationDao;
 import com.verdicchio.factoryhomes.integration.db.entity.*;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -29,6 +29,12 @@ public class ConsultationRepositoryImpl implements ConsultationRepository{
     @Override
     public List<Consultation> findByZipCode(ZipCode zipCode) {
         return consultationDao.findByZipCode(zipCode);
+    }
+
+
+    @Override
+    public List<ZipCode> findAllZipCodeOrderedByCity() {
+        return consultationDao.findAllZipCodeOrderedByCity();
     }
 
 

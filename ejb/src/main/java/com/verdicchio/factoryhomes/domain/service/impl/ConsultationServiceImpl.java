@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.domain.service.impl;
 
-import com.verdicchio.factoryhomes.domain.KindOfRenderingEnum;
+import com.verdicchio.factoryhomes.domain.enumeration.KindOfRenderingEnum;
 import com.verdicchio.factoryhomes.domain.model.House;
 import com.verdicchio.factoryhomes.integration.db.entity.Product;
 import com.verdicchio.factoryhomes.domain.repository.ConsultationRepository;
@@ -11,7 +11,6 @@ import com.verdicchio.factoryhomes.integration.db.entity.Consultation;
 import com.verdicchio.factoryhomes.integration.db.entity.ZipCode;
 
 import javax.ejb.Stateful;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -71,6 +70,11 @@ public class ConsultationServiceImpl implements ConsultationService {
 
     }
 
+
+    @Override
+    public List<ZipCode> findAllZipCodeOrderedByCity() {
+        return consultationRepository.findAllZipCodeOrderedByCity();
+    }
 
 
 

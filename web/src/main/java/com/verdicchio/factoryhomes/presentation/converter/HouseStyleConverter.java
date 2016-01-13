@@ -1,11 +1,9 @@
 package com.verdicchio.factoryhomes.presentation.converter;
 
-import com.verdicchio.factoryhomes.presentation.bean.HouseStylesBean;
 import com.verdicchio.factoryhomes.domain.model.HouseStyleEnum;
 import com.verdicchio.factoryhomes.domain.repository.impl.ConsultationRepositoryImpl;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;

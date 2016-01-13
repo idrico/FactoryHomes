@@ -26,6 +26,10 @@ public class Consultation implements Serializable {
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer  customer;
 
+    @OneToOne
+    @JoinColumn(name = "zipCode")
+    private ZipCode zipCode;
+
 
 
     public Long getId() {
@@ -44,6 +48,13 @@ public class Consultation implements Serializable {
         this.completedDesigns = completedDesigns;
     }
 
+    public ZipCode getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(ZipCode zipCode) {
+        this.zipCode = zipCode;
+    }
 
     public Customer getCustomer() {
         return customer;

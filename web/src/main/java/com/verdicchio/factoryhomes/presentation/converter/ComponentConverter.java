@@ -1,6 +1,6 @@
 package com.verdicchio.factoryhomes.presentation.converter;
 
-import com.verdicchio.factoryhomes.presentation.bean.ComponentBean;
+import com.verdicchio.factoryhomes.presentation.bean.CatalogBean;
 import com.verdicchio.factoryhomes.domain.model.Component;
 
 import javax.faces.bean.ManagedBean;
@@ -19,14 +19,14 @@ import java.util.List;
 public class ComponentConverter implements Converter {
 
 
-    @ManagedProperty(value = "#{componentBean}")
-    private ComponentBean componentBean;
+    @ManagedProperty(value = "#{catalogBean}")
+    private CatalogBean catalogBean;
 
 
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
 
-        List<Component> components = componentBean.getComponents();
+        List<Component> components = catalogBean.getComponents();
 
         if (value != null && value.trim().length() > 0) {
 
@@ -50,11 +50,11 @@ public class ComponentConverter implements Converter {
         return null;
     }
 
-    public ComponentBean getComponentBean() {
-        return componentBean;
+    public CatalogBean getCatalogBean() {
+        return catalogBean;
     }
 
-    public void setComponentBean(ComponentBean componentBean) {
-        this.componentBean = componentBean;
+    public void setCatalogBean(CatalogBean catalogBean) {
+        this.catalogBean = catalogBean;
     }
 }

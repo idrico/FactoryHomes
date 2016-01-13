@@ -18,4 +18,6 @@ public interface ConsultationRepository {
 
     long saveOrUpdateConsultation(Consultation consultation);
 
+    List<ZipCode> findAllZipCodeOrderedByCity();
+
 }

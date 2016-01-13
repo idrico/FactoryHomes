@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by anonymous on 19/11/15.
  */
-@ManagedBean(name = "categoryBean")
+@ManagedBean(name = "catalogBean")
 @FacesConverter(value = "categoryConverter",forClass = Category.class)
 public class CategoryConverter implements Converter{
 
